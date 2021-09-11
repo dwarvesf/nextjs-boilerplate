@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button/> Should match snapshot 1`] = `
+<button
+  class="px-5 py-3 bg-yellow-600 text-white rounded"
+>
+  Hello
+</button>
+`;

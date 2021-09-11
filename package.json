@@ -1,0 +1,99 @@
+{
+  "name": "nextjs-boilerplate",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "jest",
+    "test:ci": "jest --env=jsdom --coverage --watchAll=false --maxWorkers=2",
+    "format": "prettier -c --write \"*/**\"",
+    "lint": "eslint . --ext .ts,.tsx,.js && stylelint '**/*.css'",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js --fix && stylelint '**/*.css' --fix",
+    "postinstall": "husky install",
+    "storybook": "start-storybook -p 6006 -s ./public",
+    "build-storybook": "build-storybook -s ./public"
+  },
+  "dependencies": {
+    "@dwarvesf/react-hooks": "^0.3.0",
+    "@dwarvesf/react-utils": "^0.2.1",
+    "isomorphic-unfetch": "^3.1.0",
+    "next": "11.1.2",
+    "nprogress": "^0.2.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "swr": "^1.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@dwarvesf/react-eslint-config": "^0.1.2",
+    "@prettier/plugin-xml": "^1.0.2",
+    "@storybook/addon-actions": "^6.1.0",
+    "@storybook/addon-essentials": "^6.1.0",
+    "@storybook/addon-links": "^6.1.0",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addon-storysource": "6.1.0",
+    "@storybook/react": "^6.1.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@types/jest": "^27.0.1",
+    "@types/node": "16.9.1",
+    "@types/nprogress": "^0.2.0",
+    "@types/react": "17.0.20",
+    "@types/react-dom": "17.0.9",
+    "@typescript-eslint/eslint-plugin": "4.31.0",
+    "@typescript-eslint/parser": "4.31.0",
+    "autoprefixer": "^10.3.4",
+    "babel-eslint": "10.x",
+    "babel-jest": "^27.1.1",
+    "babel-plugin-inline-react-svg": "^2.0.1",
+    "dotenv": "^10.0.0",
+    "eslint": "7.x",
+    "eslint-config-airbnb": "18.x",
+    "eslint-config-airbnb-typescript": "14.0.0",
+    "eslint-config-next": "^11.1.2",
+    "eslint-config-prettier": "8.x",
+    "eslint-config-react": "1.x",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "5.9.2",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "4.x",
+    "eslint-plugin-testing-library": "4.12.2",
+    "husky": "^7.0.2",
+    "jest": "^27.1.1",
+    "jest-dom": "^4.0.0",
+    "lint-staged": "^11.1.2",
+    "postcss": "^8.3.6",
+    "prettier": "^2.4.0",
+    "storybook-addon-next-router": "^3.0.8",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0",
+    "tailwindcss": "2.2.15",
+    "ts-jest": "^27.0.5",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
+    "twin.macro": "2.7.0",
+    "typescript": "4.4.3"
+  },
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{json,css,scss,md}": [
+      "prettier --write"
+    ],
+    "**/*.css": "stylelint --fix",
+    "**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  }
+}

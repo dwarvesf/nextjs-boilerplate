@@ -1,0 +1,32 @@
+{
+  "extends": ["./node_modules/@dwarvesf/react-eslint-config"],
+  "globals": {
+    "tw": true,
+    "chrome": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 10,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "project": ["./tsconfig.json"]
+  },
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["**/*.ts?(x)", "**/*.js?(x)"],
+      "rules": {
+        "react/react-in-jsx-scope": "off",
+        "no-shadow": "off",
+        "jsx-a11y/anchor-is-valid": [
+          "error",
+          {
+            "components": ["Link"],
+            "specialLink": ["hrefLeft", "hrefRight"],
+            "aspects": ["invalidHref", "preferButton"]
+          }
+        ]
+      }
+    }
+  ]
+}
