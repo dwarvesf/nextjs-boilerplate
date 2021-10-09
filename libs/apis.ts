@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import fetcher from './fetcher'
 
 export interface GetReposParams {
@@ -12,21 +11,25 @@ export interface ReposResponse {
   watchers: number
 }
 
-export const Repository = {
-  getURL: '/api/data',
-  get() {
-    return fetcher<string[]>(this.getURL)
-  },
-  getBySlugURL: 'https://api.github.com/repos',
-  getBySlug(params: GetReposParams) {
-    return fetcher<ReposResponse>(
-      `${this.getBySlugURL}/${params.user}/${params.repo}`,
-    )
-  },
+export const BASE_URL = 'https://api.github.com/repos'
+
+// keys for swr
+export const GET_PATHS = {
+  getRepoBySlug: '/:user/:repo',
 }
 
-const APIs = {
-  Repository,
+class Client {
+  headers: HeadersInit = {
+    'Content-Type': 'application/json',
+  }
+
+  getRepoBySlug(params: GetReposParams) {
+    return fetcher<ReposResponse>(`${BASE_URL}/${params.user}/${params.repo}`, {
+      headers: this.headers,
+    })
+  }
 }
 
-export default APIs
+const client = new Client()
+
+export { client }

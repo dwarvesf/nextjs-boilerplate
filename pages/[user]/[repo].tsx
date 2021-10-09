@@ -1,13 +1,13 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { GetServerSideProps, NextPage } from 'next'
-import APIs, { ReposResponse } from 'libs/apis'
-import { useFetchWithCache } from '@dwarvesf/react-hooks'
+import { ReposResponse, client, GET_PATHS } from 'libs/apis'
+import { useFetchWithCache } from 'hooks/useFetchWithCache'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context
   const { user, repo } = query
-  const data = await APIs.Repository.getBySlug({
+  const data = await client.getRepoBySlug({
     user: (user || '').toString(),
     repo: (repo || '').toString(),
   })
@@ -21,9 +21,9 @@ const RepoPage: NextPage<{ data: ReposResponse }> = (props) => {
     query: { user, repo },
   } = useRouter()
 
-  const { data, isValidating } = useFetchWithCache<ReposResponse>(
-    [APIs.Repository.getBySlugURL, user, repo],
-    (_, user, repo) => APIs.Repository.getBySlug({ user, repo }),
+  const { data, isFirstLoading } = useFetchWithCache<ReposResponse>(
+    [GET_PATHS.getRepoBySlug, user, repo],
+    (_, user, repo) => client.getRepoBySlug({ user, repo }),
     {
       fallbackData: initialData,
     },
@@ -34,14 +34,14 @@ const RepoPage: NextPage<{ data: ReposResponse }> = (props) => {
       <h1 className="text-4xl font-bold mb-8">
         {user}/{repo}
       </h1>
-      {data && !isValidating ? (
-        <ul className="list-disc list-inside">
-          <li>forks: {data.forks_count}</li>
-          <li>stars: {data.stargazers_count}</li>
-          <li>watchers: {data.watchers}</li>
-        </ul>
-      ) : (
+      {isFirstLoading ? (
         'loading...'
+      ) : (
+        <ul className="list-disc list-inside">
+          <li>forks: {data?.forks_count}</li>
+          <li>stars: {data?.stargazers_count}</li>
+          <li>watchers: {data?.watchers}</li>
+        </ul>
       )}
     </div>
   )
