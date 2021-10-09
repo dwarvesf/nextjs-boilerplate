@@ -27,6 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**.config.js",
+    "scripts/**/*.js",
     "./setupTests.js",
     "./config/jest/*.js"
   ]
