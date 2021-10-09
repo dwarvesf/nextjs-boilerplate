@@ -7,27 +7,27 @@ interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
 
 function getFontSize(as: HeadingProps['as']) {
   if (as === 'h1') {
-    return 'text-30 sm:text-40'
+    return 'text-5xl'
   }
 
   if (as === 'h2') {
-    return 'text-30 sm:text-32'
+    return 'text-4xl'
   }
 
   if (as === 'h3') {
-    return 'text-2xl'
+    return 'text-3xl'
   }
 
   if (as === 'h4') {
-    return 'text-lg'
+    return 'text-xl'
   }
 
   if (as === 'h5') {
-    return 'text-base'
+    return 'text-lg'
   }
 
   if (as === 'h6') {
-    return 'text-sm'
+    return 'text-base'
   }
 
   return 'text-base'
@@ -35,11 +35,7 @@ function getFontSize(as: HeadingProps['as']) {
 
 export const Heading: React.FC<HeadingProps> = (props) => {
   const { className, as = 'h2', ...rest } = props
-  const classNames = [
-    'text-gray-100 font-bold leading-tight',
-    { 'uppercase text-gray-300': as === 'h6' },
-    getFontSize(as),
-  ]
+  const classNames = ['text-gray-800 font-bold leading-snug', getFontSize(as)]
 
   return createElement(as, { className: cx(className, classNames), ...rest })
 }

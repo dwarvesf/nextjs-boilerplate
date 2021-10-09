@@ -4,27 +4,14 @@ import { Text } from '.'
 storiesOf('components/Text', module).add('basic', () => {
   return (
     <div className="space-y-4">
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. molestie.
-      </Text>
-      <Text as="span" size="sm" color="gray-300">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. molestie.
-      </Text>
-      <Text size="xs" color="white">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore .
-      </Text>
-
-      <Text>
-        <Text as="span" color="danger">
-          danger text
-        </Text>{' '}
-        <Text as="span" color="success">
-          success text
-        </Text>
-      </Text>
+      <Text className="text-6xl">(6xl) In love with React & Next</Text>
+      <Text className="text-5xl">(5xl) In love with React & Next</Text>
+      <Text className="text-4xl">(4xl) In love with React & Next</Text>
+      <Text className="text-3xl">(3xl) In love with React & Next</Text>
+      <Text className="text-2xl">(2xl) In love with React & Next</Text>
+      <Text className="text-xl">(xl) In love with React & Next</Text>
+      <Text className="text-lg">(lg) In love with React & Next</Text>
+      <Text>In love with React & Next</Text>
     </div>
   )
 })
