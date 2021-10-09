@@ -1,5 +1,8 @@
 import { storiesOf } from '@storybook/react'
-import { IconPencilSolid } from 'components/icons/components/IconPencilSolid'
+import { IconCheckCircleSolid } from 'components/icons/components/IconCheckCircleSolid'
+import { IconCloseCircleSolid } from 'components/icons/components/IconCloseCircleSolid'
+import { IconExlamationCirleSolid } from 'components/icons/components/IconExlamationCirleSolid'
+import { IconInformationCircleSolid } from 'components/icons/components/IconInformationCircleSolid'
 import React from 'react'
 import { Button } from '.'
 
@@ -46,19 +49,20 @@ storiesOf('components/Button', module).add('basic', () => (
     </div>
 
     <div className="space-x-4 flex items-center">
-      <Button appearance="primary" size="sm" Icon={IconPencilSolid}>
+      <Button size="sm" Icon={IconCheckCircleSolid}>
         Click me
       </Button>
-      <Button appearance="primary" Icon={IconPencilSolid}>
+      <Button appearance="primary" Icon={IconExlamationCirleSolid}>
         Click me
       </Button>
-      <Button appearance="primary" Icon={IconPencilSolid} size="lg">
+      <Button
+        appearance="secondary"
+        Icon={IconInformationCircleSolid}
+        size="lg"
+      >
         Click me
       </Button>
-      <Button appearance="primary" Icon={IconPencilSolid} isLoading>
-        Click me
-      </Button>
-      <Button appearance="primary" Icon={IconPencilSolid} disabled>
+      <Button appearance="primary" Icon={IconCloseCircleSolid} disabled>
         Click me
       </Button>
     </div>

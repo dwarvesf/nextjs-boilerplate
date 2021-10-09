@@ -1,5 +1,4 @@
 import React, { HTMLAttributes } from 'react'
-import { Heading } from 'components/Heading'
 import cx from 'classnames'
 import { useAlertContext } from './context'
 
@@ -11,8 +10,7 @@ export const AlertTitle = ({
   const { status } = useAlertContext()
 
   return (
-    <Heading
-      as="h6"
+    <h6
       className={cx('font-medium text-sm', {
         'text-red-700': status === 'error',
         'text-green-700': status === 'success',
@@ -22,6 +20,6 @@ export const AlertTitle = ({
       {...props}
     >
       {children}
-    </Heading>
+    </h6>
   )
 }

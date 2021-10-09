@@ -35,7 +35,7 @@ function getFontSize(as: HeadingProps['as']) {
 
 export const Heading: React.FC<HeadingProps> = (props) => {
   const { className, as = 'h2', ...rest } = props
-  const classNames = ['text-gray-800 font-bold leading-snug', getFontSize(as)]
+  const classNames = ['text-gray-900 font-bold leading-snug', getFontSize(as)]
 
   return createElement(as, { className: cx(className, classNames), ...rest })
 }

@@ -15,7 +15,7 @@ export function getappearanceButtonStyles({
   if (appearance === 'default') {
     if (!disabled) {
       classNames.push(
-        'border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-pink-500',
+        'border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-indigo-500',
       )
       classNames.push(focusRing)
     } else if (disabled) {
@@ -24,7 +24,7 @@ export function getappearanceButtonStyles({
   } else if (appearance === 'primary') {
     if (!disabled) {
       classNames.push(
-        'border-transparent text-white bg-pink-600 hover:bg-pink-700 focus:ring-pink-500',
+        'border-transparent text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500',
       )
       classNames.push(focusRing)
     } else if (disabled) {
