@@ -11,7 +11,7 @@ export function useFetchWithCache<Data = any, Error = any>(
   const [internalData, setInternalData] = useState<Data>()
 
   const isFirstLoading = !internalData && !error
-  const isLoading = !data && !error
+  const loading = !data && !error
 
   useEffect(() => {
     if (data) {
@@ -19,5 +19,5 @@ export function useFetchWithCache<Data = any, Error = any>(
     }
   }, [data])
 
-  return { data: internalData, isFirstLoading, isLoading, error, ...rest }
+  return { data: internalData, isFirstLoading, loading, error, ...rest }
 }

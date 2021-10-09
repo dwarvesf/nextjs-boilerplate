@@ -12,7 +12,7 @@ storiesOf('components/Button', module).add('basic', () => (
       <Button size="sm">Click me</Button>
       <Button>Click me</Button>
       <Button size="lg">Click me</Button>
-      <Button isLoading>Click me</Button>
+      <Button loading>Click me</Button>
       <Button disabled>Click me</Button>
     </div>
 
@@ -24,7 +24,7 @@ storiesOf('components/Button', module).add('basic', () => (
       <Button appearance="primary" size="lg">
         Click me
       </Button>
-      <Button appearance="primary" isLoading>
+      <Button appearance="primary" loading>
         Click me
       </Button>
       <Button appearance="primary" disabled>
@@ -40,10 +40,26 @@ storiesOf('components/Button', module).add('basic', () => (
       <Button appearance="secondary" size="lg">
         Click me
       </Button>
-      <Button appearance="secondary" isLoading>
+      <Button appearance="secondary" loading>
         Click me
       </Button>
       <Button appearance="secondary" disabled>
+        Click me
+      </Button>
+    </div>
+
+    <div className="space-x-4 flex items-center">
+      <Button appearance="link" size="sm">
+        Click me
+      </Button>
+      <Button appearance="link">Click me</Button>
+      <Button appearance="link" size="lg">
+        Click me
+      </Button>
+      <Button appearance="link" loading>
+        Click me
+      </Button>
+      <Button appearance="link" disabled>
         Click me
       </Button>
     </div>

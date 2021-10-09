@@ -1,3 +1,4 @@
+import { Label } from 'components/Label'
 import { useId } from 'hooks/useId'
 import React from 'react'
 import {
@@ -58,6 +59,11 @@ export function createFormElement<TFromElement, TNonNativeOnChange = any>(
 
       return (
         <div className={containerClassName}>
+          {label && (
+            <Label htmlFor={id} className="mb-1">
+              {label}
+            </Label>
+          )}
           <Controller
             rules={rules}
             render={(controllerProps) => (

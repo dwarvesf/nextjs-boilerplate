@@ -1,4 +1,5 @@
 const theme = require('tailwindcss/defaultTheme')
+const formPlugin = require('@tailwindcss/forms')
 
 module.exports = {
   mode: 'jit',
@@ -15,5 +16,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [formPlugin],
 }

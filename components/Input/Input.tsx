@@ -8,7 +8,6 @@ export type InputProps = {
   value?: string
   invalid?: boolean
   type?: 'text' | 'date' | 'time' | 'email' | 'number' | 'tel' | 'password'
-  endAdornment?: React.ReactNode
 } & React.InputHTMLAttributes<HTMLInputElement>
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -17,7 +16,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       fullWidth = false,
       disabled = false,
       invalid = false,
-      endAdornment,
       onFocus,
       onBlur,
       type,

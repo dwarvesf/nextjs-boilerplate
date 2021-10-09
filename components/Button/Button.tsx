@@ -10,7 +10,7 @@ export interface ButtonProps extends BaseButtonProps {
   appearance?: ButtonAppearance
   fullWidth?: boolean
   iconPosition?: 'left' | 'right'
-  isLoading?: boolean
+  loading?: boolean
   disabled?: boolean
   Icon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
 }
@@ -18,7 +18,8 @@ export interface ButtonProps extends BaseButtonProps {
 function getButtonStyles({
   size = 'md',
   fullWidth = false,
-  isLoading,
+  loading,
+  appearance,
 }: ButtonProps) {
   const classNames = ['relative']
 
@@ -26,16 +27,26 @@ function getButtonStyles({
     classNames.push('w-full flex')
   }
 
-  if (isLoading) {
+  if (loading) {
     classNames.push('cursor-default')
   }
 
   if (size === 'lg') {
-    classNames.push('text-base py-4 px-6 px-8')
+    classNames.push('text-base')
   } else if (size === 'md') {
-    classNames.push('px-5 py-3 text-sm')
+    classNames.push('text-sm')
   } else {
-    classNames.push('text-xs py-2 px-4 px-5')
+    classNames.push('text-xs')
+  }
+
+  if (appearance !== 'link') {
+    if (size === 'lg') {
+      classNames.push('py-4 px-6 px-8')
+    } else if (size === 'md') {
+      classNames.push('px-5 py-3 ')
+    } else {
+      classNames.push('py-2 px-4 px-5')
+    }
   }
 
   return classNames
@@ -48,7 +59,7 @@ const ButtonComponent = (
     Icon,
     iconPosition = 'left',
     children: originChildren,
-    isLoading = false,
+    loading = false,
     asLabel = false,
     css,
     className,
@@ -59,7 +70,7 @@ const ButtonComponent = (
 ) => {
   let children = originChildren
 
-  if (isLoading) {
+  if (loading) {
     children = (
       <>
         <span className="absolute inset-0 flex items-center justify-center">

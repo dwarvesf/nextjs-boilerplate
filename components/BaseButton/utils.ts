@@ -9,8 +9,12 @@ export function getappearanceButtonStyles({
   appearance = 'primary',
   disabled = false,
 }: GetAppearanceButtonStylesTypes) {
-  const classNames = ['rounded-md shadow-sm font-medium border']
+  const classNames = ['font-medium']
   const focusRing = 'focus:ring-2 focus:ring-offset-2 focus:outline-none'
+
+  if (appearance !== 'link') {
+    classNames.push('rounded-md shadow-sm border')
+  }
 
   if (appearance === 'default') {
     if (!disabled) {
@@ -38,6 +42,15 @@ export function getappearanceButtonStyles({
       classNames.push(focusRing)
     } else if (disabled) {
       classNames.push('bg-gray-100 text-gray-400')
+    }
+  } else if (appearance === 'link') {
+    if (!disabled) {
+      classNames.push(
+        'text-indigo-600 hover:text-indigo-700 focus:ring-indigo-500 rounded-sm',
+      )
+      classNames.push(focusRing)
+    } else {
+      classNames.push('text-gray-400')
     }
   }
 

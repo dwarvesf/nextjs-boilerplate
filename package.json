@@ -19,6 +19,7 @@
     "@dwarvesf/react-hooks": "^0.4.0",
     "@dwarvesf/react-utils": "^0.2.1",
     "@reach/auto-id": "^0.16.0",
+    "@tailwindcss/forms": "^0.3.4",
     "classnames": "^2.3.1",
     "isomorphic-unfetch": "^3.1.0",
     "next": "11.1.2",
