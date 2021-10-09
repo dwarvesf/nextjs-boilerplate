@@ -18,7 +18,7 @@ const CardComponent = (
 ) => {
   const {
     children,
-    shadow = false,
+    shadow = true,
     className,
     spacing = true,
     as = 'div',
@@ -28,7 +28,7 @@ const CardComponent = (
   return (
     <Box
       className={cx(
-        'bg-white overflow-hidden sm:rounded-lg',
+        'bg-white sm:rounded-lg',
         { shadow, 'px-4 py-5 sm:px-6': spacing },
         className,
       )}
