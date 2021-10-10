@@ -48,7 +48,11 @@ export const Layout = ({ children }: WithChildren) => {
           Logout
         </Button>
       </aside>
-      <div className="flex-1 px-8 py-6">{children}</div>
+      <div className="flex-1 px-8 py-6">
+        <div className="flex space-y-6 flex-col max-w-7xl w-full mx-auto">
+          {children}
+        </div>
+      </div>
     </div>
   )
 }
