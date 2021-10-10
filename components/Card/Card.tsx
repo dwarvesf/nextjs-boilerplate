@@ -1,14 +1,14 @@
 import React from 'react'
 import cx from 'classnames'
 import { Box, forwardRefWithAs, PropsWithAs } from 'components/Box'
+import { WithChildren } from 'types/common'
 
-type CardProps = {
+type CardProps = WithChildren<{
   shadow?: boolean
   spacing?: boolean
   className?: string
-  children?: React.ReactNode
   onClick?: () => void
-}
+}>
 
 type DefaultElement = 'div'
 

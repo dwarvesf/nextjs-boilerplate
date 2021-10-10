@@ -2,9 +2,8 @@ import '../styles/index.css'
 import React from 'react'
 import App from 'next/app'
 import NProgressHandler from 'components/NProgressHandler'
-import Header from 'components/Header'
-import Footer from 'components/Footer'
 import Head from 'next/head'
+import { AuthContextProvider } from 'context/auth'
 
 class MyApp extends App {
   render() {
@@ -24,16 +23,12 @@ class MyApp extends App {
             rel="stylesheet"
           />
         </Head>
-        <div className="flex min-h-screen flex-col justify-between">
+        <AuthContextProvider>
           <NProgressHandler />
           <main>
-            <Header />
-            <div className="max-w-3xl mx-auto py-20">
-              <Component {...pageProps} />
-            </div>
+            <Component {...pageProps} />
           </main>
-          <Footer />
-        </div>
+        </AuthContextProvider>
       </>
     )
   }
