@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { ROUTES } from 'constants/routes'
 import { Heading } from 'components/Heading'
 
-const App = () => {
+const FormsPage = () => {
   const { isLogin } = useAuthContext()
   const { push } = useRouter()
   useEffect(() => {
@@ -20,9 +20,9 @@ const App = () => {
 
   return (
     <Layout>
-      <Heading as="h3">Dashboard</Heading>
+      <Heading as="h3">Form</Heading>
     </Layout>
   )
 }
 
-export default App
+export default FormsPage

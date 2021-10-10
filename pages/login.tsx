@@ -10,6 +10,7 @@ import { Divider } from 'components/Divider'
 import { useAuthContext } from 'context/auth'
 import { useRouter } from 'next/router'
 import { ROUTES } from 'constants/routes'
+import { Logo } from 'components/Logo'
 
 const LoginPage = () => {
   const { push } = useRouter()
@@ -28,12 +29,17 @@ const LoginPage = () => {
   }, [isLogin, push])
 
   return (
-    <div className="w-full min-h-screen flex-col flex justify-center items-center space-y-8 bg-gray-100">
-      <div className="space-y-1 text-center">
-        <Heading as="h3">Sign in to your account</Heading>
-        <Text className="text-sm text-gray-500">
-          Or <Button appearance="link">start your 14-day free trial</Button>
-        </Text>
+    <div className="w-full min-h-screen flex-col flex justify-center items-center space-y-8 bg-gray-100 pb-20">
+      <div className="text-center flex flex-col items-center">
+        <div className="mb-6 transform scale-125">
+          <Logo />
+        </div>
+        <div className="space-y-1">
+          <Heading as="h3">Sign in to your account</Heading>
+          <Text className="text-sm text-gray-500">
+            Or <Button appearance="link">start your 14-day free trial</Button>
+          </Text>
+        </div>
       </div>
       <Card className="w-full max-w-[460px] !p-10">
         <FormProvider {...formInstance}>

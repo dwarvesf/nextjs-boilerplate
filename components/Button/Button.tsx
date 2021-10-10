@@ -106,4 +106,4 @@ const ButtonComponent = (
   )
 }
 
-export const Button = forwardRefWithAs<ButtonProps, any>(ButtonComponent)
+export const Button = forwardRefWithAs<ButtonProps, 'button'>(ButtonComponent)
