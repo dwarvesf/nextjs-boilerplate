@@ -7,6 +7,7 @@ import { Heading } from 'components/Heading'
 import { Placeholder } from 'components/Placeholder'
 import { Card } from 'components/Card'
 import { Button } from 'components/Button'
+import { Text } from 'components/Text'
 
 const App = () => {
   const { isLogin } = useAuthContext()
@@ -23,7 +24,12 @@ const App = () => {
 
   return (
     <Layout>
-      <Heading as="h3">Dashboard</Heading>
+      <div className="space-y-px">
+        <Heading as="h3">Good afternoon, Charlie</Heading>
+        <Text className="text-gray-500">
+          Here's what's happenning with your ambassador account today.
+        </Text>
+      </div>
 
       <div className="grid-cols-3 grid gap-6">
         <Card>

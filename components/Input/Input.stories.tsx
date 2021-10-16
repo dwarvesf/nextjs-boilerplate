@@ -4,11 +4,10 @@ import Input from './Input'
 
 storiesOf('components/Input', module).add('basic', () => {
   return (
-    <div className="space-y-3">
-      <Input placeholder="Username" />
+    <div className="space-y-4 max-w-sm">
+      <Input fullWidth placeholder="Username" />
       <Input fullWidth placeholder="Username" invalid />
       <Input fullWidth placeholder="Password" />
-      <Input fullWidth placeholder="Password" type="password" />
     </div>
   )
 })

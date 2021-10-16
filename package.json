@@ -18,6 +18,7 @@
   "dependencies": {
     "@dwarvesf/react-hooks": "^0.4.0",
     "@dwarvesf/react-utils": "^0.2.1",
+    "@headlessui/react": "^1.4.1",
     "@reach/auto-id": "^0.16.0",
     "@tailwindcss/forms": "^0.3.4",
     "classnames": "^2.3.1",

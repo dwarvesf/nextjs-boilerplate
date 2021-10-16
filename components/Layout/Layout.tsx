@@ -1,13 +1,12 @@
-import { Button } from 'components/Button'
 import { IconHome } from 'components/icons/components/IconHome'
 import { IconTable } from 'components/icons/components/IconTable'
 import { ROUTES } from 'constants/routes'
-import { useAuthContext } from 'context/auth'
 import Link from 'next/link'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { WithChildren } from 'types/common'
 import { Logo } from 'components/Logo'
+import { Header } from 'components/Header'
 
 const menuItems = [
   { name: 'Dashboard', href: ROUTES.DASHBOARD, Icon: IconHome },
@@ -15,7 +14,6 @@ const menuItems = [
 ]
 
 export const Layout = ({ children }: WithChildren) => {
-  const { logout } = useAuthContext()
   const { pathname } = useRouter()
 
   return (
@@ -44,15 +42,15 @@ export const Layout = ({ children }: WithChildren) => {
             })}
           </nav>
         </div>
-        <Button appearance="secondary" onClick={() => logout()}>
-          Logout
-        </Button>
       </aside>
-      <div className="flex-1 px-8 py-6">
-        <div className="flex space-y-6 flex-col max-w-7xl w-full mx-auto">
-          {children}
+      <main className="flex-1">
+        <Header />
+        <div className="px-8 py-6">
+          <div className="flex space-y-6 flex-col max-w-7xl w-full mx-auto">
+            {children}
+          </div>
         </div>
-      </div>
+      </main>
     </div>
   )
 }
