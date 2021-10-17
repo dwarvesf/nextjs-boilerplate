@@ -10,7 +10,7 @@ import { Button } from 'components/Button'
 import { Text } from 'components/Text'
 
 const App = () => {
-  const { isLogin } = useAuthContext()
+  const { isLogin, user } = useAuthContext()
   const { push } = useRouter()
   useEffect(() => {
     if (!isLogin) {
@@ -25,7 +25,7 @@ const App = () => {
   return (
     <Layout>
       <div className="space-y-px">
-        <Heading as="h3">Good afternoon, Charlie</Heading>
+        <Heading as="h3">Good afternoon, {user.firstName}</Heading>
         <Text className="text-gray-500">
           Here's what's happenning with your ambassador account today.
         </Text>

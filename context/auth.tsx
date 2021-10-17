@@ -6,6 +6,7 @@ interface AuthContextValues {
   isLogin: boolean
   login: (email: string, password: string) => void
   logout: () => void
+  user: typeof user
 }
 
 const [Provider, useAuthContext] = createContext<AuthContextValues>({
@@ -13,6 +14,12 @@ const [Provider, useAuthContext] = createContext<AuthContextValues>({
 })
 
 const tokenKey = 'df-token'
+const user = {
+  firstName: 'Charlie',
+  lastName: 'Puth',
+  avatar:
+    'https://cdn.lorem.space/images/face/.cache/150x150/jake-fagan-Y7C7F26fzZM-unsplash.jpg',
+}
 
 const AuthContextProvider = ({ children }: WithChildren) => {
   const [isLogin, setIsLogin] = useState(() => {
@@ -31,7 +38,9 @@ const AuthContextProvider = ({ children }: WithChildren) => {
     window.localStorage.removeItem(tokenKey)
   }, [])
 
-  return <Provider value={{ isLogin, login, logout }}>{children}</Provider>
+  return (
+    <Provider value={{ isLogin, login, logout, user }}>{children}</Provider>
+  )
 }
 
 export { AuthContextProvider, useAuthContext }

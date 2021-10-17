@@ -4,6 +4,7 @@ import App from 'next/app'
 import NProgressHandler from 'components/NProgressHandler'
 import Head from 'next/head'
 import { AuthContextProvider } from 'context/auth'
+import { Toaster } from 'components/Toast'
 
 class MyApp extends App {
   render() {
@@ -29,6 +30,7 @@ class MyApp extends App {
             <Component {...pageProps} />
           </main>
         </AuthContextProvider>
+        <Toaster />
       </>
     )
   }
