@@ -1,26 +1,13 @@
-import React, { useEffect } from 'react'
 import { Layout } from 'components/Layout'
-import { useAuthContext } from 'context/auth'
-import { useRouter } from 'next/router'
-import { ROUTES } from 'constants/routes'
 import { Heading } from 'components/Heading'
 import { Placeholder } from 'components/Placeholder'
 import { Card } from 'components/Card'
 import { Button } from 'components/Button'
 import { Text } from 'components/Text'
+import { useAuthContext } from 'context/auth'
 
-const App = () => {
-  const { isLogin, user } = useAuthContext()
-  const { push } = useRouter()
-  useEffect(() => {
-    if (!isLogin) {
-      push(ROUTES.LOGIN)
-    }
-  }, [isLogin, push])
-
-  if (!isLogin) {
-    return null
-  }
+const DashboardPage = () => {
+  const { user } = useAuthContext()
 
   return (
     <Layout>
@@ -84,4 +71,4 @@ const App = () => {
   )
 }
 
-export default App
+export default DashboardPage

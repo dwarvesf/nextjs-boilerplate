@@ -1,8 +1,4 @@
-import React, { useEffect } from 'react'
 import { Layout } from 'components/Layout'
-import { useAuthContext } from 'context/auth'
-import { useRouter } from 'next/router'
-import { ROUTES } from 'constants/routes'
 import { Heading } from 'components/Heading'
 import { Text } from 'components/Text'
 import { Card } from 'components/Card'
@@ -157,19 +153,6 @@ const NotificationForm = () => {
 }
 
 const FormsPage = () => {
-  const { isLogin } = useAuthContext()
-  const { push } = useRouter()
-
-  useEffect(() => {
-    if (!isLogin) {
-      push(ROUTES.LOGIN)
-    }
-  }, [isLogin, push])
-
-  if (!isLogin) {
-    return null
-  }
-
   return (
     <Layout>
       <Heading as="h3">Forms</Heading>

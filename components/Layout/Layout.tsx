@@ -7,14 +7,31 @@ import { useRouter } from 'next/router'
 import { WithChildren } from 'types/common'
 import { Logo } from 'components/Logo'
 import { Header } from 'components/Header'
+import { useAuthContext } from 'context/auth'
+import { useEffect } from 'react'
+import { IconServer } from 'components/icons/components/IconServer'
 
 const menuItems = [
   { name: 'Dashboard', href: ROUTES.DASHBOARD, Icon: IconHome },
   { name: 'Forms', href: ROUTES.FORMS, Icon: IconTable },
+  { name: 'Data fetching', href: ROUTES.DATA_FETCHING, Icon: IconServer },
 ]
 
 export const Layout = ({ children }: WithChildren) => {
   const { pathname } = useRouter()
+
+  const { isLogin } = useAuthContext()
+  const { push } = useRouter()
+
+  useEffect(() => {
+    if (!isLogin) {
+      push(ROUTES.LOGIN)
+    }
+  }, [isLogin, push])
+
+  if (!isLogin) {
+    return null
+  }
 
   return (
     <div className="flex h-full bg-gray-100">

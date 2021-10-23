@@ -13,7 +13,8 @@
     "postinstall": "husky install && yarn generate-icons",
     "generate-icons": "node ./scripts/generate-icon-components.js",
     "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook -s ./public"
+    "build-storybook": "build-storybook -s ./public",
+    "fetch-definitions": "npx @manifoldco/swagger-to-ts https://petstore.swagger.io/v2/swagger.json --output ./types/schema.ts"
   },
   "dependencies": {
     "@dwarvesf/react-hooks": "^0.4.0",
