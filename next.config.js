@@ -1,3 +1,7 @@
-require('dotenv').config();
+require('dotenv').config()
 
-module.exports = { env: {} };
+module.exports = {
+  env: {
+    BASE_URL: process.env.BASE_URL,
+  },
+}

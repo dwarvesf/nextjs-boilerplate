@@ -1,21 +1,12 @@
+import { Pet } from 'types/schema'
 import fetcher from './fetcher'
 
-export interface GetReposParams {
-  user: string
-  repo: string
-}
-
-export interface ReposResponse {
-  forks_count: number
-  stargazers_count: number
-  watchers: number
-}
-
-export const BASE_URL = 'https://api.github.com/repos'
+// eslint-disable-next-line prefer-destructuring
+const BASE_URL = process.env.BASE_URL
 
 // keys for swr
 export const GET_PATHS = {
-  getRepoBySlug: '/:user/:repo',
+  getByStatus: '/findByStatus',
 }
 
 class Client {
@@ -23,8 +14,8 @@ class Client {
     'Content-Type': 'application/json',
   }
 
-  getRepoBySlug(params: GetReposParams) {
-    return fetcher<ReposResponse>(`${BASE_URL}/${params.user}/${params.repo}`, {
+  findPetByStatus(status: Pet['status'] = 'available') {
+    return fetcher<Pet[]>(`${BASE_URL}/v2/pet/findByStatus?status=${status}`, {
       headers: this.headers,
     })
   }
