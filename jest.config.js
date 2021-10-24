@@ -1,4 +1,4 @@
-const TEST_REGEX = '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|js?|tsx?|ts?)$';
+const TEST_REGEX = '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|js?|tsx?|ts?)$'
 
 module.exports = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
@@ -21,6 +21,7 @@ module.exports = {
     '<rootDir>/types/',
     '<rootDir>/node_modules/',
     '<rootDir>/scripts/',
+    '<rootDir>/cypress/',
   ],
   transformIgnorePatterns: [
     '/node_modules/',
@@ -44,4 +45,4 @@ module.exports = {
     '!**/__stubs__/**',
   ],
   coverageProvider: 'v8',
-};
+}
