@@ -9,12 +9,22 @@ import { Logo } from 'components/Logo'
 import { Header } from 'components/Header'
 import { useAuthContext } from 'context/auth'
 import { useEffect } from 'react'
-import { IconServer } from 'components/icons/components/IconServer'
+import { IconBookOpen } from 'components/icons/components/IconBookOpen'
+import { IconSwitchVertical } from 'components/icons/components/IconSwitchVertical'
 
 const menuItems = [
   { name: 'Dashboard', href: ROUTES.DASHBOARD, Icon: IconHome },
   { name: 'Forms', href: ROUTES.FORMS, Icon: IconTable },
-  { name: 'Data fetching', href: ROUTES.DATA_FETCHING, Icon: IconServer },
+  {
+    name: 'Data fetching',
+    href: ROUTES.DATA_FETCHING,
+    Icon: IconSwitchVertical,
+  },
+  {
+    name: 'Documentation',
+    href: 'https://github.com/dwarvesf/nextjs-boilerplate',
+    Icon: IconBookOpen,
+  },
 ]
 
 export const Layout = ({ children }: WithChildren) => {
@@ -40,9 +50,12 @@ export const Layout = ({ children }: WithChildren) => {
           <Logo hasText />
           <nav className="space-y-1">
             {menuItems.map(({ Icon, name, href }) => {
+              const external = href.startsWith('http')
               return (
                 <Link href={href} key={name}>
                   <a
+                    target={external ? '_blank' : undefined}
+                    rel={external ? 'noopener' : undefined}
                     className={cx(
                       'flex w-full p-2 space-x-3 rounded-md',
                       'bg-transparent duration-200 transition-all',

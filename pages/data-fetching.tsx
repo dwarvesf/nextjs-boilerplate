@@ -8,8 +8,9 @@ import { Pet } from 'types/schema'
 import { Text } from 'components/Text'
 import { useState } from 'react'
 import { Skeleton } from 'components/Skeleton'
+import { capitalizeFirstLetter } from 'utils/string'
 
-const statuses: Pet['status'][] = ['available', 'pending', 'sold']
+const statuses: Required<Pet>['status'][] = ['available', 'pending', 'sold']
 
 const DataFetchingPage = () => {
   const [status, setStatus] = useState<Pet['status']>('available')
@@ -33,8 +34,7 @@ const DataFetchingPage = () => {
         >
           {statuses.map((status) => (
             <option key={status} value={status}>
-              {status?.charAt(0).toUpperCase()}
-              {status?.substring(1)}
+              {capitalizeFirstLetter(status)}
             </option>
           ))}
         </Select>
@@ -78,7 +78,7 @@ const DataFetchingPage = () => {
           <tbody className="bg-white divide-y divide-gray-200">
             {isFirstLoading
               ? Array.from({ length: 10 }).map((_, index) => (
-                  <tr key={index} className="w-1/4">
+                  <tr key={index}>
                     <td className="px-6 py-4">
                       <div className="flex items-center">
                         <div className="text-sm font-medium text-gray-900">
@@ -100,7 +100,7 @@ const DataFetchingPage = () => {
               : data
                   ?.slice(0, 10)
                   .map(({ name, status, category, tags }, index) => (
-                    <tr key={index} className="w-1/4">
+                    <tr key={index}>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="text-sm font-medium text-gray-900">
@@ -114,7 +114,7 @@ const DataFetchingPage = () => {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 capitalize">
+                        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 capitalizeFirstLetter">
                           {status}
                         </span>
                       </td>
