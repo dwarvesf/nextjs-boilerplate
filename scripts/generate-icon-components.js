@@ -6,8 +6,7 @@ const rimraf = require('rimraf')
 const {
   getSvgInfos,
   generateFileBasedOnSvgInfo,
-  // generateIndexFileContent,
-  // generateStoryBookContent,
+  generateStoryBookContent,
 } = require('./utils')
 
 const iconsPath = path.resolve(__dirname, '../components/icons/components/')
@@ -19,14 +18,10 @@ const svgInfos = getSvgInfos()
 // generate icons in parallel
 Promise.all(svgInfos.map(generateFileBasedOnSvgInfo))
   .then(() => {
-    // fs.writeFileSync(
-    //   path.resolve(__dirname, "../components/icons/index.ts"),
-    //   generateIndexFileContent(svgInfos),
-    // )
-    // fs.writeFileSync(
-    //   path.resolve(__dirname, '../components/icons/Icons.stories.tsx'),
-    //   generateStoryBookContent(svgInfos),
-    // );
+    fs.writeFileSync(
+      path.resolve(__dirname, '../components/icons/Icons.stories.tsx'),
+      generateStoryBookContent(svgInfos),
+    )
 
     console.log('generate svg components successfully')
   })

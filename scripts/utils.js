@@ -77,7 +77,7 @@ const generateStoryBookContent = (svgInfos) => {
   const importStatements = svgInfos
     .map(
       ({ componentName }) =>
-        `import ${componentName} from './components/${componentName}';`,
+        `import {${componentName}} from './components/${componentName}';`,
     )
     .join('\n')
     .trim()
@@ -92,20 +92,19 @@ const generateStoryBookContent = (svgInfos) => {
 // Don't edit it manually
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import tw from 'twin.macro';
 ${importStatements}
 
 const icons = [${iconInitializer}];
 
-storiesOf('components/icons', module).add('All icons', () => (
-  <div tw={'flex flex-wrap'}>
+storiesOf('components/icons', module).add('all icons', () => (
+  <div className="flex flex-wrap">
     {icons.map(([Icon, displayName], index) => (
       <div
         key={index}
-        tw={'w-1/6 flex items-center flex-col border-gray-600 border py-4'}
+        className="w-1/6 flex items-center flex-col border-gray-100 border py-4"
       >
-        <Icon />
-        <code tw={'bg-gray-600 text-sm px-2 py-1 mt-3 inline-block rounded'}>{displayName}</code>
+        <Icon className="w-5 h-5"/>
+        <code className="bg-gray-100 text-sm px-2 py-1 mt-3 inline-block rounded">{displayName}</code>
       </div>
     ))}
   </div>
