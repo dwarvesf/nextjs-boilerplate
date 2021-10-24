@@ -14,7 +14,8 @@
     "generate-icons": "node ./scripts/generate-icon-components.js",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook -s ./public",
-    "fetch-definitions": "swagger-typescript-api --no-client -p https://petstore.swagger.io/v2/swagger.json -o ./types -n schema.ts"
+    "fetch-definitions": "swagger-typescript-api --no-client -p https://petstore.swagger.io/v2/swagger.json -o ./types -n schema.ts",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@dwarvesf/react-hooks": "^0.4.0",
@@ -58,6 +59,7 @@
     "babel-eslint": "10.x",
     "babel-jest": "^27.2.5",
     "babel-plugin-inline-react-svg": "^2.0.1",
+    "cypress": "^8.6.0",
     "dotenv": "^10.0.0",
     "eslint": "7.x",
     "eslint-config-airbnb": "18.x",
@@ -66,6 +68,7 @@
     "eslint-config-prettier": "8.x",
     "eslint-config-react": "1.x",
     "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-flowtype": "6.1.0",
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jsx-a11y": "6.x",

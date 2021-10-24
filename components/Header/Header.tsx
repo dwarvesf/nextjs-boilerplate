@@ -15,7 +15,10 @@ export const Header = () => {
   return (
     <header className="py-2 px-5 flex justify-end mx-auto">
       <Menu as="div" className="relative inline-block text-left">
-        <Menu.Button className="inline-flex focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 items-center space-x-3">
+        <Menu.Button
+          className="inline-flex focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 items-center space-x-3"
+          data-testid="profile-button"
+        >
           <img
             src={user.avatar}
             alt=""
@@ -60,6 +63,7 @@ export const Header = () => {
                       active ? 'bg-pink-600 text-white' : 'text-gray-500'
                     } group flex rounded-md items-center w-full px-2 py-2 text-sm space-x-2`}
                     onClick={logout}
+                    data-testid="logout-button"
                   >
                     <IconLogout className="w-5 h-5" />
                     <span>Logout</span>

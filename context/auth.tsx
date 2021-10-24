@@ -4,7 +4,7 @@ import { WithChildren } from 'types/common'
 
 interface AuthContextValues {
   isLogin: boolean
-  login: (email: string, password: string) => void
+  login: (email: string, password: string) => Promise<any>
   logout: () => void
   user: typeof user
 }
@@ -27,10 +27,15 @@ const AuthContextProvider = ({ children }: WithChildren) => {
   })
 
   const login = useCallback((email: string, password: string) => {
-    if (email === 'test@d.foundation' && password === 'test') {
-      setIsLogin(true)
-      window.localStorage.setItem(tokenKey, '1')
-    }
+    return new Promise((resolve, reject) => {
+      if (email === 'test@d.foundation' && password === 'test') {
+        setIsLogin(true)
+        window.localStorage.setItem(tokenKey, '1')
+        resolve('success')
+      } else {
+        reject(new Error('Incorrect email or password'))
+      }
+    })
   }, [])
 
   const logout = useCallback(() => {
