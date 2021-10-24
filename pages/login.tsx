@@ -12,15 +12,23 @@ import { useRouter } from 'next/router'
 import { ROUTES } from 'constants/routes'
 import { Logo } from 'components/Logo'
 
+const loginFormDefaultValues = { email: '', password: '' }
+
 const LoginPage = () => {
   const { push } = useRouter()
   const { login, isLogin } = useAuthContext()
   const formInstance = useForm({
-    defaultValues: { email: '', password: '' },
+    defaultValues: loginFormDefaultValues,
   })
   const { handleSubmit } = formInstance
 
-  const onSubmit = (data: any) => alert(data)
+  const onSubmit = (data: typeof loginFormDefaultValues) => {
+    try {
+      login(data.email, data.password)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   useEffect(() => {
     if (isLogin) {
@@ -29,7 +37,7 @@ const LoginPage = () => {
   }, [isLogin, push])
 
   return (
-    <div className="w-full min-h-screen flex-col flex justify-center items-center space-y-8 bg-gray-100 pb-20">
+    <div className="w-full min-h-screen flex-col flex justify-center items-center space-y-8 bg-gray-100 pt-8 pb-28">
       <div className="text-center flex flex-col items-center">
         <div className="mb-6 transform scale-125">
           <Logo />
