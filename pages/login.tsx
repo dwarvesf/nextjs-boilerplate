@@ -61,7 +61,9 @@ const LoginPage = () => {
             />
             <div className="flex justify-between items-center">
               <Checkbox>Remember me</Checkbox>
-              <Button appearance="link">Forgot your password?</Button>
+              <Button appearance="link" type="button">
+                Forgot your password?
+              </Button>
             </div>
 
             <Button appearance="primary" type="submit" fullWidth>

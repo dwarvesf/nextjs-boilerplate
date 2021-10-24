@@ -7,12 +7,13 @@ import { Select } from 'components/Select'
 import { Pet } from 'types/schema'
 import { Text } from 'components/Text'
 import { useState } from 'react'
+import { Skeleton } from 'components/Skeleton'
 
 const statuses: Pet['status'][] = ['available', 'pending', 'sold']
 
 const DataFetchingPage = () => {
   const [status, setStatus] = useState<Pet['status']>('available')
-  const { data } = useFetchWithCache(
+  const { data, isFirstLoading } = useFetchWithCache(
     [GET_PATHS.getByStatus, status],
     (_, status) => client.findPetByStatus(status),
   )
@@ -75,32 +76,53 @@ const DataFetchingPage = () => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {data
-              ?.slice(0, 10)
-              .map(({ name, status, category, tags }, index) => (
-                <tr key={index} className="w-1/4">
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="flex items-center">
-                      <div className="text-sm font-medium text-gray-900">
-                        {name}
+            {isFirstLoading
+              ? Array.from({ length: 10 }).map((_, index) => (
+                  <tr key={index} className="w-1/4">
+                    <td className="px-6 py-4">
+                      <div className="flex items-center">
+                        <div className="text-sm font-medium text-gray-900">
+                          <Skeleton className="w-40 h-4 rounded" />
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-500">
-                      {category?.name}
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 capitalize">
-                      {status}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {tags?.map(({ name }) => name).join(', ')}
-                  </td>
-                </tr>
-              ))}
+                    </td>
+                    <td className="px-6 py-4">
+                      <Skeleton className="w-32 h-4 rounded" />
+                    </td>
+                    <td className="px-6 py-4">
+                      <Skeleton className="w-24 h-4 rounded" />
+                    </td>
+                    <td className="px-6 py-4">
+                      <Skeleton className="w-40 h-4 rounded" />
+                    </td>
+                  </tr>
+                ))
+              : data
+                  ?.slice(0, 10)
+                  .map(({ name, status, category, tags }, index) => (
+                    <tr key={index} className="w-1/4">
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="flex items-center">
+                          <div className="text-sm font-medium text-gray-900">
+                            {name}
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-gray-500">
+                          {category?.name}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 capitalize">
+                          {status}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {tags?.map(({ name }) => name).join(', ')}
+                      </td>
+                    </tr>
+                  ))}
           </tbody>
         </table>
       </Card>
