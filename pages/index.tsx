@@ -1,14 +1,13 @@
 import { Layout } from 'components/Layout'
 import { Heading } from 'components/Heading'
-import { Placeholder } from 'components/Placeholder'
 import { Card } from 'components/Card'
-import { Button } from 'components/Button'
 import { Text } from 'components/Text'
 import { useAuthContext } from 'context/auth'
 import { formatNumber } from 'utils/number'
 import { Badge } from 'components/Badge'
 import { IconArrowSmUp } from 'components/icons/components/IconArrowSmUp'
 import { IconArrowSmDown } from 'components/icons/components/IconArrowSmDown'
+import { IconPaperClip } from 'components/icons/components/IconPaperClip'
 
 interface StatCardProps {
   title: string
@@ -70,28 +69,141 @@ const DashboardPage = () => {
 
       <div className="grid-cols-3 grid gap-6">
         <div className="col-span-2 space-y-5">
-          <Card spacing={false}>
-            <div className="px-6 h-16 border-b border-gray-200 flex items-center justify-between">
-              <Heading className="font-medium" as="h5">
-                Order history
+          <Card spacing={false} className="overflow-hidden">
+            <div className="px-6 py-5">
+              <Heading className="mb-1 !font-medium !text-gray-700" as="h5">
+                Applicant Information
               </Heading>
-              <Button>View all</Button>
+              <Text className="text-sm text-gray-400">
+                Personal details and application.
+              </Text>
             </div>
-            <div className="p-6">
-              <Placeholder className="h-40" />
+            <div className="border-t border-gray-200">
+              <dl>
+                <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt className="text-sm font-medium text-gray-500">
+                    Full name
+                  </dt>
+                  <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    Margot Foster
+                  </dd>
+                </div>
+                <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt className="text-sm font-medium text-gray-500">
+                    Application for
+                  </dt>
+                  <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    Backend Developer
+                  </dd>
+                </div>
+                <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt className="text-sm font-medium text-gray-500">
+                    Email address
+                  </dt>
+                  <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    margotfoster@example.com
+                  </dd>
+                </div>
+                <div className="bg-white px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt className="text-sm font-medium text-gray-500">
+                    Attachments
+                  </dt>
+                  <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <ul className="border border-gray-200 rounded-md divide-y divide-gray-200">
+                      <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+                        <div className="w-0 flex-1 flex items-center">
+                          <IconPaperClip className="flex-shrink-0 h-5 w-5 text-gray-400" />
+                          <span className="ml-2 flex-1 w-0 truncate">
+                            resume_back_end_developer.pdf
+                          </span>
+                        </div>
+                        <div className="ml-4 flex-shrink-0">
+                          <a className="font-medium text-pink-600 hover:text-pink-500">
+                            Download
+                          </a>
+                        </div>
+                      </li>
+                      <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+                        <div className="w-0 flex-1 flex items-center">
+                          <IconPaperClip className="flex-shrink-0 h-5 w-5 text-gray-400" />
+                          <span className="ml-2 flex-1 w-0 truncate">
+                            coverletter_back_end_developer.pdf
+                          </span>
+                        </div>
+                        <div className="ml-4 flex-shrink-0">
+                          <a className="font-medium text-pink-600 hover:text-pink-500">
+                            Download
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
             </div>
           </Card>
         </div>
         <div className="col-span-1 space-y-5">
-          <Card spacing={false}>
-            <div className="px-6 h-16 border-b border-gray-200 flex items-center justify-between">
-              <Heading className="font-medium" as="h5">
-                Portoflio
+          <Card spacing={false} className="overflow-hidden">
+            <div className="px-6 py-5">
+              <Heading className="mb-1 !font-medium !text-gray-700" as="h5">
+                Recent Sign-ups
               </Heading>
-              <Button>Create</Button>
+              <Text className="text-sm text-gray-400">
+                Recent customers onboarded.
+              </Text>
             </div>
-            <div className="p-6">
-              <Placeholder className="h-40" />
+            <div className="border-t border-gray-200 divide-y divide-gray-200">
+              {[
+                {
+                  name: 'Jane Cooper',
+                  avatar:
+                    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+                  email: 'jane.cooper@example.com',
+                },
+                {
+                  name: 'Cody Fisher',
+                  avatar:
+                    'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+                  email: 'cody.fisher@example.com',
+                },
+                {
+                  name: 'Esther Howard',
+                  avatar:
+                    'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+                  email: 'esther.howard@example.com',
+                },
+                {
+                  name: 'Jenny Wilson',
+                  avatar:
+                    'https://images.unsplash.com/photo-1498551172505-8ee7ad69f235?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+                  email: 'jenny.wilson@example.com',
+                },
+                {
+                  name: 'Cameron Williamson',
+                  avatar:
+                    'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+                  email: 'cameron.williamson@example.com',
+                },
+              ].map(({ avatar, email, name }) => (
+                <div key={name} className="px-6 py-2.5">
+                  <div className="flex items-center">
+                    <div className="flex-shrink-0 h-10 w-10">
+                      <img
+                        className="h-10 w-10 rounded-full"
+                        src={avatar}
+                        alt=""
+                      />
+                    </div>
+                    <div className="ml-4">
+                      <div className="text-sm font-medium text-gray-900">
+                        {name}
+                      </div>
+                      <div className="text-sm text-gray-500">{email}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </Card>
         </div>
