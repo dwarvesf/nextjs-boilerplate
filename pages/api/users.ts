@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { User } from 'types/schema'
 
-export default (req: NextApiRequest, res: NextApiResponse<User[]>) => {
+export default (_: NextApiRequest, res: NextApiResponse<User[]>) => {
   setTimeout(() => {
     res.status(200).json([
       {
