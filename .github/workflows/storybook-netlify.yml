@@ -1,0 +1,48 @@
+name: Storybook deployment on Netlify
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - .storybook/**
+      - '**.stories.tsx'
+      - '*.stories.js'
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    paths:
+      - .storybook/**
+      - '**.stories.tsx'
+      - '*.stories.js'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.8.0
+        with:
+          access_token: ${{ github.token }}
+      - name: Build Storybook
+        run: |
+          yarn
+          yarn build-storybook
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: './storybook-static'
+          production-branch: master
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: 'Deploy from GitHub Actions'
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_STORYBOOK_SITE_ID }}
+        timeout-minutes: 1
