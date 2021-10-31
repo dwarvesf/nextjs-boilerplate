@@ -29,7 +29,7 @@ const DataFetchingPage = () => {
           </Text>
         </div>
         <Select
-          className="w-40"
+          className="!w-40"
           onChange={(e) => setStatus(e.target.value as Pet['status'])}
         >
           {statuses.map((status) => (

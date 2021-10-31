@@ -24,8 +24,9 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         ref={ref}
         id={id}
         dir="auto"
+        aria-invalid={invalid}
         className={cx(
-          'form-select w-full bg-white border  rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 sm:text-sm',
+          'form-select w-full bg-white border rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 sm:text-sm',
           {
             'focus:ring-pink-500 focus:border-pink-500 border-gray-300':
               !invalid,

@@ -19,7 +19,8 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "incremental": true
   },
   "exclude": ["node_modules"],
   "include": [
