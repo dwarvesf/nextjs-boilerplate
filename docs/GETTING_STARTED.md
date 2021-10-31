@@ -1,5 +1,20 @@
 # Getting started
 
+Install dependencies with `yarn` or `npm`:
+
+```bash
+yarn install
+```
+
+Then, you can run locally in development mode with live reload:
+
+```bash
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your favorite browser
+to see your project.
+
 ## Code organization
 
 ```
@@ -29,23 +44,6 @@
 └── tsconfig.json                # TypeScript configuration
 ```
 
-## Get started
-
-Install dependencies with `yarn` or `npm`:
-
-```bash
-yarn install
-```
-
-Then, you can run locally in development mode with live reload:
-
-```bash
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your favorite browser
-to see your project.
-
 ### Develop UI components
 
 The project integrates [Storybook](https://storybook.js.org/) to streamline UI
@@ -62,11 +60,12 @@ The UI document then should be live at
 
 If your team use Swagger to document APIs, we support a node script to generate
 TypeScript interfaces via your Swagger scheme. In
-[package.json](../package.json),
+[package.json](../package.json), change the default path to the location of your
+Swagger JSON doc.
 
-```suggestion:-0+0
-"fetch-definitions": "swagger-typescript-api --no-client -p ./libs/swagger.json -o ./types -n schema.ts",
-"fetch-definitions": "swagger-typescript-api --no-client -p your-api-swagger-json -o ./types -n schema.ts",
+```
+- "fetch-definitions": "swagger-typescript-api --no-client -p ./libs/swagger.json -o ./types -n schema.ts",
++ "fetch-definitions": "swagger-typescript-api --no-client -p your-api-swagger-json -o ./types -n schema.ts",
 ```
 
 Then, you can run the script locally to generate TypeScript definitions for the
