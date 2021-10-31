@@ -11,6 +11,7 @@ export interface CheckboxGroupProps {
   onChange?: (value: Array<CheckboxProps['value']>) => void
   children: React.ReactNode
   className?: string
+  invalid?: boolean
 }
 
 export const CheckboxGroup = ({
@@ -19,6 +20,7 @@ export const CheckboxGroup = ({
   defaultValue,
   value: valueProp,
   children,
+  invalid,
   ...rest
 }: CheckboxGroupProps) => {
   const [values, setValues] = useState(defaultValue || [])
