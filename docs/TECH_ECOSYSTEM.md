@@ -37,28 +37,13 @@ instead!**
 
 ## Basic Building Blocks
 
-## Next.js
+### Next.js
 
 Production grade React applications that scale, we list
 [Next.js](https://nextjs.org/) to be the first candidate when we decide to setup
 a React app. The opinionated framework gives you the best developer experience
 with all the features you need for production: hybrid static & server rendering,
 TypeScript support, smart bundling, route pre-fetching.
-
-## SWR
-
-We use [SWR](https://swr.vercel.app/) to be the main way of retrieving data in
-React apps. The strategy is to first return the data from cache (stale), then
-send the fetch request (revalidate), and finally come with the up-to-date data.
-With SWR, components will get a stream of data updates constantly and
-automatically. And the UI will be always fast and reactive. It features:
-
-- [x] Transport and protocol agnostic data fetching
-- [x] Fast page navigation
-- [x] Revalidation on focus
-- [x] Interval polling
-- [x] Request deduplication
-- [x] Local mutation
 
 ### TypeScript
 
@@ -74,50 +59,46 @@ medium to large sized applications:
 - [x] Syncing API Interfaces between backend and frontend via Swagger json doc.
 - [x] Relieve the pain of refactoring/renaming .
 
-## Styling
+### SWR
 
-We are using `tailwind` to do styling. The choice was made because it Avoid
-common CSS frustrations to keep a neat codebase and moving quickly, regardless
-of experience levels.
+We use [SWR](https://swr.vercel.app/) to be the main way of retrieving data in
+React apps. The strategy is to first return the data from cache (stale), then
+send the fetch request (revalidate), and finally come with the up-to-date data.
+With SWR, components will get a stream of data updates constantly and
+automatically. And the UI will be always fast and reactive. It features:
 
-- [x] **Separation of concern**: build completely custom designs without ever
-      leaving your JSX.
+- [x] Transport and protocol agnostic data fetching
+- [x] Fast page navigation
+- [x] Revalidation on focus
+- [x] Interval polling
+- [x] Request deduplication
+- [x] Local mutation
+
+### React Hook Forms
+
+If you are going to use a package for your forms, we recommend
+[react-hook-forms](https://github.com/react-hook-form/react-hook-form). It is a
+great balance of good performance and good developer experience.
+
+### Tailwind
+
+We are using `tailwind` to do styling and it scales pretty well when combining
+headless components and hooks to build the presentation layer. The choice was
+made because it helps avoid common CSS frustrations to keep a neat codebase and
+moving quickly, regardless of experience levels:
+
+- [x] **Consistency**: utility classes help you work within the constraints of a
+      system instead of littering your stylesheets with arbitrary values.
 - [x] **Naming is hard**: you don't even need to use complicated namespacing
       techniques like BEM.
-- [x] **Composable**: extending one block of style from another or mixing
-      tailwind classes with styled-components via macro.
-- [x] **Load on demand**: combined with code-splitting, styles will only be
-      injected in use.
-- [x] **Simple dynamic styling**: adapting the styling of a component based on
-      its props is simple and intuitive without having to manually manage dozens
-      of classes.
-- [x] **No dead code**: add, change and delete CSS without any unexpected
-      consequences and avoid dead code.
-
-## Code splitting
-
-Modern sites often combine all of their JavaScript into a single, large bundle.
-When JavaScript is served this way, loading performance suffers. Large amounts
-of JavaScript can also tie up the main thread, delaying interactivity. This is
-especially true of devices with less memory and processing power especially in
-routing rich applications like ours. To address the issue, we adopt
-code-splitting in order to split one large bundle into smaller chunks. While the
-main is loaded upfront, the rest can be loaded on demand. If you are unsure
-where to begin to applying code-splitting to our applications, follow these
-steps:
-
-- Begin at route level. Routes are the simplest way to identify points of your
-  application that can be split. Use React
-  [`suspend`](https://reactjs.org/docs/code-splitting.html#route-based-code-splitting)
-  to load the page chunk when needed.
-- Use
-  [`dynamic import`](https://webpack.js.org/guides/code-splitting/#dynamic-imports)
-  to split any large module if that is offscreen and not critical for the user
-  (like parts only rendered on certain user interactions like clicking a
-  button).
-- When using large libary like `lodash` or `validator`, use
-  [`babel-plugin-import`](https://github.com/ant-design/babel-plugin-import) to
-  avoid pulling in unused modules while maintaining best Developer Experience.
+- [x] **Tiny production build**: automatically removes all unused CSS when
+      building for production, which means your final CSS bundle is the smallest
+      it could possibly be.
+- [x] **Mobile first**: throw a screen size in front of literally any utility
+      class and watch it magically apply at a specific breakpoint.
+- [x] **Customization**: although Tailwind includes an expertly crafted set of
+      defaults out-of-the-box, but literally everything can be customized via
+      JIT or `tailwind.config.js`.
 
 ## Linting
 

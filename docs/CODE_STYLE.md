@@ -109,11 +109,11 @@ Pull Requests.
   module names in stack traces and React dev tools.
 
 - Your app should be fast but also remember "Premature optimization is the root
-  of all evil". **If you think it’s slow, prove it with a benchmark.** _"In the
-  face of ambiguity, refuse the temptation to guess."_ The profiler of
+  of all evil". **If you think it’s slow, prove it with a benchmark.**, the
+  profiler of
   [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
-  (Chrome extension) is your friend! Then, follow the suggestions to fix the
-  cause:
+  (Chrome extension) is your friend! Once you find the root cause, try to follow
+  the suggetions to fix it:
   - Use `useMemo` mostly just for expensive calculations.
   - Use `React.memo`, `useMemo`, and `useCallback` for reducing re-renders, they
     shouldn't have many dependencies and the dependencies should be mostly
