@@ -100,6 +100,16 @@ moving quickly, regardless of experience levels:
       defaults out-of-the-box, but literally everything can be customized via
       JIT or `tailwind.config.js`.
 
+## Architecture
+
+Most of frontend applications consist of four layers: Service connector, State
+management, Logic and UI. We opinionate about the technology for each layer with
+a guarantee of production readiness.
+
+<div align="center">
+    <img src="./img/architecture.png"  align="center" />
+</div>
+
 ## Linting
 
 This monorepo includes a complete static code analysis setup. It's composed of
