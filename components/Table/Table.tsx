@@ -40,7 +40,7 @@ export function Table<T>(props: TableProps<T>) {
       </thead>
       <tbody className="bg-white divide-y divide-gray-200">
         {isFirstLoading
-          ? Array.from({ length: 10 }).map((_, index) => (
+          ? Array.from({ length: 5 }).map((_, index) => (
               <tr key={index}>
                 {columns.map((_, index) => (
                   <th
@@ -48,8 +48,8 @@ export function Table<T>(props: TableProps<T>) {
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
-                    <td className="px-6 py-4">
-                      <Skeleton className="w-full h-4 rounded" />
+                    <td className="px-0 py-4">
+                      <Skeleton className="w-40 max-w-full h-4 rounded-sm" />
                     </td>
                   </th>
                 ))}

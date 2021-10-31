@@ -1,4 +1,4 @@
-import { Pet } from 'types/schema'
+import { User } from 'types/schema'
 import fetcher from './fetcher'
 
 // eslint-disable-next-line prefer-destructuring
@@ -6,7 +6,7 @@ const BASE_URL = process.env.BASE_URL
 
 // keys for swr
 export const GET_PATHS = {
-  getByStatus: '/findByStatus',
+  getUsers: '/users',
 }
 
 class Client {
@@ -14,8 +14,8 @@ class Client {
     'Content-Type': 'application/json',
   }
 
-  findPetByStatus(status: Pet['status'] = 'available') {
-    return fetcher<Pet[]>(`${BASE_URL}/v2/pet/findByStatus?status=${status}`, {
+  getUsers() {
+    return fetcher<User[]>(`${BASE_URL}/users`, {
       headers: this.headers,
     })
   }

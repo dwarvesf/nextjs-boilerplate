@@ -46,6 +46,26 @@ storiesOf('components/Table', module).add('basic', () => {
           status: 'active',
           role: 'Member',
         },
+        {
+          name: 'Kristin Watson',
+          avatar:
+            'https://images.unsplash.com/photo-1532417344469-368f9ae6d187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+          email: 'kristin.watson@example.com',
+          title: 'Lead Implementation Liaison',
+          department: 'Mobility',
+          status: 'active',
+          role: 'Admin',
+        },
+        {
+          name: 'Cameron Williamson',
+          avatar:
+            'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+          email: 'cameron.williamson@example.com',
+          title: 'Internal Application Engineer',
+          department: 'Security',
+          status: 'active',
+          role: 'Member',
+        },
       ]}
       columns={[
         {

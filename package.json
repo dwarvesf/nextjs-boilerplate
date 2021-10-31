@@ -14,7 +14,7 @@
     "generate-icons": "node ./scripts/generate-icon-components.js",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook -s ./public",
-    "fetch-definitions": "swagger-typescript-api --no-client -p https://petstore.swagger.io/v2/swagger.json -o ./types -n schema.ts",
+    "fetch-definitions": "swagger-typescript-api --no-client -p ./libs/swagger.json -o ./types -n schema.ts",
     "cypress:open": "cypress open"
   },
   "dependencies": {
