@@ -112,7 +112,7 @@ a guarantee of production readiness.
 
 ## Linting
 
-This monorepo includes a complete static code analysis setup. It's composed of
+This repo includes a complete static code analysis setup. It's composed of
 [ESLint](http://eslint.org/) and [Prettier](https://prettier.io/).
 
 We recommend that you install the relevant IDE extensions for each one of these
