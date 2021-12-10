@@ -20,6 +20,7 @@
       "files": ["**/*.ts?(x)", "**/*.js?(x)"],
       "rules": {
         "react/react-in-jsx-scope": "off",
+        "react/function-component-definition": "off",
         "no-shadow": "off",
         "jsx-a11y/anchor-is-valid": [
           "error",
