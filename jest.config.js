@@ -1,12 +1,13 @@
-const TEST_REGEX = '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|js?|tsx?|ts?)$'
+const nextJest = require('next/jest')
 
-module.exports = {
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-  testRegex: TEST_REGEX,
-  transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
-    '^.+\\.css$': '<rootDir>/config/jest/cssTransform.js',
-  },
+const createJestConfig = nextJest({
+  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
+  dir: './',
+})
+
+// Add any custom config to be passed to Jest
+const customJestConfig = {
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   moduleNameMapper: {
     '^components/(.*)$': '<rootDir>/components/$1',
     '^utils/(.*)$': '<rootDir>/utils/$1',
@@ -14,8 +15,8 @@ module.exports = {
     '^pages/(.*)$': '<rootDir>/pages/$1',
     '^context/(.*)$': '<rootDir>/context/$1',
     '^libs/(.*)$': '<rootDir>/libs/$1',
-    '\\.(css|less|scss)$': '<rootDir>/config/jest/cssTransform.js',
   },
+  testEnvironment: 'jest-environment-jsdom',
   testPathIgnorePatterns: [
     '<rootDir>/.next/',
     '<rootDir>/types/',
@@ -46,3 +47,6 @@ module.exports = {
   ],
   coverageProvider: 'v8',
 }
+
+// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
+module.exports = createJestConfig(customJestConfig)

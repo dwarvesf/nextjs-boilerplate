@@ -3,6 +3,7 @@ const path = require('path')
 const fsPromise = require('fs').promises
 const fs = require('fs')
 const prettier = require('prettier')
+const babel = require('@babel/core')
 
 const prettierConfig = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, '../.prettierrc')).toString(),
@@ -11,20 +12,29 @@ const prettierConfig = JSON.parse(
 const formatCode = (code) =>
   prettier.format(code, { parser: 'babel', ...prettierConfig })
 
-const generateIconComponentContent = (
-  componentName,
-  baseNameWithoutExtension,
-) =>
-  formatCode(
+const generateIconComponentContent = (componentName, path) => {
+  const content = fs.readFileSync(path)
+
+  const { code } = babel.transform(content, {
+    plugins: [['inline-react-svg', { filename: '' }]],
+    presets: ['@babel/preset-react'],
+  })
+
+  return formatCode(
     `
 // This file is generated using scripts/generate-icon-components/utils.js
 // Don't edit it manually
-import { ReactComponent as ${componentName} } from '../svg/${baseNameWithoutExtension}.svg';
+import React from 'react';
 
+const ${componentName} = (props: React.HTMLAttributes<SVGElement>) => ${code.replace(
+      '{',
+      '{ ...props,',
+    )}
 
 export { ${componentName} };
 `,
   )
+}
 
 const kebab2Pascal = (inputStr) =>
   inputStr
@@ -45,7 +55,7 @@ const getSvgInfos = () => {
     return {
       componentContent: generateIconComponentContent(
         componentName,
-        baseNameWithoutExtension,
+        svgFilePath,
       ),
       componentName,
     }
