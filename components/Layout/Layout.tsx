@@ -45,7 +45,7 @@ export const Layout = ({ children }: WithChildren) => {
 
   return (
     <div className="flex h-full bg-gray-100">
-      <aside className="w-72 bg-gray-800 h-screen p-4 flex justify-between flex-col">
+      <aside className="w-72 bg-gray-800 min-h-screen p-4 flex justify-between flex-col">
         <div className="space-y-5">
           <Logo hasText />
           <nav className="space-y-1">
