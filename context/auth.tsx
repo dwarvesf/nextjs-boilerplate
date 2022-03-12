@@ -23,7 +23,7 @@ const user = {
 
 const AuthContextProvider = ({ children }: WithChildren) => {
   const [isLogin, setIsLogin] = useState(() => {
-    return isSSR() ? true : Boolean(window.localStorage.getItem(tokenKey))
+    return isSSR() ? false : Boolean(window.localStorage.getItem(tokenKey))
   })
 
   const login = useCallback((email: string, password: string) => {
