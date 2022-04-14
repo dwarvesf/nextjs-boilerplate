@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "./node_modules/@dwarvesf/react-eslint-config",
-    "plugin:cypress/recommended"
-  ],
+  "extends": ["./node_modules/@dwarvesf/react-eslint-config"],
   "globals": {
     "tw": true,
     "chrome": true
