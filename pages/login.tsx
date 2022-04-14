@@ -26,7 +26,7 @@ const LoginPage = () => {
     try {
       login(data.email, data.password)
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 
