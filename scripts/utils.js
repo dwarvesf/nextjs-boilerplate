@@ -104,7 +104,7 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 ${importStatements}
 
-const icons = [${iconInitializer}];
+const icons: [React.FC<React.SVGProps<SVGSVGElement>>, string][] = [${iconInitializer}];
 
 storiesOf('components/icons', module).add('all icons', () => (
   <div className="flex flex-wrap">
