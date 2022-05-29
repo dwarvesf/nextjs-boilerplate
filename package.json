@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "test:ci": "jest --env=jsdom --coverage --watchAll=false --maxWorkers=2",
+    "test:ci": "jest --coverage --watchAll=false --maxWorkers=2",
     "format": "prettier -c --write \"*/**\"",
     "lint": "eslint . --ext .ts,.tsx,.js && stylelint '**/*.css'",
     "lint:fix": "eslint . --ext .ts,.tsx,.js --fix && stylelint '**/*.css' --fix",
