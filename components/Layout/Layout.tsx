@@ -8,7 +8,7 @@ import { WithChildren } from 'types/common'
 import { Logo } from 'components/Logo'
 import { Header } from 'components/Header'
 import { useAuthContext } from 'context/auth'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { IconBookOpen } from 'components/icons/components/IconBookOpen'
 import { IconSwitchVertical } from 'components/icons/components/IconSwitchVertical'
 
@@ -29,6 +29,7 @@ const menuItems = [
 
 export const Layout = ({ children }: WithChildren) => {
   const { pathname } = useRouter()
+  const [hydrated, setHydrated] = useState(false)
 
   const { isLogin } = useAuthContext()
   const { push } = useRouter()
@@ -36,10 +37,12 @@ export const Layout = ({ children }: WithChildren) => {
   useEffect(() => {
     if (!isLogin) {
       push(ROUTES.LOGIN)
+    } else {
+      setHydrated(true)
     }
   }, [isLogin, push])
 
-  if (!isLogin) {
+  if (!isLogin || !hydrated) {
     return null
   }
 
