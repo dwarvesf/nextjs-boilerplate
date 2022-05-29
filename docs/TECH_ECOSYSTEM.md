@@ -1,9 +1,9 @@
-# Tech Ecosystem
+# Tech ecosystem
 
 The [GETTING_STARTED.md](./GETTING_STARTED.md) gives you adequate information on
 how to install dependencies and launch the app. Once you've done that, this
 document is intended to give you a taste of how an app works, and more
-important, why we choose the technology. It still assumes basic knowledge of
+importantly, why we choose the technology. It still assumes basic knowledge of
 React and [Next.js](https://nextjs.org/docs/getting-started). **If you're
 completely new to React, please refer to https://github.com/petehunt/react-howto
 instead!**
@@ -47,10 +47,10 @@ TypeScript support, smart bundling, route pre-fetching.
 
 ### TypeScript
 
-We are adopting TypeScript to our code base. Forcing to write strongly-typed
+We are adopting TypeScript to our codebase. Forcing to write strongly-typed
 syntax while you are familiar with dynamic/multi-paradigm scripting language
 like JavaScript is sometimes annoying, even for experienced developers. However,
-the drawback can be outweighted by following benefits when coming to write a
+the drawback can be outweighed by the following benefits when coming to write a
 medium to large sized applications:
 
 - [x] Catching your bugs at compile-time as you type them.
@@ -63,7 +63,7 @@ medium to large sized applications:
 
 We use [SWR](https://swr.vercel.app/) to be the main way of retrieving data in
 React apps. The strategy is to first return the data from cache (stale), then
-send the fetch request (revalidate), and finally come with the up-to-date data.
+send the fetch request (revalidate), and finally, come with the up-to-date data.
 With SWR, components will get a stream of data updates constantly and
 automatically. And the UI will be always fast and reactive. It features:
 
@@ -94,7 +94,7 @@ moving quickly, regardless of experience levels:
 - [x] **Tiny production build**: automatically removes all unused CSS when
       building for production, which means your final CSS bundle is the smallest
       it could possibly be.
-- [x] **Mobile first**: throw a screen size in front of literally any utility
+- [x] **Mobile-first**: throw a screen size in front of literally any utility
       class and watch it magically apply at a specific breakpoint.
 - [x] **Customization**: although Tailwind includes an expertly crafted set of
       defaults out-of-the-box, but literally everything can be customized via
@@ -102,9 +102,9 @@ moving quickly, regardless of experience levels:
 
 ## Architecture
 
-Most of frontend applications consist of four layers: Service connector, State
-management, Logic and UI. We opinionate about the technology for each layer with
-a guarantee of production readiness.
+Most of the frontend applications consist of four layers: Service connector,
+State management, Logic and UI. We opinionate about the technology for each
+layer with a guarantee of production readiness.
 
 <div align="center">
     <img src="./img/architecture.png"  align="center" />

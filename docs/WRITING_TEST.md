@@ -2,7 +2,7 @@
 
 Testing your application is a vital part of serious development. For the
 front-end, you don't need 100% code coverage, about 70% is probably good enough.
-Following
+Following are some principles:
 
 - _Write tests. Not too many. Mostly integration_.
 - Tests should make you more productive not slow you down. Maintaining tests can

@@ -1,4 +1,4 @@
-# Setting Up Your Editor
+# Setting up your editor
 
 You can edit the Project using any editor or IDE, but there are a few extra
 steps that you can take to make sure your coding experience is as good as it can
