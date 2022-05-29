@@ -3,6 +3,7 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
+    "types": ["jest"],
     "lib": ["dom", "es2017"],
     "moduleResolution": "node",
     "allowJs": true,
@@ -22,7 +23,6 @@
     "baseUrl": "./",
     "incremental": true
   },
-  "exclude": ["node_modules"],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
@@ -31,5 +31,6 @@
     "scripts/**/*.js",
     "./jest.setup.js",
     "./cypress/tests/*.ts"
-  ]
+  ],
+  "exclude": ["node_modules", "**/*.test.ts"]
 }
