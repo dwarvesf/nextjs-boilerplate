@@ -48,9 +48,7 @@ export function Table<T>(props: TableProps<T>) {
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
-                    <td className="px-0 py-4">
-                      <Skeleton className="w-40 max-w-full h-4 rounded-sm" />
-                    </td>
+                    <Skeleton className="w-40 max-w-full h-4 rounded-sm" />
                   </th>
                 ))}
               </tr>

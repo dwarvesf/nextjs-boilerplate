@@ -35,9 +35,7 @@ class MyApp extends App {
         </Head>
         <AuthContextProvider>
           <NProgressHandler />
-          <main>
-            <Component {...pageProps} />
-          </main>
+          <Component {...pageProps} />
         </AuthContextProvider>
         <Toaster />
       </>
