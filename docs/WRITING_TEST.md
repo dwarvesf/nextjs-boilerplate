@@ -20,9 +20,6 @@ Following are some principles:
   [Cypress](https://www.cypress.io/), and
   [Mock service worker](https://github.com/mswjs/msw).
 
-If you've never done this before start with **unit testing**. Move on to
-**component testing** when you feel like you understand that!
-
 ## Unit testing
 
 Unit testing is the practice of testing the smallest possible units of our code,
@@ -30,9 +27,9 @@ functions. We run our tests and automatically verify that our functions do the
 thing we expect them to do. We assert that, given a set of inputs, our functions
 return the proper values and handle problems.
 
-This app uses the Jest test framework to run tests and make assertions. This
-library makes writing tests as easy as speaking - you describe a unit of your
-code and expect it to do the correct thing.
+We use the Jest test framework to run tests and make assertions. This library
+makes writing tests as easy as speaking - you describe a unit of your code and
+expect it to do the correct thing.
 
 For the sake of this guide, lets pretend we're testing this function. It's
 situated in the `number.ts` file:
@@ -202,7 +199,7 @@ describe('<Button />', () => {
 Let's start by ensuring that it renders our component and no changes happened to
 it since the last time it was successfully tested.
 
-We will do so by rendering it and creating a
+We will do so by rendering the component and creating a
 _[snapshot](https://jestjs.io/docs/en/snapshot-testing)_ which can be compared
 with a previously committed snapshot. If no snapshot exists, a new one is
 created.
@@ -230,8 +227,8 @@ As this is rendered within a _normal_ DOM we can query our component with
 placed in the `__snapshots__` folder within our `tests` folder. Make sure you
 commit these snapshots to your repository.
 
-Great! So, now if anyone makes any change to our `<Button />` component the test
-will fail and we get notified of what changed.
+So, now if anyone makes any change to our `<Button />` component the test will
+fail and we get notified of what changed.
 
 **Further reading:**
 
@@ -289,17 +286,87 @@ And that's how you unit test your components and make sure they work correctly!
 Feel free to come and find the real implementation from
 [components/Button/Button.test.tsx](../components/Button/Button.test.tsx).
 
-**Integration testing**
+## Integration testing
 
-// WIP
+The unit and component testing might ensure the single responisibilty of a
+function or a UI component but we cannot guarantee they work as expected when
+being integrated as a whole. That's why integration testing comes in to confirm
+that an aggregate of a system works together correctly or otherwise exposes
+errorous behavior between two or more units of code.
 
-## API testing
+You can choose to write integration tests by using
+[React testing library](https://testing-library.com/docs/react-testing-library/intro/)
+or [Cypress](https://www.cypress.io/). The test should aim to resemble user's
+persepective, how users access information on the app and interact with
+available controls in a stimulate browser. Below is an example of testing the
+sign-up flow with Cypress:
 
-// WIP
+```js
+describe('User Sign-up and Login', () => {
+  it('should redirect unauthenticated user to login page', () => {
+    cy.visit('/')
+    cy.location('pathname').should('equal', '/login')
+  })
 
-## E2E testing
+  it('should redirect unauthenticated user to login page', function () {
+    cy.visit('/forms')
+    cy.location('pathname').should('equal', '/login')
+  })
 
-// WIP
+  it('should allow a visitor to sign-up, login, and logout', function () {
+    const userInfo = {
+      email: 'test@d.foundation',
+      password: 'test',
+    }
+
+    cy.visit('/')
+    cy.get('[name="email"]').type(userInfo.email)
+    cy.get('[name="password"]').type(userInfo.password).type('{enter}')
+    cy.location('pathname').should('equal', '/')
+    cy.get('[data-testid="profile-button"]').click()
+    cy.get('[data-testid="logout-button"]').click()
+    cy.location('pathname').should('equal', '/login')
+  })
+})
+```
+
+If the test requires API calls, make sure they are mocked up to work **without
+the need of a real server**.
+
+Here's an example of an integration test that uses
+[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+and [Mock Service Worker](https://github.com/mswjs/msw):
+
+```js
+import { setupWorker, rest } from 'msw'
+
+const worker = setupWorker(
+  rest.post('/login', (req, res, ctx) => {
+    return res(
+      ctx.delay(1500),
+      ctx.status(202, 'Mocked status'),
+      ctx.json({
+        message: 'Mocked response JSON body',
+      }),
+    )
+  }),
+)
+
+worker.start()
+```
+
+And here's how to use Cypress and intercept the network request for an
+integration test:
+
+```js
+// requests to '/login' will be fulfilled
+// with a body of "success"
+cy.intercept('/login', 'Mocked response JSON body')
+```
+
+Note: sometimes, it's required to have e2e tests by making requests against a
+real backend server. In that case, we need to ensure network latency and
+availability of the server are not the factor causing the test to fail.
 
 ## Read on:
 
