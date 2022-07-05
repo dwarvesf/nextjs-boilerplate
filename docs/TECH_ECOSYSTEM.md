@@ -37,6 +37,16 @@ instead!**
 
 ## Basic Building Blocks
 
+### React
+
+When we choose a technology, the first question always is "**did that technology
+achieve a certain level of stability and maturity?**". Quick wins are great, but
+products, teams, and infrastructure evolving into new things can only be created
+with years of effort. React has been proven to be the answer when the question
+comes to selecting our frontend backbone. Not many frameworks evolving over a
+decade can still maintain the right balance of stability, performance, and
+usability like React.
+
 ### Next.js
 
 Production grade React applications that scale, we list
@@ -44,6 +54,19 @@ Production grade React applications that scale, we list
 a React app. The opinionated framework gives you the best developer experience
 with all the features you need for production: hybrid static & server rendering,
 TypeScript support, smart bundling, route pre-fetching.
+
+### React Context
+
+We don't advocate for any state management library at the moment. One of the
+reasons libraries like Redux were so successful is because they solved the
+problem of [prop drilling](https://kentcdodds.com/blog/prop-drilling). However,
+the born of [Context API](https://reactjs.org/docs/context.html) made it easy to
+pass data through the component tree without having to pass props down manually
+at every level. More importantly, we think most applications don't need a
+complicated global state, and Context API is more than enough to solve that
+uncomplex problem. Our philosophy in React state management is simple: try to
+keep state as local as possible and use React context when prop drilling becomes
+a worry.
 
 ### TypeScript
 
@@ -61,11 +84,11 @@ medium to large sized applications:
 
 ### SWR
 
-We use [SWR](https://swr.vercel.app/) to be the main way of retrieving data in
-React apps. The strategy is to first return the data from cache (stale), then
-send the fetch request (revalidate), and finally, come with the up-to-date data.
-With SWR, components will get a stream of data updates constantly and
-automatically. And the UI will be always fast and reactive. It features:
+We use [SWR](https://swr.vercel.app/) as the caching layer for the backend data
+to ensure the UI will be always fast and reactive. The strategy is to first
+return the data from cache (stale), then send the fetch request (revalidate),
+and finally, come with the up-to-date data. The data can be dynamic and
+self-updated overtime. It features:
 
 - [x] Transport and protocol agnostic data fetching
 - [x] Fast page navigation
@@ -80,7 +103,7 @@ If you are going to use a package for your forms, we recommend
 [react-hook-forms](https://github.com/react-hook-form/react-hook-form). It is a
 great balance of good performance and good developer experience.
 
-### Tailwind
+### TailwindCSS
 
 We are using `tailwind` to do styling and it scales pretty well when combining
 headless components and hooks to build the presentation layer. The choice was
