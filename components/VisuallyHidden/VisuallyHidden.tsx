@@ -1,7 +1,8 @@
-import { As, Box, BoxProps, ComponentWithAs } from 'components/Box'
+import { Box, BoxProps } from 'components/Box'
 import React from 'react'
+import { CompWithAsProp } from 'utils/render'
 
-export const VisuallyHidden: ComponentWithAs<BoxProps, 'span'> = ({
+export const VisuallyHidden: CompWithAsProp<BoxProps, 'span'> = ({
   as = 'span',
   ...props
-}) => <Box as={as as As} {...props} className="sr-only" />
+}) => <Box as={as as any} {...props} className="sr-only" />

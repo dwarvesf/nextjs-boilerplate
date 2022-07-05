@@ -11,10 +11,11 @@ export const FormErrorInfoMessage: React.FC<
   />
 )
 
-export const FormInfoMessage: React.FC<HTMLAttributes<HTMLParagraphElement>> =
-  ({ className, ...rest }) => (
-    <Text
-      className={cx('text-sm text-gray-500 leading-normal mt-1', className)}
-      {...rest}
-    />
-  )
+export const FormInfoMessage: React.FC<
+  HTMLAttributes<HTMLParagraphElement>
+> = ({ className, ...rest }) => (
+  <Text
+    className={cx('text-sm text-gray-500 leading-normal mt-1', className)}
+    {...rest}
+  />
+)

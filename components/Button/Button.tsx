@@ -2,17 +2,19 @@ import React from 'react'
 import cx from 'classnames'
 import { BaseButton, BaseButtonProps } from 'components/BaseButton'
 import { IconSpinner } from 'components/icons/components/IconSpinner'
-import { forwardRefWithAs, PropsWithAs } from 'components/Box'
+import { forwardRefWithAs } from 'utils/render'
+import { WithChildren } from 'types/common'
 import { ButtonAppearance } from '../BaseButton/types'
 import { getappearanceButtonStyles } from '../BaseButton/utils'
 
-export interface ButtonProps extends BaseButtonProps {
+export interface ButtonProps extends WithChildren<BaseButtonProps> {
   appearance?: ButtonAppearance
   fullWidth?: boolean
   iconPosition?: 'left' | 'right'
   loading?: boolean
   disabled?: boolean
   Icon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
+  asLabel?: boolean
 }
 
 function getButtonStyles({
@@ -20,7 +22,7 @@ function getButtonStyles({
   fullWidth = false,
   loading,
   appearance,
-}: ButtonProps) {
+}: Omit<ButtonProps, 'children'>) {
   const classNames = ['relative']
 
   if (fullWidth) {
@@ -52,58 +54,57 @@ function getButtonStyles({
   return classNames
 }
 
-const ButtonComponent = (
-  {
-    size = 'md',
-    appearance = 'default',
-    Icon,
-    iconPosition = 'left',
-    children: originChildren,
-    loading = false,
-    asLabel = false,
-    css,
-    className,
-    fullWidth = false,
-    ...props
-  }: PropsWithAs<ButtonProps>,
-  ref: React.Ref<HTMLButtonElement>,
-) => {
-  let children = originChildren
+export const Button = forwardRefWithAs<'button', ButtonProps>(
+  (
+    {
+      size = 'md',
+      appearance = 'default',
+      Icon,
+      iconPosition = 'left',
+      children: originChildren,
+      loading = false,
+      asLabel = false,
+      className,
+      fullWidth = false,
+      ...props
+    },
+    ref,
+  ) => {
+    let children = originChildren
 
-  if (loading) {
-    children = (
-      <>
-        <span className="absolute inset-0 flex items-center justify-center">
-          <IconSpinner />
-        </span>
-        <span className="text-transparent">{children}</span>
-      </>
+    if (loading) {
+      children = (
+        <>
+          <span className="absolute inset-0 flex items-center justify-center">
+            <IconSpinner />
+          </span>
+          <span className="text-transparent">{children}</span>
+        </>
+      )
+    } else if (Icon) {
+      children = (
+        <>
+          {iconPosition === 'left' && <Icon className="mr-1.5" />}
+          <span>{children}</span>
+          {iconPosition === 'right' && <Icon className="ml-1.5" />}
+        </>
+      )
+    }
+
+    const passedInProps = { ...props, fullWidth, size, appearance, asLabel }
+
+    return (
+      <BaseButton
+        ref={ref}
+        {...props}
+        className={cx(
+          className,
+          getButtonStyles(passedInProps),
+          getappearanceButtonStyles(passedInProps),
+        )}
+      >
+        {children}
+      </BaseButton>
     )
-  } else if (Icon) {
-    children = (
-      <>
-        {iconPosition === 'left' && <Icon className="mr-1.5" />}
-        <span>{children}</span>
-        {iconPosition === 'right' && <Icon className="ml-1.5" />}
-      </>
-    )
-  }
-
-  const passedInProps = { ...props, fullWidth, size, appearance, asLabel }
-
-  return (
-    <BaseButton
-      ref={ref}
-      {...props}
-      className={cx(
-        className,
-        getButtonStyles(passedInProps),
-        getappearanceButtonStyles(passedInProps),
-      )}
-    >
-      {children}
-    </BaseButton>
-  )
-}
-
-export const Button = forwardRefWithAs<ButtonProps, 'button'>(ButtonComponent)
+  },
+)

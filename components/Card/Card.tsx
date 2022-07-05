@@ -1,21 +1,18 @@
 import React from 'react'
 import cx from 'classnames'
-import { Box, forwardRefWithAs, PropsWithAs } from 'components/Box'
+import { Box } from 'components/Box'
 import { WithChildren } from 'types/common'
+import { forwardRefWithAs } from 'utils/render'
 
-type CardProps = WithChildren<{
-  shadow?: boolean
-  spacing?: boolean
-  className?: string
-  onClick?: () => void
-}>
+interface CardProps
+  extends WithChildren<{
+    shadow?: boolean
+    spacing?: boolean
+    className?: string
+    onClick?: () => void
+  }> {}
 
-type DefaultElement = 'div'
-
-const CardComponent = (
-  props: PropsWithAs<CardProps, DefaultElement>,
-  ref: React.Ref<HTMLDivElement>,
-) => {
+export const Card = forwardRefWithAs<'div', CardProps>((props, ref) => {
   const {
     children,
     shadow = true,
@@ -39,6 +36,4 @@ const CardComponent = (
       {children}
     </Box>
   )
-}
-
-export const Card = forwardRefWithAs<CardProps, DefaultElement>(CardComponent)
+})
