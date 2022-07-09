@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import NProgress from 'nprogress'
 
-NProgress.configure({ showSpinner: false, speed: 1000 })
+NProgress.configure({ showSpinner: false, speed: 750 })
 
 const NProgressHandler = () => {
   const router = useRouter()

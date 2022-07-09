@@ -1,6 +1,8 @@
 /* purgecss start ignore */
 #nprogress {
   pointer-events: none;
+  z-index: 99999999;
+  position: relative;
 }
 
 #nprogress .bar {
