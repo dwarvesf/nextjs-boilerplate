@@ -86,7 +86,9 @@ export function createFormElement<TFromElement, TNonNativeOnChange = any>(
           />
 
           {isError ? (
-            <FormErrorInfoMessage>{errors[name].message}</FormErrorInfoMessage>
+            <FormErrorInfoMessage>
+              {errors[name]?.message as string}
+            </FormErrorInfoMessage>
           ) : null}
 
           {!isError && helpText ? (
