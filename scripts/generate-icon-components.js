@@ -9,7 +9,7 @@ const {
   generateStoryBookContent,
 } = require('./utils')
 
-const iconsPath = path.resolve(__dirname, '../components/icons/components/')
+const iconsPath = path.resolve(__dirname, '../src/components/icons/components/')
 // recreate icon folder, clear possible stale file
 rimraf.sync(iconsPath)
 fs.mkdirSync(iconsPath)
@@ -19,7 +19,7 @@ const svgInfos = getSvgInfos()
 Promise.all(svgInfos.map(generateFileBasedOnSvgInfo))
   .then(() => {
     fs.writeFileSync(
-      path.resolve(__dirname, '../components/icons/Icons.stories.tsx'),
+      path.resolve(__dirname, '../src/components/icons/Icons.stories.tsx'),
       generateStoryBookContent(svgInfos),
     )
 

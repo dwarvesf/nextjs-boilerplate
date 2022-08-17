@@ -20,7 +20,7 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "baseUrl": "./",
+    "baseUrl": "./src/",
     "incremental": true
   },
   "include": [
@@ -30,7 +30,8 @@
     "**.config.js",
     "scripts/**/*.js",
     "./jest.setup.js",
-    "./cypress/tests/*.ts"
+    "./cypress/tests/*.ts",
+    "src/utils/tests/string.test.ts"
   ],
   "exclude": ["node_modules", "**/*.test.ts"]
 }
