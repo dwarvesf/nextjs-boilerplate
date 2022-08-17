@@ -43,7 +43,7 @@ const kebab2Pascal = (inputStr) =>
     .join('')
 
 const getSvgInfos = () => {
-  const svgFilePaths = glob.sync('./components/icons/svg/*.svg')
+  const svgFilePaths = glob.sync('./src/components/icons/svg/*.svg')
 
   //assets/icons/setting-bar.svg
   return svgFilePaths.map((svgFilePath) => {
@@ -65,7 +65,7 @@ const getSvgInfos = () => {
 const generateFileBasedOnSvgInfo = (svgInfo) => {
   const filePath = path.resolve(
     __dirname,
-    '../components/icons/components/',
+    '../src/components/icons/components/',
     `${svgInfo.componentName}.tsx`,
   )
 
