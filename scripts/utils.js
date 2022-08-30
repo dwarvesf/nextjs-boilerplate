@@ -13,10 +13,8 @@ const formatCode = (code) =>
   prettier.format(code, { parser: 'babel', ...prettierConfig })
 
 const generateIconComponentContent = (componentName, path) => {
-  const content = fs.readFileSync(path)
-
-  const { code } = babel.transform(content, {
-    plugins: [['inline-react-svg', { filename: '' }]],
+  const { code } = babel.transformFileSync(path, {
+    plugins: ['./scripts/babel-plugin-camelize-jsx-attr.js'],
     presets: ['@babel/preset-react'],
   })
 
