@@ -5,7 +5,7 @@ import { FormCheckboxGroup } from '.'
 import { Button } from '../Button'
 import { Checkbox } from '../Checkbox'
 
-storiesOf('components/Form/FormCheckboxGroup', module).add('Basic', () => {
+storiesOf('components/Form/FormCheckboxGroup', module).add('default', () => {
   const formInstance = useForm({
     defaultValues: { stack: [] },
   })

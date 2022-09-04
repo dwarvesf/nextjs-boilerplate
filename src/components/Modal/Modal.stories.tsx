@@ -5,7 +5,7 @@ import { Text } from 'components/Text'
 import React from 'react'
 import { Modal, ModalCloseButton, ModalContent, ModalTitle } from '.'
 
-storiesOf('components/Modal', module).add('basic', () => {
+storiesOf('components/Modal', module).add('default', () => {
   const { isOpen, onClose, onOpen } = useDisclosure({ defaultIsOpen: true })
 
   return (

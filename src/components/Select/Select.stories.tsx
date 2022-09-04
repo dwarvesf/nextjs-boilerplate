@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Select } from '.'
 
-storiesOf('components/Select', module).add('basic', () => (
+storiesOf('components/Select', module).add('default', () => (
   <div className="max-w-[200px] space-y-4">
     <Select defaultValue="John Doe">
       <option value="John Doe">John Doe</option>

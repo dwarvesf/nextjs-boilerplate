@@ -3,7 +3,7 @@ import { Button } from 'components/Button'
 import React from 'react'
 import { toast, Toaster } from '.'
 
-storiesOf('components/Toast', module).add('basic', () => {
+storiesOf('components/Toast', module).add('default', () => {
   return (
     <div className="space-y-4 flex flex-col max-w-[200px]">
       <Button

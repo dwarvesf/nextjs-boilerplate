@@ -1,14 +1,15 @@
 import React from 'react'
 import cx from 'classnames'
 
-export type InputProps = {
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   fullWidth?: boolean
   filled?: boolean
   readOnly?: boolean
   value?: string
   invalid?: boolean
   type?: 'text' | 'date' | 'time' | 'email' | 'number' | 'tel' | 'password'
-} & React.InputHTMLAttributes<HTMLInputElement>
+}
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (props, ref) => {

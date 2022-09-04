@@ -4,7 +4,7 @@ import React from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import { FormSelect } from './FormSelect'
 
-storiesOf('components/form/FormSelect', module).add('basic', () => {
+storiesOf('components/form/FormSelect', module).add('default', () => {
   const formInstance = useForm({
     defaultValues: { assignee: 'John Doe' },
   })

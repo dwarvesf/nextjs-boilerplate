@@ -5,7 +5,7 @@ import { Checkbox } from './Checkbox'
 
 const stories = storiesOf('components/Checkbox', module)
 
-stories.add('basic', () => (
+stories.add('default', () => (
   <div className="space-y-3">
     <Checkbox>Valid</Checkbox>
     <Checkbox disabled>Disabled</Checkbox>

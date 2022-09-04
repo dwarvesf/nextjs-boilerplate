@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import { Alert, AlertTitle, AlertContent, AlertBody, AlertIcon } from '.'
 
-storiesOf('components/Alert', module).add('basic', () => {
+storiesOf('components/Alert', module).add('default', () => {
   return (
     <div className="space-y-4 max-w-2xl">
       <Alert onClose={() => alert('close me!')}>

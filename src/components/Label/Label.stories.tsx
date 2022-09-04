@@ -5,7 +5,7 @@ import { Input } from '../Input'
 
 const stories = storiesOf('components/Label', module)
 
-stories.add('basic', () => (
+stories.add('default', () => (
   <div className="space-y-4 max-w-sm">
     <div className="space-y-1">
       <Label htmlFor="fullname">Fullname</Label>

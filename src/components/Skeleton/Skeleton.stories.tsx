@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react'
 import { Card } from 'components/Card'
 import { Skeleton } from '.'
 
-storiesOf('components/Skeleton', module).add('basic', () => {
+storiesOf('components/Skeleton', module).add('default', () => {
   return (
     <div className="space-y-10">
       <div className="space-x-4 flex items-center">

@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import { Heading } from '.'
 
-storiesOf('components/Heading', module).add('basic', () => {
+storiesOf('components/Heading', module).add('default', () => {
   return (
     <div className="space-y-4">
       <Heading as="h1">(h1) In love with React & Next</Heading>

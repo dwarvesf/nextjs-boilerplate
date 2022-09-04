@@ -4,7 +4,7 @@ import React from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import { FormInput } from './FormInput'
 
-storiesOf('components/form/FormInput', module).add('basic', () => {
+storiesOf('components/form/FormInput', module).add('default', () => {
   const formInstance = useForm({
     defaultValues: { email: '', password: '' },
   })

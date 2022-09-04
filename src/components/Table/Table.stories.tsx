@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react'
 import { Badge } from 'components/Badge'
 import { Table } from '.'
 
-storiesOf('components/Table', module).add('basic', () => {
+storiesOf('components/Table', module).add('default', () => {
   return (
     <Table
       data={[

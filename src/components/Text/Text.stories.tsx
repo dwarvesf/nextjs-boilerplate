@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import { Text } from '.'
 
-storiesOf('components/Text', module).add('basic', () => {
+storiesOf('components/Text', module).add('default', () => {
   return (
     <div className="space-y-4">
       <Text className="text-6xl">(6xl) In love with React & Next</Text>

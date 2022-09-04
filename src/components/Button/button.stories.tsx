@@ -6,7 +6,7 @@ import { IconInformationCircleSolid } from 'components/icons/components/IconInfo
 import React from 'react'
 import { Button } from '.'
 
-storiesOf('components/Button', module).add('basic', () => (
+storiesOf('components/Button', module).add('default', () => (
   <div className="space-y-4">
     <div className="space-x-4 flex items-center">
       <Button size="sm">Click me</Button>

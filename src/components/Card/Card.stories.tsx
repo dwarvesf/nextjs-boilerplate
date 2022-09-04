@@ -4,7 +4,7 @@ import { Text } from 'components/Text'
 import React from 'react'
 import { Card } from '.'
 
-storiesOf('components/Card', module).add('basic', () => (
+storiesOf('components/Card', module).add('default', () => (
   <div className="space-y-4 max-w-2xl">
     <Card className="space-y-2" shadow>
       <Heading as="h3">Referral activities</Heading>
