@@ -1,6 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
-import { forwardRefWithAs } from 'utils/render'
+import { forwardRefWithAs } from 'utils/forwardRefWithAs'
 import { ButtonSize } from './types'
 
 export interface BaseButtonProps {

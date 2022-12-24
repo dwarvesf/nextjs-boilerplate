@@ -1,6 +1,6 @@
 import { Box, BoxProps } from 'components/Box'
 import React from 'react'
-import { CompWithAsProp } from 'utils/render'
+import { CompWithAsProp } from 'utils/forwardRefWithAs'
 
 export const VisuallyHidden: CompWithAsProp<BoxProps, 'span'> = ({
   as = 'span',

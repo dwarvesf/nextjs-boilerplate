@@ -2,7 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import { Box } from 'components/Box'
 import { WithChildren } from 'types/common'
-import { forwardRefWithAs } from 'utils/render'
+import { forwardRefWithAs } from 'utils/forwardRefWithAs'
 
 interface CardProps
   extends WithChildren<{
