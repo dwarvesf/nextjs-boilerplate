@@ -1,17 +1,14 @@
 import { Layout } from 'components/Layout'
 import { Heading } from 'components/Heading'
-import { useFetchWithCache } from 'hooks/useFetchWithCache'
-import { client, GET_PATHS } from 'libs/apis'
 import { Card } from 'components/Card'
 import { Text } from 'components/Text'
 import { Table } from 'components/Table'
 import { User } from 'types/schema'
 import { Badge } from 'components/Badge'
+import { useFetchUsers } from 'hooks/data/useFetchUsers'
 
 const DataFetchingPage = () => {
-  const { data, isFirstLoading } = useFetchWithCache(GET_PATHS.getUsers, () =>
-    client.getUsers(),
-  )
+  const { data, isFirstLoading } = useFetchUsers()
 
   return (
     <Layout>
