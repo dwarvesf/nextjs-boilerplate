@@ -55,21 +55,21 @@ export const Layout = ({ children }: WithChildren) => {
             {menuItems.map(({ Icon, name, href }) => {
               const external = href.startsWith('http')
               return (
-                <Link href={href} key={name}>
-                  <a
-                    target={external ? '_blank' : undefined}
-                    rel={external ? 'noopener' : undefined}
-                    className={cx(
-                      'flex w-full p-2 space-x-3 rounded-md',
-                      'bg-transparent duration-200 transition-all',
-                      {
-                        'bg-gray-900 text-gray-300': pathname === href,
-                        'text-gray-400 hover:text-gray-100': pathname !== href,
-                      },
-                    )}
-                  >
-                    <Icon className="w-6 h-6" /> <span>{name}</span>
-                  </a>
+                <Link
+                  href={href}
+                  key={name}
+                  target={external ? '_blank' : undefined}
+                  rel={external ? 'noopener' : undefined}
+                  className={cx(
+                    'flex w-full p-2 space-x-3 rounded-md',
+                    'bg-transparent duration-200 transition-all',
+                    {
+                      'bg-gray-900 text-gray-300': pathname === href,
+                      'text-gray-400 hover:text-gray-100': pathname !== href,
+                    },
+                  )}
+                >
+                  <Icon className="w-6 h-6" /> <span>{name}</span>
                 </Link>
               )
             })}
