@@ -1,8 +1,13 @@
-import { useFetchWithCache } from 'hooks/useFetchWithCache'
+import useSWR from 'swr'
 import { client } from 'libs/api'
 
-const KEY = 'GET_USERS'
+const SWR_KEY = 'GET_USERS'
 
 export function useFetchUsers() {
-  return useFetchWithCache(KEY, () => client.getUsers())
+  const { data, ...rest } = useSWR(SWR_KEY, () => client.getUsers())
+
+  return {
+    users: data,
+    ...rest,
+  }
 }
