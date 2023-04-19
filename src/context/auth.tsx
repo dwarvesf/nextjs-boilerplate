@@ -17,8 +17,7 @@ const tokenKey = 'df-token'
 const user = {
   firstName: 'Charlie',
   lastName: 'Puth',
-  avatar:
-    'https://cdn.lorem.space/images/face/.cache/150x150/jake-fagan-Y7C7F26fzZM-unsplash.jpg',
+  avatar: 'https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp',
 }
 
 const AuthContextProvider = ({ children }: WithChildren) => {
