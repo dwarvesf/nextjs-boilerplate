@@ -55,7 +55,7 @@ const DialogContent = React.forwardRef<
       {children}
       <DialogPrimitive.Close
         className={cx(
-          'absolute top-2 right-2 w-11 h-11 rounded-sm opacity-70 transition-opacity hover:opacity-100',
+          'absolute top-2 right-2 w-11 h-11 flex items-center justify-center rounded-sm opacity-70 transition-opacity hover:opacity-100',
           'focus:outline-none focus:ring-4 focus:ring-gray-100',
           'disabled:pointer-events-none data-[state=open]:bg-gray-100',
         )}

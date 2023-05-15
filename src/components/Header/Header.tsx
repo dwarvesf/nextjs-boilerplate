@@ -1,4 +1,3 @@
-import { useDisclosure } from '@dwarvesf/react-hooks'
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -10,12 +9,12 @@ import { IconLogout } from 'components/icons/components/IconLogout'
 import { IconPencilAlt } from 'components/icons/components/IconPencilAlt'
 import { Text } from 'components/Text'
 import { useAuthContext } from 'context/auth'
-import React from 'react'
+import React, { useState } from 'react'
 import { ProfileModal } from './ProfileModal'
 
 export const Header = () => {
   const { logout, user } = useAuthContext()
-  const { isOpen, onClose, onOpen } = useDisclosure()
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <header className="py-2 px-5 flex justify-end mx-auto">
@@ -35,13 +34,13 @@ export const Header = () => {
             {user.firstName}
           </Text>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-48">
+        <DropdownMenuContent align="end" className="w-48">
           <ProfileModal
             trigger={
               <DropdownMenuItem
                 onSelect={(event) => {
                   event.preventDefault()
-                  onOpen()
+                  setIsOpen(true)
                 }}
               >
                 <IconPencilAlt className="w-5 h-5 mr-2" />
@@ -49,7 +48,7 @@ export const Header = () => {
               </DropdownMenuItem>
             }
             open={isOpen}
-            onOpenChange={(open) => (open ? onOpen : onClose)}
+            onOpenChange={setIsOpen}
           />
 
           <DropdownMenuSeparator />
