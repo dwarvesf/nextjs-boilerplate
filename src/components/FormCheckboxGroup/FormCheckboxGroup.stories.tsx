@@ -1,11 +1,14 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import { FormCheckboxGroup } from '.'
 import { Button } from '../Button'
 import { Checkbox } from '../Checkbox'
 
-storiesOf('components/Form/FormCheckboxGroup', module).add('default', () => {
+export default {
+  title: 'components/Form/FormCheckboxGroup',
+}
+
+export const Default = () => {
   const formInstance = useForm({
     defaultValues: { stack: [] },
   })
@@ -34,4 +37,8 @@ storiesOf('components/Form/FormCheckboxGroup', module).add('default', () => {
       </form>
     </FormProvider>
   )
-})
+}
+
+Default.story = {
+  name: 'default',
+}

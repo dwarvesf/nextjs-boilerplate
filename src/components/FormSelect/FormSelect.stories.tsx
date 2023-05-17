@@ -1,10 +1,13 @@
-import { storiesOf } from '@storybook/react'
 import { Button } from 'components/Button'
 import React from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import { FormSelect } from './FormSelect'
 
-storiesOf('components/form/FormSelect', module).add('default', () => {
+export default {
+  title: 'components/form/FormSelect',
+}
+
+export const Default = () => {
   const formInstance = useForm({
     defaultValues: { assignee: 'John Doe' },
   })
@@ -36,4 +39,8 @@ storiesOf('components/form/FormSelect', module).add('default', () => {
       </form>
     </FormProvider>
   )
-})
+}
+
+Default.story = {
+  name: 'default',
+}

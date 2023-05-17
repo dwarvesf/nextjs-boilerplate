@@ -1,9 +1,12 @@
-import { storiesOf } from '@storybook/react'
 import { Button } from 'components/Button'
 import React from 'react'
 import { toast, Toaster } from '.'
 
-storiesOf('components/Toast', module).add('default', () => {
+export default {
+  title: 'components/Toast',
+}
+
+export const Default = () => {
   return (
     <div className="space-y-4 flex flex-col max-w-[200px]">
       <Button
@@ -44,4 +47,8 @@ storiesOf('components/Toast', module).add('default', () => {
       <Toaster />
     </div>
   )
-})
+}
+
+Default.story = {
+  name: 'default',
+}

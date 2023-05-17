@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/react'
 import { Button } from 'components/Button'
 import React from 'react'
 import {
@@ -11,7 +10,11 @@ import {
   DialogTrigger,
 } from '.'
 
-storiesOf('components/Dialog', module).add('default', () => {
+export default {
+  title: 'components/Dialog',
+}
+
+export const Default = () => {
   return (
     <div>
       <Dialog>
@@ -35,4 +38,8 @@ storiesOf('components/Dialog', module).add('default', () => {
       </Dialog>
     </div>
   )
-})
+}
+
+Default.story = {
+  name: 'default',
+}

@@ -1,8 +1,11 @@
-import { storiesOf } from '@storybook/react'
 import { Badge } from 'components/Badge'
 import { Table } from '.'
 
-storiesOf('components/Table', module).add('default', () => {
+export default {
+  title: 'components/Table',
+}
+
+export const Default = () => {
   return (
     <Table
       data={[
@@ -123,4 +126,8 @@ storiesOf('components/Table', module).add('default', () => {
       ]}
     />
   )
-})
+}
+
+Default.story = {
+  name: 'default',
+}

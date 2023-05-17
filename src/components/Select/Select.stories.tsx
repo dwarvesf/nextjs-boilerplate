@@ -1,8 +1,11 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Select } from '.'
 
-storiesOf('components/Select', module).add('default', () => (
+export default {
+  title: 'components/Select',
+}
+
+export const Default = () => (
   <div className="max-w-[200px] space-y-4">
     <Select defaultValue="John Doe">
       <option value="John Doe">John Doe</option>
@@ -15,4 +18,8 @@ storiesOf('components/Select', module).add('default', () => (
       <option value="Kim Scott">Kim Scott</option>
     </Select>
   </div>
-))
+)
+
+Default.story = {
+  name: 'default',
+}

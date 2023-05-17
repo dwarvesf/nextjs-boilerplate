@@ -1,7 +1,10 @@
-import { storiesOf } from '@storybook/react'
 import { Heading } from '.'
 
-storiesOf('components/Heading', module).add('default', () => {
+export default {
+  title: 'components/Heading',
+}
+
+export const Default = () => {
   return (
     <div className="space-y-4">
       <Heading as="h1">(h1) In love with React & Next</Heading>
@@ -12,4 +15,8 @@ storiesOf('components/Heading', module).add('default', () => {
       <Heading as="h6">(h6) In love with React & Next</Heading>
     </div>
   )
-})
+}
+
+Default.story = {
+  name: 'default',
+}
