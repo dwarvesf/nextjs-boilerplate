@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/react'
 import { Button } from 'components/Button'
 import React from 'react'
 import {
@@ -19,7 +18,11 @@ import {
   DropdownMenuRadioItem,
 } from '.'
 
-storiesOf('components/DropdownMenu', module).add('default', () => {
+export default {
+  title: 'components/DropdownMenu',
+}
+
+export const Default = () => {
   const [showBookmarks, setShowBookmarks] = React.useState<boolean>(true)
   const [position, setPosition] = React.useState('bottom')
 
@@ -92,4 +95,8 @@ storiesOf('components/DropdownMenu', module).add('default', () => {
       </DropdownMenuContent>
     </DropdownMenu>
   )
-})
+}
+
+Default.story = {
+  name: 'default',
+}

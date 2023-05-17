@@ -1,10 +1,13 @@
-import { storiesOf } from '@storybook/react'
 import { Heading } from 'components/Heading'
 import { Text } from 'components/Text'
 import React from 'react'
 import { Card } from '.'
 
-storiesOf('components/Card', module).add('default', () => (
+export default {
+  title: 'components/Card',
+}
+
+export const Default = () => (
   <div className="space-y-4 max-w-2xl">
     <Card className="space-y-2" shadow>
       <Heading as="h3">Referral activities</Heading>
@@ -16,4 +19,8 @@ storiesOf('components/Card', module).add('default', () => (
       </Text>
     </Card>
   </div>
-))
+)
+
+Default.story = {
+  name: 'default',
+}

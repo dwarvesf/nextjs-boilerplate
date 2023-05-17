@@ -1,8 +1,11 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import Input from './Input'
 
-storiesOf('components/Input', module).add('default', () => {
+export default {
+  title: 'components/Input',
+}
+
+export const Default = () => {
   return (
     <div className="space-y-4 max-w-sm">
       <Input fullWidth placeholder="Username" />
@@ -10,4 +13,8 @@ storiesOf('components/Input', module).add('default', () => {
       <Input fullWidth placeholder="Password" />
     </div>
   )
-})
+}
+
+Default.story = {
+  name: 'default',
+}

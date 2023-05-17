@@ -1,8 +1,11 @@
-import { storiesOf } from '@storybook/react'
 import { Card } from 'components/Card'
 import { Skeleton } from '.'
 
-storiesOf('components/Skeleton', module).add('default', () => {
+export default {
+  title: 'components/Skeleton',
+}
+
+export const Default = () => {
   return (
     <div className="space-y-10">
       <div className="space-x-4 flex items-center">
@@ -16,4 +19,8 @@ storiesOf('components/Skeleton', module).add('default', () => {
       </Card>
     </div>
   )
-})
+}
+
+Default.story = {
+  name: 'default',
+}

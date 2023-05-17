@@ -1,7 +1,10 @@
-import { storiesOf } from '@storybook/react'
 import { Text } from '.'
 
-storiesOf('components/Text', module).add('default', () => {
+export default {
+  title: 'components/Text',
+}
+
+export const Default = () => {
   return (
     <div className="space-y-4">
       <Text className="text-6xl">(6xl) In love with React & Next</Text>
@@ -14,4 +17,8 @@ storiesOf('components/Text', module).add('default', () => {
       <Text>In love with React & Next</Text>
     </div>
   )
-})
+}
+
+Default.story = {
+  name: 'default',
+}
