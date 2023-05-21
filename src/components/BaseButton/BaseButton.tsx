@@ -2,6 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import { forwardRefWithAs } from 'utils/forwardRefWithAs'
 import { ButtonSize } from './types'
+import styles from './BaseButton.style'
 
 export interface BaseButtonProps {
   size?: ButtonSize
@@ -19,13 +20,9 @@ export const BaseButton = forwardRefWithAs<'button', BaseButtonProps>(
     if (as === 'a' && props.target === '_blank') {
       rel = 'noopener noreferrer'
     }
+    const baseClassName = styles({ disabled: props.disabled })
 
-    const className = cx(
-      classNameProps,
-      'inline-flex justify-center items-center text-center whitespace-nowrap leading-none',
-      'focus:outline-none transition duration-200',
-      props.disabled ? 'cursor-not-allowed' : 'cursor-pointer',
-    )
+    const className = cx(classNameProps, baseClassName)
 
     return React.createElement(as, { className, ...rest, rel, ref })
   },

@@ -5,7 +5,7 @@ import { IconSpinner } from 'components/icons/components/IconSpinner'
 import { forwardRefWithAs } from 'utils/forwardRefWithAs'
 import { WithChildren } from 'types/common'
 import { ButtonAppearance } from '../BaseButton/types'
-import { getappearanceButtonStyles } from '../BaseButton/utils'
+import styles from './Button.style'
 
 export interface ButtonProps extends WithChildren<BaseButtonProps> {
   appearance?: ButtonAppearance
@@ -14,44 +14,6 @@ export interface ButtonProps extends WithChildren<BaseButtonProps> {
   loading?: boolean
   disabled?: boolean
   Icon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
-  asLabel?: boolean
-}
-
-function getButtonStyles({
-  size = 'md',
-  fullWidth = false,
-  loading,
-  appearance,
-}: Omit<ButtonProps, 'children'>) {
-  const classNames = ['relative']
-
-  if (fullWidth) {
-    classNames.push('w-full flex')
-  }
-
-  if (loading) {
-    classNames.push('cursor-default')
-  }
-
-  if (size === 'lg') {
-    classNames.push('text-base')
-  } else if (size === 'md') {
-    classNames.push('text-sm')
-  } else {
-    classNames.push('text-xs')
-  }
-
-  if (appearance !== 'link') {
-    if (size === 'lg') {
-      classNames.push('py-4 px-6 px-8')
-    } else if (size === 'md') {
-      classNames.push('px-5 py-3 ')
-    } else {
-      classNames.push('py-2 px-4 px-5')
-    }
-  }
-
-  return classNames
 }
 
 export const Button = forwardRefWithAs<'button', ButtonProps>(
@@ -63,7 +25,6 @@ export const Button = forwardRefWithAs<'button', ButtonProps>(
       iconPosition = 'left',
       children: originChildren,
       loading = false,
-      asLabel = false,
       className,
       fullWidth = false,
       ...props
@@ -71,6 +32,14 @@ export const Button = forwardRefWithAs<'button', ButtonProps>(
     ref,
   ) => {
     let children = originChildren
+
+    const baseClassName = styles({
+      fullWidth,
+      loading,
+      disabled: props.disabled,
+      appearance,
+      size,
+    })
 
     if (loading) {
       children = (
@@ -91,18 +60,8 @@ export const Button = forwardRefWithAs<'button', ButtonProps>(
       )
     }
 
-    const passedInProps = { ...props, fullWidth, size, appearance, asLabel }
-
     return (
-      <BaseButton
-        ref={ref}
-        {...props}
-        className={cx(
-          className,
-          getButtonStyles(passedInProps),
-          getappearanceButtonStyles(passedInProps),
-        )}
-      >
+      <BaseButton ref={ref} {...props} className={cx(className, baseClassName)}>
         {children}
       </BaseButton>
     )

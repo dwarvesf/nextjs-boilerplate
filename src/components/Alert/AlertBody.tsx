@@ -1,5 +1,6 @@
 import React, { HTMLAttributes } from 'react'
 import cx from 'classnames'
+import styles from './Alert.styles'
 
 export const AlertBody = ({
   className,
@@ -7,7 +8,7 @@ export const AlertBody = ({
   ...props
 }: HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div className={cx('space-y-1 pt-0.5', className)} {...props}>
+    <div className={cx(styles().body(), className)} {...props}>
       {children}
     </div>
   )

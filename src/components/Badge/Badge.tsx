@@ -1,5 +1,6 @@
 import React, { HTMLAttributes } from 'react'
 import cx from 'classnames'
+import styles from './Badge.style'
 
 interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
@@ -8,19 +9,9 @@ interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
 
 export const Badge = (props: BadgeProps) => {
   const { children, type = 'success', className, ...rest } = props
+  const baseClassName = styles({ type })
   return (
-    <div
-      className={cx(
-        'inline-flex text-sm font-medium rounded-full px-2',
-        {
-          'bg-green-100 text-green-700': type === 'success',
-          'bg-red-100 text-red-700': type === 'error',
-          'bg-yellow-100 text-yellow-700': type === 'warning',
-        },
-        className,
-      )}
-      {...rest}
-    >
+    <div className={cx(baseClassName, className)} {...rest}>
       {children}
     </div>
   )

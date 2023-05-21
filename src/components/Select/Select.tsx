@@ -1,6 +1,7 @@
 import { useId } from 'hooks/useId'
 import React from 'react'
 import cx from 'classnames'
+import styles from './Select.style'
 
 export interface SelectProps
   extends React.SelectHTMLAttributes<HTMLSelectElement> {
@@ -17,7 +18,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       invalid = false,
       ...rest
     } = props
-
+    const baseClassName = styles({ invalid })
     return (
       <select
         {...rest}
@@ -25,16 +26,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         id={id}
         dir="auto"
         aria-invalid={invalid}
-        className={cx(
-          'form-select w-full bg-white border rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 sm:text-sm',
-          {
-            'focus:ring-pink-500 focus:border-pink-500 border-gray-300':
-              !invalid,
-            'border-red-500 outline-none shadow-none focus:ring-0 focus:border-red-500':
-              invalid,
-          },
-          className,
-        )}
+        className={cx(baseClassName, className)}
       >
         {children}
       </select>
