@@ -8,7 +8,7 @@ interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
 
 export const Heading: React.FC<HeadingProps> = (props) => {
   const { className, as = 'h2', ...rest } = props
-  const baseClassName = styles({ size: as, bold: as === 'h1' || as === 'h2' })
+  const baseClassName = styles({ size: as })
 
   return createElement(as, {
     className: cx(className, baseClassName),

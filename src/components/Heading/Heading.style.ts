@@ -11,10 +11,16 @@ const styles = tv({
       h5: 'text-lg',
       h6: 'text-base',
     },
-    bold: {
-      true: 'font-bold',
-    },
   },
+  defaultVariants: {
+    size: 'h2',
+  },
+  compoundVariants: [
+    {
+      size: ['h1', 'h2'],
+      className: 'font-bold',
+    },
+  ],
 })
 
 export default styles
