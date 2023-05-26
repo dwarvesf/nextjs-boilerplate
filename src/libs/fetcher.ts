@@ -8,7 +8,7 @@ export default async function fetcher<JSON = any>(
 ): Promise<JSON> {
   const res = await fetch(input, init)
   if (res.ok) {
-    return res.json()
+    return res.json() as Promise<JSON>
   }
   const error = new Error(res.statusText) as FetcherError
   error.response = res
