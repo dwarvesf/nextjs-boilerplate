@@ -1,5 +1,6 @@
 const theme = require('tailwindcss/defaultTheme')
 const formPlugin = require('@tailwindcss/forms')
+const animatePlugin = require('tailwindcss-animate')
 
 module.exports = {
   content: [
@@ -21,5 +22,5 @@ module.exports = {
       },
     },
   },
-  plugins: [formPlugin],
+  plugins: [formPlugin, animatePlugin],
 }

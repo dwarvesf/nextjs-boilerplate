@@ -2,6 +2,10 @@ const path = require('path')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 module.exports = {
+  framework: {
+    name: '@storybook/nextjs',
+    options: {},
+  },
   stories: [
     '../src/components/**/*.stories.mdx',
     '../src/components/**/*.stories.@(js|jsx|ts|tsx)',
@@ -9,15 +13,7 @@ module.exports = {
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-storysource',
-    'storybook-addon-next-router',
-    {
-      name: '@storybook/addon-postcss',
-      options: {
-        postcssLoaderOptions: {
-          implementation: require('postcss'),
-        },
-      },
-    },
+    '@storybook/addon-styling',
   ],
   webpackFinal: async (config, { configType }) => {
     config.resolve.plugins = [

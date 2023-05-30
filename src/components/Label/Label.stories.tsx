@@ -1,11 +1,12 @@
-import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Label } from '.'
 import { Input } from '../Input'
 
-const stories = storiesOf('components/Label', module)
+export default {
+  title: 'components/Label',
+}
 
-stories.add('default', () => (
+export const Default = () => (
   <div className="space-y-4 max-w-sm">
     <div className="space-y-1">
       <Label htmlFor="fullname">Fullname</Label>
@@ -18,4 +19,8 @@ stories.add('default', () => (
       <Input id="email" placeholder="Enter email..." fullWidth />
     </div>
   </div>
-))
+)
+
+Default.story = {
+  name: 'default',
+}

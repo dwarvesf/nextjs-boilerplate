@@ -118,7 +118,10 @@ const DashboardPage = () => {
                           </span>
                         </div>
                         <div className="ml-4 flex-shrink-0">
-                          <a className="font-medium text-pink-600 hover:text-pink-500">
+                          <a
+                            className="font-medium text-pink-600 hover:text-pink-500"
+                            href="#download"
+                          >
                             Download
                           </a>
                         </div>
@@ -131,7 +134,10 @@ const DashboardPage = () => {
                           </span>
                         </div>
                         <div className="ml-4 flex-shrink-0">
-                          <a className="font-medium text-pink-600 hover:text-pink-500">
+                          <a
+                            className="font-medium text-pink-600 hover:text-pink-500"
+                            href="#download"
+                          >
                             Download
                           </a>
                         </div>

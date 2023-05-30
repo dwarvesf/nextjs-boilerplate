@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/react'
 import { IconCheckCircleSolid } from 'components/icons/components/IconCheckCircleSolid'
 import { IconCloseCircleSolid } from 'components/icons/components/IconCloseCircleSolid'
 import { IconExlamationCirleSolid } from 'components/icons/components/IconExlamationCirleSolid'
@@ -6,7 +5,11 @@ import { IconInformationCircleSolid } from 'components/icons/components/IconInfo
 import React from 'react'
 import { Button } from '.'
 
-storiesOf('components/Button', module).add('default', () => (
+export default {
+  title: 'components/Button',
+}
+
+export const Default = () => (
   <div className="space-y-4">
     <div className="space-x-4 flex items-center">
       <Button size="sm">Click me</Button>
@@ -83,4 +86,8 @@ storiesOf('components/Button', module).add('default', () => (
       </Button>
     </div>
   </div>
-))
+)
+
+Default.story = {
+  name: 'default',
+}

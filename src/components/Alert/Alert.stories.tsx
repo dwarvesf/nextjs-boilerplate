@@ -1,7 +1,10 @@
-import { storiesOf } from '@storybook/react'
 import { Alert, AlertTitle, AlertContent, AlertBody, AlertIcon } from '.'
 
-storiesOf('components/Alert', module).add('default', () => {
+export default {
+  title: 'components/Alert',
+}
+
+export const Default = () => {
   return (
     <div className="space-y-4 max-w-2xl">
       <Alert onClose={() => alert('close me!')}>
@@ -10,7 +13,9 @@ storiesOf('components/Alert', module).add('default', () => {
           <AlertTitle>Something went wrong!</AlertTitle>
           <AlertContent>
             Retry later or contact us for help.{' '}
-            <a className="text-gray-100 underline">Contact us</a>
+            <a className="text-gray-100 underline" href="#contact">
+              Contact us
+            </a>
           </AlertContent>
         </AlertBody>
       </Alert>
@@ -41,4 +46,8 @@ storiesOf('components/Alert', module).add('default', () => {
       </Alert>
     </div>
   )
-})
+}
+
+Default.story = {
+  name: 'default',
+}

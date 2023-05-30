@@ -8,7 +8,7 @@ import { Badge } from 'components/Badge'
 import { useFetchUsers } from 'hooks/data/useFetchUsers'
 
 const DataFetchingPage = () => {
-  const { data, isFirstLoading } = useFetchUsers()
+  const { users, isLoading } = useFetchUsers()
 
   return (
     <Layout>
@@ -20,8 +20,8 @@ const DataFetchingPage = () => {
       </div>
       <Card className="overflow-hidden" spacing={false}>
         <Table<User>
-          data={data || []}
-          isFirstLoading={isFirstLoading}
+          data={users || []}
+          isFirstLoading={isLoading}
           columns={[
             {
               name: 'name',
@@ -73,7 +73,10 @@ const DataFetchingPage = () => {
               width: '10%',
               className: 'text-right',
               render: () => (
-                <a className="text-pink-600 hover:text-pink-900 text-sm font-medium">
+                <a
+                  className="text-pink-600 hover:text-pink-900 text-sm font-medium"
+                  href="#edit"
+                >
                   Edit
                 </a>
               ),

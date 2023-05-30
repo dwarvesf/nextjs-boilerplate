@@ -98,25 +98,34 @@ const generateStoryBookContent = (svgInfos) => {
   const tpl = formatCode(`
 // This file is generated using scripts/generate-icon-components/utils.js
 // Don't edit it manually
-import { storiesOf } from '@storybook/react';
 import React from 'react';
 ${importStatements}
 
 const icons: [React.FC<React.SVGProps<SVGSVGElement>>, string][] = [${iconInitializer}];
 
-storiesOf('components/icons', module).add('all icons', () => (
+export default {
+  title: 'components/icons',
+}
+
+export const AllIcons = () => (
   <div className="flex flex-wrap">
     {icons.map(([Icon, displayName], index) => (
       <div
         key={index}
         className="w-1/6 flex items-center flex-col border-gray-100 border py-4"
       >
-        <Icon className="w-5 h-5"/>
-        <code className="bg-gray-100 text-sm px-2 py-1 mt-3 inline-block rounded">{displayName}</code>
+        <Icon className="w-5 h-5" />
+        <code className="bg-gray-100 text-sm px-2 py-1 mt-3 inline-block rounded">
+          {displayName}
+        </code>
       </div>
     ))}
   </div>
-));
+)
+
+AllIcons.story = {
+  name: 'all icons',
+}
   `)
 
   return tpl
