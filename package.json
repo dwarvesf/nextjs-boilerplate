@@ -22,7 +22,7 @@
   "dependencies": {
     "@dwarvesf/react-hooks": "^0.7.0",
     "@dwarvesf/react-utils": "^0.4.1",
-    "@next/bundle-analyzer": "^13.1.1",
+    "@next/bundle-analyzer": "^13.4.4",
     "@radix-ui/react-dialog": "^1.0.3",
     "@radix-ui/react-dropdown-menu": "^2.0.4",
     "@reach/auto-id": "^0.17.0",
