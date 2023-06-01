@@ -13,7 +13,9 @@ export const Default = () => {
           <AlertTitle>Something went wrong!</AlertTitle>
           <AlertContent>
             Retry later or contact us for help.{' '}
-            <a className="text-gray-100 underline">Contact us</a>
+            <a className="text-gray-100 underline" href="#contact">
+              Contact us
+            </a>
           </AlertContent>
         </AlertBody>
       </Alert>
