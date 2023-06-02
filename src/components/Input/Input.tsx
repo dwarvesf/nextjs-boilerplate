@@ -1,5 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
+import styles from './Input.style'
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -23,25 +24,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       className,
       ...rest
     } = props
+    const baseStyles = styles({ fullWidth, invalid })
+    const containerClassName = baseStyles.container()
+    const inputClassName = baseStyles.input()
 
     return (
-      <div
-        className={cx('relative inline-flex', {
-          'w-full': fullWidth,
-        })}
-      >
+      <div className={containerClassName}>
         <input
-          className={cx(
-            'h-10 focus:outline-none bg-transparent border rounded-lg px-3 py-2 appearance-none',
-            'bg-white placeholder-gray-500',
-            'text-sm appearance-none w-full block',
-            {
-              'border-red-600 text-red-900': invalid,
-              'border-gray-300 text-gray-900 focus:ring-pink-500 focus:border-pink-500 focus:ring-1':
-                !invalid,
-            },
-            className,
-          )}
+          className={cx(inputClassName, className)}
           {...rest}
           ref={ref}
           disabled={disabled}

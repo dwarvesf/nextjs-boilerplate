@@ -1,10 +1,10 @@
 import React from 'react'
-import cx from 'classnames'
 import { IconExlamationCirleSolid } from 'components/icons/components/IconExlamationCirleSolid'
 import { IconCloseCircleSolid } from 'components/icons/components/IconCloseCircleSolid'
 import { IconCheckCircleSolid } from 'components/icons/components/IconCheckCircleSolid'
 import { IconInformationCircleSolid } from 'components/icons/components/IconInformationCircleSolid'
 import { useAlertContext, AlertStatus } from './context'
+import styles from './Alert.styles'
 
 function getIcon(status: AlertStatus) {
   if (status === 'error') {
@@ -24,21 +24,10 @@ function getIcon(status: AlertStatus) {
 
 export const AlertIcon = () => {
   const { status } = useAlertContext()
-
-  const iconClassName = cx(
-    'text-xl flex-none inline-flex mr-4 mt-0.5 flex-none leading-none',
-    {
-      'text-red-400': status === 'error',
-      'text-green-400': status === 'success',
-      'text-yellow-400': status === 'warning',
-      'text-blue-400': status === 'info',
-    },
-  )
-
   const Icon = getIcon(status)
 
   return (
-    <div className={iconClassName}>
+    <div className={styles({ status }).icon()}>
       <Icon />
     </div>
   )

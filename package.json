@@ -35,7 +35,8 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.41.1",
     "react-hot-toast": "^2.4.0",
-    "swr": "^2.0.0"
+    "swr": "^2.0.0",
+    "tailwind-variants": "^0.1.5"
   },
   "devDependencies": {
     "@babel/helper-plugin-utils": "^7.20.2",

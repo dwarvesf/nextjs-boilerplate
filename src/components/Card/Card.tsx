@@ -3,6 +3,7 @@ import cx from 'classnames'
 import { Box } from 'components/Box'
 import { WithChildren } from 'types/common'
 import { forwardRefWithAs } from 'utils/forwardRefWithAs'
+import styles from './Card.style'
 
 interface CardProps
   extends WithChildren<{
@@ -21,18 +22,9 @@ export const Card = forwardRefWithAs<'div', CardProps>((props, ref) => {
     as = 'div',
     ...rest
   } = props
-
+  const baseClassName = styles({ shadow, spacing })
   return (
-    <Box
-      className={cx(
-        'bg-white sm:rounded-lg',
-        { shadow, 'px-4 py-5 sm:px-6': spacing },
-        className,
-      )}
-      ref={ref}
-      as={as}
-      {...rest}
-    >
+    <Box className={cx(baseClassName, className)} ref={ref} as={as} {...rest}>
       {children}
     </Box>
   )
