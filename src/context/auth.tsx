@@ -27,7 +27,7 @@ const AuthContextProvider = ({ children }: WithChildren) => {
 
   const login = useCallback((email: string, password: string) => {
     return new Promise((resolve, reject) => {
-      if (email === 'test@d.foundation' && password === 'test') {
+      if (email === 'test@d.foundation' && password === 'Thepassword1') {
         setIsLogin(true)
         window.localStorage.setItem(tokenKey, '1')
         resolve('success')
