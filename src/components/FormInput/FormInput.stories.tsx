@@ -1,15 +1,31 @@
 import { Button } from 'components/Button'
 import React from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
 import { FormInput } from './FormInput'
 
 export default {
   title: 'components/form/FormInput',
 }
 
+const validationSchema = z.object({
+  email: z.string().email(),
+  password: z
+    .string()
+    .min(8, 'Password must be at least 8 characters long')
+    .regex(/[A-Z]/, {
+      message: 'Password must contain at least 1 uppercase letter',
+    })
+    .regex(/\d/, {
+      message: 'Password must contain at least 1 numeric digit',
+    }),
+})
+
 export const Default = () => {
   const formInstance = useForm({
     defaultValues: { email: '', password: '' },
+    resolver: zodResolver(validationSchema),
   })
   const { handleSubmit, getValues } = formInstance
 
