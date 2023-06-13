@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { Card } from 'components/Card'
 import { Heading } from 'components/Heading'
 import { FormProvider, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
 import { FormInput } from 'components/FormInput'
 import { Button } from 'components/Button'
 import { Text } from 'components/Text'
@@ -13,12 +15,25 @@ import { ROUTES } from 'constants/routes'
 import { Logo } from 'components/Logo'
 
 const loginFormDefaultValues = { email: '', password: '' }
+const validationSchema = z.object({
+  email: z.string().email(),
+  password: z
+    .string()
+    .min(8, 'Password must be at least 8 characters long')
+    .regex(/[A-Z]/, {
+      message: 'Password must contain at least 1 uppercase letter',
+    })
+    .regex(/\d/, {
+      message: 'Password must contain at least 1 numeric digit',
+    }),
+})
 
 const LoginPage = () => {
   const { push } = useRouter()
   const { login, isLogin } = useAuthContext()
   const formInstance = useForm({
     defaultValues: loginFormDefaultValues,
+    resolver: zodResolver(validationSchema),
   })
   const { handleSubmit } = formInstance
 
