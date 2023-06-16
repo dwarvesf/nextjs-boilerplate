@@ -1,15 +1,22 @@
 import { Button } from 'components/Button'
 import React from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
 import { FormSelect } from './FormSelect'
 
 export default {
   title: 'components/form/FormSelect',
 }
 
+const validationSchema = z.object({
+  assignee: z.string(),
+})
+
 export const Default = () => {
   const formInstance = useForm({
     defaultValues: { assignee: 'John Doe' },
+    resolver: zodResolver(validationSchema),
   })
   const { handleSubmit, getValues } = formInstance
 

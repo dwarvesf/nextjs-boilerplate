@@ -1,5 +1,7 @@
 import React from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
 import { FormCheckboxGroup } from '.'
 import { Button } from '../Button'
 import { Checkbox } from '../Checkbox'
@@ -8,9 +10,17 @@ export default {
   title: 'components/Form/FormCheckboxGroup',
 }
 
+const validationSchema = z.object({
+  stack: z
+    .string()
+    .array()
+    .min(1, { message: 'Stack must contain at least 1 element(s)' }),
+})
+
 export const Default = () => {
   const formInstance = useForm({
     defaultValues: { stack: [] },
+    resolver: zodResolver(validationSchema),
   })
   const { handleSubmit, getValues } = formInstance
 

@@ -13,6 +13,8 @@ import { FormInput } from 'components/FormInput'
 import { toast } from 'components/Toast'
 import { useAuthContext } from 'context/auth'
 import { FormProvider, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
 
 interface Props {
   trigger: React.ReactNode
@@ -20,11 +22,17 @@ interface Props {
   onOpenChange: (open: boolean) => void
 }
 
+const validationSchema = z.object({
+  firstName: z.string().min(1, 'First name is required.'),
+  lastName: z.string().min(1, 'Last name is required.'),
+})
+
 export const ProfileModal = (props: Props) => {
   const { trigger, open, onOpenChange } = props
   const { user } = useAuthContext()
   const formInstance = useForm({
     defaultValues: { firstName: user.firstName, lastName: user.lastName },
+    resolver: zodResolver(validationSchema),
   })
   const { handleSubmit } = formInstance
 

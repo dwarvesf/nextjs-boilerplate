@@ -12,7 +12,7 @@ describe('User Sign-up and Login', () => {
   it('should allow a visitor to sign-up, login, and logout', function () {
     const userInfo = {
       email: 'test@d.foundation',
-      password: 'test',
+      password: 'Thepassword1',
     }
 
     cy.visit('/')

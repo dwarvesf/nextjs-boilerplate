@@ -3,6 +3,8 @@ import { Heading } from 'components/Heading'
 import { Text } from 'components/Text'
 import { Card } from 'components/Card'
 import { FormProvider, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
 import { FormInput } from 'components/FormInput'
 import { Button } from 'components/Button'
 import { FormSelect } from 'components/FormSelect'
@@ -21,9 +23,16 @@ const personalFormDefaultValues = {
   zip: '',
 }
 
+const personalFormValidationSchema = z.object({
+  firstName: z.string().min(1, 'First name is required.'),
+  lastName: z.string().min(1, 'Last name is required.'),
+  email: z.string().email(),
+})
+
 const PersonalForm = () => {
   const formInstance = useForm({
     defaultValues: personalFormDefaultValues,
+    resolver: zodResolver(personalFormValidationSchema),
   })
   const { handleSubmit } = formInstance
 
