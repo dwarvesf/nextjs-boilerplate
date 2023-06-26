@@ -17,7 +17,8 @@
     "build-storybook": "storybook build -s ./public",
     "fetch-definitions": "swagger-typescript-api --no-client -p ./libs/swagger.json -o ./types -n schema.ts",
     "cypress:open": "cypress open",
-    "release": "standard-version -a"
+    "release": "standard-version -a",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@dwarvesf/react-hooks": "^0.7.0",
