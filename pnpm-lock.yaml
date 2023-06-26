@@ -5,12 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@babel/core':
-    specifier: ^7.22.5
-    version: 7.22.5
-  '@babel/preset-react':
-    specifier: ^7.22.5
-    version: 7.22.5(@babel/core@7.22.5)
   '@dwarvesf/react-hooks':
     specifier: ^0.7.0
     version: 0.7.0(react-dom@18.2.0)(react@18.2.0)
@@ -73,9 +67,15 @@ dependencies:
     version: 3.21.4
 
 devDependencies:
+  '@babel/core':
+    specifier: ^7.22.5
+    version: 7.22.5
   '@babel/helper-plugin-utils':
     specifier: ^7.20.2
     version: 7.20.2
+  '@babel/preset-react':
+    specifier: ^7.22.5
+    version: 7.22.5(@babel/core@7.22.5)
   '@commitlint/cli':
     specifier: ^17.3.0
     version: 17.3.0
@@ -391,6 +391,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/types': 7.22.5
+    dev: true
 
   /@babel/helper-builder-binary-assignment-operator-visitor@7.18.9:
     resolution: {integrity: sha512-yFQ0YCHoIqarl8BCRwBL8ulYUaZpz3bNsA7oFepAzee+8/+ImtADXNOmO5vJvsPff3qi+hvpkY/NYBTrBQgdNw==}
@@ -650,6 +651,7 @@ packages:
   /@babel/helper-plugin-utils@7.22.5:
     resolution: {integrity: sha512-uLls06UVKgFG9QD4OeFYLEGteMIAa5kpTPcFL28yuCIIzsf6ZyKZMllKVOCZFhiZ5ptnwX4mtKdWCBE/uT4amg==}
     engines: {node: '>=6.9.0'}
+    dev: true
 
   /@babel/helper-remap-async-to-generator@7.18.9(@babel/core@7.21.8):
     resolution: {integrity: sha512-dI7q50YKd8BAv3VEfgg7PS7yD3Rtbi2J1XMXaalXO0W0164hYLnh8zpjRS0mte9MfVp/tltvr/cfdXPvJr1opA==}
@@ -1432,6 +1434,7 @@ packages:
     dependencies:
       '@babel/core': 7.22.5
       '@babel/helper-plugin-utils': 7.22.5
+    dev: true
 
   /@babel/plugin-syntax-logical-assignment-operators@7.10.4(@babel/core@7.21.8):
     resolution: {integrity: sha512-d8waShlpFDinQ5MtvGU9xDAOzKH47+FFoney2baFIoMr952hKOLp1HR7VszoZvOsV/4+RRszNY7D17ba0te0ig==}
@@ -2146,6 +2149,7 @@ packages:
     dependencies:
       '@babel/core': 7.22.5
       '@babel/helper-plugin-utils': 7.22.5
+    dev: true
 
   /@babel/plugin-transform-react-jsx-development@7.22.5(@babel/core@7.22.5):
     resolution: {integrity: sha512-bDhuzwWMuInwCYeDeMzyi7TaBgRQei6DqxhbyniL7/VG4RSS7HtSL2QbY4eESy1KJqlWt8g3xeEBGPuo+XqC8A==}
@@ -2155,6 +2159,7 @@ packages:
     dependencies:
       '@babel/core': 7.22.5
       '@babel/plugin-transform-react-jsx': 7.22.5(@babel/core@7.22.5)
+    dev: true
 
   /@babel/plugin-transform-react-jsx@7.21.5(@babel/core@7.22.5):
     resolution: {integrity: sha512-ELdlq61FpoEkHO6gFRpfj0kUgSwQTGoaEU8eMRoS8Dv3v6e7BjEAj5WMtIBRdHUeAioMhKP5HyxNzNnP+heKbA==}
@@ -2182,6 +2187,7 @@ packages:
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/plugin-syntax-jsx': 7.22.5(@babel/core@7.22.5)
       '@babel/types': 7.22.5
+    dev: true
 
   /@babel/plugin-transform-react-pure-annotations@7.22.5(@babel/core@7.22.5):
     resolution: {integrity: sha512-gP4k85wx09q+brArVinTXhWiyzLl9UpmGva0+mWyKxk6JZequ05x3eUcIUE+FyttPKJFRRVtAvQaJ6YF9h1ZpA==}
@@ -2192,6 +2198,7 @@ packages:
       '@babel/core': 7.22.5
       '@babel/helper-annotate-as-pure': 7.22.5
       '@babel/helper-plugin-utils': 7.22.5
+    dev: true
 
   /@babel/plugin-transform-regenerator@7.21.5(@babel/core@7.21.8):
     resolution: {integrity: sha512-ZoYBKDb6LyMi5yCsByQ5jmXsHAQDDYeexT1Szvlmui+lADvfSecr5Dxd/PkrTC3pAD182Fcju1VQkB4oCp9M+w==}
@@ -2636,6 +2643,7 @@ packages:
       '@babel/plugin-transform-react-jsx': 7.22.5(@babel/core@7.22.5)
       '@babel/plugin-transform-react-jsx-development': 7.22.5(@babel/core@7.22.5)
       '@babel/plugin-transform-react-pure-annotations': 7.22.5(@babel/core@7.22.5)
+    dev: true
 
   /@babel/preset-typescript@7.21.5(@babel/core@7.22.5):
     resolution: {integrity: sha512-iqe3sETat5EOrORXiQ6rWfoOg2y68Cs75B9wNxdPW4kixJxh7aXQE1KPdWLDniC24T/6dSnguF33W9j/ZZQcmA==}
