@@ -2,4 +2,4 @@
 # unless otherwise overridden by more specific contexts.
 [build]
   publish = "storybook-static/"
-  command = "yarn build-storybook"
+  command = "pnpm build-storybook"

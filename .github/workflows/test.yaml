@@ -18,10 +18,10 @@ jobs:
           access_token: ${{ github.token }}
       - name: Jest run
         run: |
-          yarn
-          yarn test:ci
+          pnpm install
+          pnpm test:ci
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
-          build: yarn build
-          start: yarn start
+          build: pnpm build
+          start: pnpm start

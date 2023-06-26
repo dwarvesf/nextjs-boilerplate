@@ -29,8 +29,8 @@ jobs:
           access_token: ${{ github.token }}
       - name: Build Storybook
         run: |
-          yarn
-          yarn build-storybook
+          pnpm install
+          pnpm build-storybook
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2

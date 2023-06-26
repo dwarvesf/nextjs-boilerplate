@@ -19,13 +19,13 @@ Storybook.
 ```bash
 git clone --depth=1 git@github.com:dwarvesf/nextjs-boilerplate.git my-project-name
 cd my-project-name
-yarn install
+pnpm install
 ```
 
 Then, you can run locally in development mode with live reload:
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your favorite browser
