@@ -11,7 +11,7 @@
     "format": "prettier -c --write \"*/**\"",
     "lint": "eslint . --ext .ts,.tsx,.js && stylelint '**/*.css'",
     "lint:fix": "eslint . --ext .ts,.tsx,.js --fix && stylelint '**/*.css' --fix",
-    "postinstall": "husky install && yarn generate-icons",
+    "postinstall": "husky install && pnpm generate-icons",
     "generate-icons": "node ./scripts/generate-icon-components.js",
     "storybook": "storybook dev -p 6006 -s ./public",
     "build-storybook": "storybook build -s ./public",
