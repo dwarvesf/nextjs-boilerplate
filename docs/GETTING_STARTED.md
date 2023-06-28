@@ -1,15 +1,15 @@
 # Getting started
 
-Install dependencies with `yarn` or `npm`:
+Install dependencies with `pnpm`:
 
 ```bash
-yarn install
+pnpm install
 ```
 
 Then, you can run locally in development mode with live reload:
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your favorite browser
@@ -50,7 +50,7 @@ The project integrates [Storybook](https://storybook.js.org/) to streamline UI
 development.
 
 ```bash
-yarn storybook
+pnpm storybook
 ```
 
 The UI document then should be live at
@@ -72,7 +72,7 @@ Then, you can run the script locally to generate TypeScript definitions for the
 APIs:
 
 ```bash
-yarn fetch-definitions
+pnpm fetch-definitions
 ```
 
 The generated interfaces will be located at

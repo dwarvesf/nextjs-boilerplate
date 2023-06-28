@@ -16,12 +16,22 @@ jobs:
         uses: styfle/cancel-workflow-action@0.8.0
         with:
           access_token: ${{ github.token }}
+
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          version: 16.x
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.2.0
+
       - name: Jest run
         run: |
-          yarn
-          yarn test:ci
+          pnpm install
+          pnpm test:ci
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
-          build: yarn build
-          start: yarn start
+          build: pnpm build
+          start: pnpm start

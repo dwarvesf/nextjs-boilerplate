@@ -6,12 +6,12 @@ right build command and the correct path to app bundles.
 
 ## Main App
 
-- Build command: `yarn build`
+- Build command: `pnpm build`
 - Publish directory: `out`
 
 ## Document UI
 
-- Build command: `yarn build-storybook`
+- Build command: `pnpm build-storybook`
 - Pulish directory: `storybook-static`
 
 ## Read on:

@@ -99,7 +99,7 @@ const LoginPage = () => {
               type="button"
               fullWidth
               onClick={() => {
-                login('test@d.foundation', 'test')
+                login('test@d.foundation', 'Thepassword1')
               }}
             >
               Use demo account

@@ -4,22 +4,24 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "analyze": "ANALYZE=true yarn build",
+    "analyze": "ANALYZE=true pnpm build",
     "start": "next start",
     "test": "jest",
     "test:ci": "jest --env=jsdom --coverage --watchAll=false --maxWorkers=2",
     "format": "prettier -c --write \"*/**\"",
     "lint": "eslint . --ext .ts,.tsx,.js && stylelint '**/*.css'",
     "lint:fix": "eslint . --ext .ts,.tsx,.js --fix && stylelint '**/*.css' --fix",
-    "postinstall": "husky install && yarn generate-icons",
+    "postinstall": "husky install && pnpm generate-icons",
     "generate-icons": "node ./scripts/generate-icon-components.js",
     "storybook": "storybook dev -p 6006 -s ./public",
     "build-storybook": "storybook build -s ./public",
     "fetch-definitions": "swagger-typescript-api --no-client -p ./libs/swagger.json -o ./types -n schema.ts",
     "cypress:open": "cypress open",
-    "release": "standard-version -a"
+    "release": "standard-version -a",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
+
     "@dwarvesf/react-hooks": "^0.7.0",
     "@dwarvesf/react-utils": "^0.4.1",
     "@hookform/resolvers": "^3.1.0",
@@ -29,6 +31,7 @@
     "@reach/auto-id": "^0.17.0",
     "@tailwindcss/forms": "^0.5.3",
     "classnames": "^2.3.2",
+    "glob": "^8.1.0",
     "isomorphic-unfetch": "^3.1.0",
     "next": "13.4.4",
     "nprogress": "^0.2.0",
@@ -41,6 +44,8 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
     "@babel/helper-plugin-utils": "^7.20.2",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
@@ -122,5 +127,9 @@
       "prettier --write",
       "eslint --fix"
     ]
+  },
+  "packageManager": "pnpm@8.2.0",
+  "engines": {
+    "pnpm": ">=8.2.0"
   }
 }
