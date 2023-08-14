@@ -20,8 +20,6 @@ const DataFetchingPage = () => {
       </div>
       <Card className="overflow-hidden" spacing={false}>
         <Table<User>
-          data={users || []}
-          isFirstLoading={isLoading}
           columns={[
             {
               name: 'name',
@@ -30,9 +28,9 @@ const DataFetchingPage = () => {
                 <div className="flex items-center">
                   <div className="flex-shrink-0 h-10 w-10">
                     <img
+                      alt=""
                       className="h-10 w-10 rounded-full"
                       src={avatar}
-                      alt=""
                     />
                   </div>
                   <div className="ml-4">
@@ -82,6 +80,8 @@ const DataFetchingPage = () => {
               ),
             },
           ]}
+          data={users || []}
+          isFirstLoading={isLoading}
         />
       </Card>
     </Layout>

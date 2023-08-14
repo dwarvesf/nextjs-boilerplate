@@ -56,10 +56,7 @@ export const Layout = ({ children }: WithChildren) => {
               const external = href.startsWith('http')
               return (
                 <Link
-                  href={href}
                   key={name}
-                  target={external ? '_blank' : undefined}
-                  rel={external ? 'noopener' : undefined}
                   className={cx(
                     'flex w-full p-2 space-x-3 rounded-md',
                     'bg-transparent duration-200 transition-all',
@@ -68,6 +65,9 @@ export const Layout = ({ children }: WithChildren) => {
                       'text-gray-400 hover:text-gray-100': pathname !== href,
                     },
                   )}
+                  href={href}
+                  rel={external ? 'noopener' : undefined}
+                  target={external ? '_blank' : undefined}
                 >
                   <Icon className="w-6 h-6" /> <span>{name}</span>
                 </Link>

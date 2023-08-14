@@ -22,7 +22,7 @@ export function Table<T>(props: TableProps<T>) {
     <table className={cx('min-w-full divide-y divide-gray-200', className)}>
       <colgroup>
         {columns.map(({ width }, index) => (
-          <col width={width} key={index} />
+          <col key={index} width={width} />
         ))}
       </colgroup>
       <thead className="bg-gray-50">
@@ -30,8 +30,8 @@ export function Table<T>(props: TableProps<T>) {
           {columns.map(({ name }, index) => (
             <th
               key={index}
-              scope="col"
               className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              scope="col"
             >
               {name}
             </th>
@@ -45,8 +45,8 @@ export function Table<T>(props: TableProps<T>) {
                 {columns.map((_, index) => (
                   <th
                     key={index}
-                    scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    scope="col"
                   >
                     <Skeleton className="w-40 max-w-full h-4 rounded-sm" />
                   </th>
@@ -57,8 +57,8 @@ export function Table<T>(props: TableProps<T>) {
               <tr key={index}>
                 {columns.map(({ render, className }, index) => (
                   <td
-                    className={cx('px-6 py-4 whitespace-nowrap', className)}
                     key={index}
+                    className={cx('px-6 py-4 whitespace-nowrap', className)}
                   >
                     {render(item)}
                   </td>

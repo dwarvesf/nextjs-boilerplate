@@ -48,7 +48,7 @@
     "@babel/preset-react": "^7.22.5",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
-    "@dwarvesf/react-eslint-config": "^0.1.3",
+    "@dwarvesf/react-eslint-config": "^1.0.1",
     "@faker-js/faker": "^8.0.2",
     "@ibm-cloud/openapi-ruleset": "0.45.5",
     "@ibm-cloud/openapi-ruleset-utilities": "0.0.1",

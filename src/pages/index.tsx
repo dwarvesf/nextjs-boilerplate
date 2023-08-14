@@ -22,7 +22,7 @@ const StatCard = (props: StatCardProps) => {
 
   return (
     <Card>
-      <Heading className="mb-1 !font-medium !text-gray-700 !text-base" as="h5">
+      <Heading as="h5" className="mb-1 !font-medium !text-gray-700 !text-base">
         {title}
       </Heading>
       <div className="flex justify-between items-end">
@@ -36,7 +36,7 @@ const StatCard = (props: StatCardProps) => {
             {suffix}
           </Text>
         </div>
-        <Badge type={isGrowth ? 'success' : 'error'} className="pl-1">
+        <Badge className="pl-1" type={isGrowth ? 'success' : 'error'}>
           {isGrowth ? (
             <IconArrowSmUp className="text-green-500 w-5 h-5" />
           ) : (
@@ -62,16 +62,16 @@ const DashboardPage = () => {
       </div>
 
       <div className="grid-cols-3 grid gap-6">
-        <StatCard title="Total Subscribers" from={70946} to={71897} />
-        <StatCard title="Avg. Open Rate" from={56.14} to={58.16} suffix="%" />
-        <StatCard title="Avg. Click Rate" from={28.62} to={24.57} suffix="%" />
+        <StatCard from={70946} title="Total Subscribers" to={71897} />
+        <StatCard from={56.14} suffix="%" title="Avg. Open Rate" to={58.16} />
+        <StatCard from={28.62} suffix="%" title="Avg. Click Rate" to={24.57} />
       </div>
 
       <div className="grid-cols-3 grid gap-6">
         <div className="col-span-2 space-y-5">
-          <Card spacing={false} className="overflow-hidden">
+          <Card className="overflow-hidden" spacing={false}>
             <div className="px-6 py-5">
-              <Heading className="mb-1 !font-medium !text-gray-700" as="h5">
+              <Heading as="h5" className="mb-1 !font-medium !text-gray-700">
                 Applicant Information
               </Heading>
               <Text className="text-sm text-gray-400">
@@ -150,9 +150,9 @@ const DashboardPage = () => {
           </Card>
         </div>
         <div className="col-span-1 space-y-5">
-          <Card spacing={false} className="overflow-hidden">
+          <Card className="overflow-hidden" spacing={false}>
             <div className="px-6 py-5">
-              <Heading className="mb-1 !font-medium !text-gray-700" as="h5">
+              <Heading as="h5" className="mb-1 !font-medium !text-gray-700">
                 Recent Sign-ups
               </Heading>
               <Text className="text-sm text-gray-400">
@@ -196,9 +196,9 @@ const DashboardPage = () => {
                   <div className="flex items-center">
                     <div className="flex-shrink-0 h-10 w-10">
                       <img
+                        alt=""
                         className="h-10 w-10 rounded-full"
                         src={avatar}
-                        alt=""
                       />
                     </div>
                     <div className="ml-4">

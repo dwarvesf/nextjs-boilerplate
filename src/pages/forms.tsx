@@ -48,25 +48,25 @@ const PersonalForm = () => {
               <FormInput
                 label="First name"
                 name="firstName"
-                fullWidth
                 rules={{ required: 'Required' }}
+                fullWidth
               />
             </div>
             <div className="col-span-3">
               <FormInput
                 label="Last name"
                 name="lastName"
-                fullWidth
                 rules={{ required: 'Required' }}
+                fullWidth
               />
             </div>
             <div className="col-span-4">
               <FormInput
                 label="Email address"
                 name="email"
+                rules={{ required: 'Required' }}
                 type="email"
                 fullWidth
-                rules={{ required: 'Required' }}
               />
             </div>
             <div className="col-span-3">
@@ -85,32 +85,32 @@ const PersonalForm = () => {
               <FormInput
                 label="Street address"
                 name="address"
-                fullWidth
                 rules={{ required: 'Required' }}
+                fullWidth
               />
             </div>
             <div className="col-span-2">
               <FormInput
                 label="City"
                 name="city"
-                fullWidth
                 rules={{ required: 'Required' }}
+                fullWidth
               />
             </div>
             <div className="col-span-2">
               <FormInput
                 label="State / Province"
                 name="state"
-                fullWidth
                 rules={{ required: 'Required' }}
+                fullWidth
               />
             </div>
             <div className="col-span-2">
               <FormInput
                 label="ZIP / Postal"
                 name="zip"
-                fullWidth
                 rules={{ required: 'Required' }}
+                fullWidth
               />
             </div>
           </div>
@@ -143,7 +143,7 @@ const NotificationForm = () => {
           <div className="grid grid-cols-6 gap-6 p-6">
             <div className="col-span-6 space-y-4">
               <Text>By email</Text>
-              <FormCheckboxGroup name="notification" className="space-y-3">
+              <FormCheckboxGroup className="space-y-3" name="notification">
                 <Checkbox value="comments">Comments</Checkbox>
                 <Checkbox value="candidates">Candidates</Checkbox>
                 <Checkbox value="offers">Offers</Checkbox>

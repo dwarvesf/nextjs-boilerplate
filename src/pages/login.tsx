@@ -67,18 +67,18 @@ const LoginPage = () => {
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <FormInput
               label="Email"
-              placeholder="Email"
               name="email"
-              fullWidth
+              placeholder="Email"
               rules={{ required: 'Required' }}
+              fullWidth
             />
             <FormInput
               label="Password"
-              placeholder="Password"
               name="password"
+              placeholder="Password"
+              rules={{ required: 'Required' }}
               type="password"
               fullWidth
-              rules={{ required: 'Required' }}
             />
             <div className="flex justify-between items-center">
               <Checkbox>Remember me</Checkbox>

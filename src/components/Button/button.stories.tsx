@@ -68,20 +68,20 @@ export const Default = () => (
     </div>
 
     <div className="space-x-4 flex items-center">
-      <Button size="sm" Icon={IconCheckCircleSolid}>
+      <Button Icon={IconCheckCircleSolid} size="sm">
         Click me
       </Button>
-      <Button appearance="primary" Icon={IconExlamationCirleSolid}>
+      <Button Icon={IconExlamationCirleSolid} appearance="primary">
         Click me
       </Button>
       <Button
-        appearance="secondary"
         Icon={IconInformationCircleSolid}
+        appearance="secondary"
         size="lg"
       >
         Click me
       </Button>
-      <Button appearance="primary" Icon={IconCloseCircleSolid} disabled>
+      <Button Icon={IconCloseCircleSolid} appearance="primary" disabled>
         Click me
       </Button>
     </div>
