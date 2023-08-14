@@ -65,12 +65,12 @@ const DropdownMenuContent = React.forwardRef<
   <DropdownMenuPrimitive.Portal>
     <DropdownMenuPrimitive.Content
       ref={ref}
-      sideOffset={sideOffset}
       className={cx(
         'z-50 min-w-[8rem] overflow-hidden rounded-md border bg-white p-1 text-gray-500 shadow-md animate-in',
         'data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
         className,
       )}
+      sideOffset={sideOffset}
       {...props}
     />
   </DropdownMenuPrimitive.Portal>
@@ -104,6 +104,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
 >(({ className, children, checked, ...props }, ref) => (
   <DropdownMenuPrimitive.CheckboxItem
     ref={ref}
+    checked={checked}
     className={cx(
       'relative flex cursor-default select-none items-center rounded-md py-1.5 pl-8 pr-2 text-sm outline-none transition-colors',
       'focus:bg-pink-600 focus:text-white',
@@ -111,7 +112,6 @@ const DropdownMenuCheckboxItem = React.forwardRef<
       'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       className,
     )}
-    checked={checked}
     {...props}
   >
     <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">

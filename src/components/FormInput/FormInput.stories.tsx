@@ -37,18 +37,18 @@ export const Default = () => {
         <div className="space-y-5 max-w-xs mb-10">
           <FormInput
             label="Email"
-            placeholder="Email"
             name="email"
-            fullWidth
+            placeholder="Email"
             rules={{ required: 'Required' }}
+            fullWidth
           />
           <FormInput
             label="Password"
-            placeholder="Password"
             name="password"
+            placeholder="Password"
+            rules={{ required: 'Required' }}
             type="password"
             fullWidth
-            rules={{ required: 'Required' }}
           />
           <Button appearance="primary" type="submit">
             Create an account

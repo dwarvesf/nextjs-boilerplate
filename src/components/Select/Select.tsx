@@ -23,10 +23,10 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       <select
         {...rest}
         ref={ref}
-        id={id}
-        dir="auto"
         aria-invalid={invalid}
         className={cx(baseClassName, className)}
+        dir="auto"
+        id={id}
       >
         {children}
       </select>

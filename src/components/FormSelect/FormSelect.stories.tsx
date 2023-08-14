@@ -28,8 +28,8 @@ export const Default = () => {
         <div className="space-y-5 max-w-xs mb-10">
           <FormSelect
             label="Assign to"
-            placeholder="Assign to"
             name="assignee"
+            placeholder="Assign to"
             rules={{ required: 'Required' }}
           >
             <option value="John Doe">John Doe</option>

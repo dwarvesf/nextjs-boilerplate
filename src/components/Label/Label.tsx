@@ -22,7 +22,7 @@ export const Label: React.FC<LabelProps> = React.forwardRef<
   } = props
   if (visuallyHidden) {
     return (
-      <VisuallyHidden as="label" htmlFor={htmlFor} ref={ref}>
+      <VisuallyHidden ref={ref} as="label" htmlFor={htmlFor}>
         {children}
       </VisuallyHidden>
     )
@@ -32,12 +32,12 @@ export const Label: React.FC<LabelProps> = React.forwardRef<
     <label
       {...rest}
       ref={ref}
-      htmlFor={htmlFor}
       className={cx('block text-sm font-medium text-gray-700', className)}
+      htmlFor={htmlFor}
     >
       {children}
       {isRequired && (
-        <span className="ml-0.5" aria-hidden="true">
+        <span aria-hidden="true" className="ml-0.5">
           *
         </span>
       )}

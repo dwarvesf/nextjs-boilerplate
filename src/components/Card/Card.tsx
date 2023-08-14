@@ -24,7 +24,7 @@ export const Card = forwardRefWithAs<'div', CardProps>((props, ref) => {
   } = props
   const baseClassName = styles({ shadow, spacing })
   return (
-    <Box className={cx(baseClassName, className)} ref={ref} as={as} {...rest}>
+    <Box ref={ref} as={as} className={cx(baseClassName, className)} {...rest}>
       {children}
     </Box>
   )

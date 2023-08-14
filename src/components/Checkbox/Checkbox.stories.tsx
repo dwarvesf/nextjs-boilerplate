@@ -19,7 +19,7 @@ Default.story = {
 }
 
 export const CheckboxGroupStory = () => (
-  <CheckboxGroup defaultValue={['1', '2']} className="space-y-3">
+  <CheckboxGroup className="space-y-3" defaultValue={['1', '2']}>
     <Checkbox value="1">Option 1</Checkbox>
     <Checkbox value="2">Option 2</Checkbox>
     <Checkbox value="3">Option 3</Checkbox>

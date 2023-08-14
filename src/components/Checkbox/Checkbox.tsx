@@ -51,21 +51,21 @@ export const Checkbox = React.forwardRef(
       >
         <input
           ref={ref}
-          type="checkbox"
-          id={uqId}
-          name={name}
-          value={value}
-          defaultChecked={defaultChecked}
-          checked={checked}
-          disabled={disabled}
-          readOnly={readOnly}
-          onChange={onChange}
-          onBlur={onBlur}
-          onFocus={onFocus}
           aria-invalid={invalid}
           aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy}
+          checked={checked}
           className={inputClassName}
+          defaultChecked={defaultChecked}
+          disabled={disabled}
+          id={uqId}
+          name={name}
+          readOnly={readOnly}
+          type="checkbox"
+          value={value}
+          onBlur={onBlur}
+          onChange={onChange}
+          onFocus={onFocus}
         />
       </div>
     )
@@ -79,7 +79,7 @@ export const Checkbox = React.forwardRef(
         {comp}
 
         {children && (
-          <Label htmlFor={uqId} className={labelClassName}>
+          <Label className={labelClassName} htmlFor={uqId}>
             {children}
           </Label>
         )}

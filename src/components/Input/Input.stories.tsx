@@ -8,9 +8,9 @@ export default {
 export const Default = () => {
   return (
     <div className="space-y-4 max-w-sm">
-      <Input fullWidth placeholder="Username" />
-      <Input fullWidth placeholder="Username" invalid />
-      <Input fullWidth placeholder="Password" />
+      <Input placeholder="Username" fullWidth />
+      <Input placeholder="Username" fullWidth invalid />
+      <Input placeholder="Password" fullWidth />
     </div>
   )
 }

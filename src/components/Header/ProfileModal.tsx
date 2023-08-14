@@ -52,21 +52,21 @@ export const ProfileModal = (props: Props) => {
           <DialogTitle>Edit profile</DialogTitle>
           <DialogDescription>
             <FormProvider {...formInstance}>
-              <form onSubmit={handleSubmit(onSubmit)} className="mt-5">
+              <form className="mt-5" onSubmit={handleSubmit(onSubmit)}>
                 <div className="space-y-5 mb-8">
                   <FormInput
                     label="First name"
-                    placeholder="First name"
                     name="firstName"
-                    fullWidth
+                    placeholder="First name"
                     rules={{ required: 'Required' }}
+                    fullWidth
                   />
                   <FormInput
                     label="Last name"
-                    placeholder="Last name"
                     name="lastName"
-                    fullWidth
+                    placeholder="Last name"
                     rules={{ required: 'Required' }}
+                    fullWidth
                   />
                 </div>
               </form>
@@ -75,14 +75,14 @@ export const ProfileModal = (props: Props) => {
         </DialogHeader>
         <DialogFooter>
           <DialogClose asChild>
-            <Button fullWidth type="button">
+            <Button type="button" fullWidth>
               Cancel
             </Button>
           </DialogClose>
           <DialogClose asChild>
             <Button
-              fullWidth
               appearance="primary"
+              fullWidth
               onClick={handleSubmit(onSubmit)}
             >
               Submit
