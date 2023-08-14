@@ -30,7 +30,7 @@ export const Default = () => {
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <Button fullWidth type="submit" appearance="primary">
+            <Button appearance="primary" type="submit" fullWidth>
               Sign in
             </Button>
           </DialogFooter>

@@ -24,11 +24,11 @@ export const Header = () => {
           data-testid="profile-button"
         >
           <img
-            src={user.avatar}
             alt=""
-            width="40"
-            height="40"
             className="rounded-full"
+            height="40"
+            src={user.avatar}
+            width="40"
           />
           <Text as="span" className="text-gray-600 text-sm">
             {user.firstName}
@@ -36,6 +36,7 @@ export const Header = () => {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-48">
           <ProfileModal
+            open={isOpen}
             trigger={
               <DropdownMenuItem
                 onSelect={(event) => {
@@ -47,12 +48,11 @@ export const Header = () => {
                 <span>Edit profile</span>
               </DropdownMenuItem>
             }
-            open={isOpen}
             onOpenChange={setIsOpen}
           />
 
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={logout} data-testid="logout-button">
+          <DropdownMenuItem data-testid="logout-button" onClick={logout}>
             <IconLogout className="mr-2 w-5 h-5" />
             <span>Logout</span>
           </DropdownMenuItem>

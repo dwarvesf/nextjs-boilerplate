@@ -51,14 +51,14 @@ export function toast(props: ToastProps) {
     (t) => (
       <Alert
         className="sm:w-screen sm:max-w-sm max-w-full"
+        id={t.id}
+        status={status}
         onClose={() => {
           hotToast.dismiss(t.id)
           if (onClose) {
             onClose()
           }
         }}
-        status={status}
-        id={t.id}
         {...rest}
       >
         <AlertIcon />

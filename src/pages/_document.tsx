@@ -8,23 +8,23 @@ export default function Document() {
         <link
           href="/favicon-16x16.png"
           rel="icon"
-          type="image/png"
           sizes="16x16"
+          type="image/png"
         />
         <link
           href="/favicon-32x32.png"
           rel="icon"
-          type="image/png"
           sizes="32x32"
+          type="image/png"
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://static.cloudflareinsights.com" />
-        <meta name="theme-color" content="#E13F5E" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link href="https://static.cloudflareinsights.com" rel="preconnect" />
+        <meta content="#E13F5E" name="theme-color" />
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
           crossOrigin="auto"
+          href="https://fonts.gstatic.com"
+          rel="preconnect"
         />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"

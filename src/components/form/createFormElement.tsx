@@ -60,29 +60,29 @@ export function createFormElement<TFromElement, TNonNativeOnChange = any>(
       return (
         <div className={containerClassName}>
           {label && (
-            <Label htmlFor={id} className="mb-1">
+            <Label className="mb-1" htmlFor={id}>
               {label}
             </Label>
           )}
           <Controller
-            rules={rules}
+            name={name}
             render={(controllerProps) => (
               <Component
                 {...controllerProps.field}
                 {...props}
+                ref={ref}
+                aria-invalid={isError}
                 id={id}
                 invalid={isError}
+                label={label}
                 onChange={
                   nonNativeOnChange
                     ? nonNativeOnChange(setValue, name)
                     : controllerProps.field.onChange
                 }
-                aria-invalid={isError}
-                ref={ref}
-                label={label}
               />
             )}
-            name={name}
+            rules={rules}
           />
 
           {isError ? (

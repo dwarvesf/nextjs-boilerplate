@@ -30,7 +30,7 @@ export const Default = () => {
     <FormProvider {...formInstance}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="space-y-3">
-          <FormCheckboxGroup name="stack" className="space-y-3">
+          <FormCheckboxGroup className="space-y-3" name="stack">
             <Checkbox value="1">HTML & CSS</Checkbox>
             <Checkbox value="2">JavaScript</Checkbox>
             <Checkbox value="3" invalid>

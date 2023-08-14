@@ -7,9 +7,9 @@ export const Logo = (props: LogoProps) => {
 
   return (
     <div className="flex items-center">
-      <svg width="39" height="41" viewBox="0 0 39 41">
+      <svg height="41" viewBox="0 0 39 41" width="39">
         <title>logo</title>
-        <g fillRule="nonzero" fill="none">
+        <g fill="none" fillRule="nonzero">
           <path
             d="M5.208 40.726c-2.804 0-5.074-2.279-5.074-5.093V5.093C.134 2.278 2.404 0 5.208 0l12.703.015c11.292 0 20.433 9.262 20.285 20.623-.149 11.183-9.438 20.088-20.582 20.088H5.208z"
             fill="#E13F5E"
