@@ -3,7 +3,6 @@ const path = require('path')
 const fsPromise = require('fs').promises
 const fs = require('fs')
 const prettier = require('prettier')
-const babel = require('@babel/core')
 
 const prettierConfig = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, '../.prettierrc')).toString(),
@@ -13,21 +12,11 @@ const formatCode = (code) =>
   prettier.format(code, { parser: 'babel', ...prettierConfig })
 
 const generateIconComponentContent = (componentName, path) => {
-  const { code } = babel.transformFileSync(path, {
-    plugins: ['./scripts/babel-plugin-camelize-jsx-attr.js'],
-    presets: ['@babel/preset-react'],
-  })
-
   return formatCode(
     `
 // This file is generated using scripts/generate-icon-components/utils.js
 // Don't edit it manually
-import React from 'react';
-
-const ${componentName} = (props: React.HTMLAttributes<SVGElement>) => ${code.replace(
-      '{',
-      '{ ...props,',
-    )}
+import ${componentName} from '${path.replace('./src/', '')}'
 
 export { ${componentName} };
 `,
