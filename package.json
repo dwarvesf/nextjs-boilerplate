@@ -43,9 +43,6 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.5",
-    "@babel/helper-plugin-utils": "^7.20.2",
-    "@babel/preset-react": "^7.22.5",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
     "@dwarvesf/react-eslint-config": "^1.0.1",
@@ -57,6 +54,7 @@
     "@storybook/addon-styling": "^1.0.8",
     "@storybook/nextjs": "^7.0.12",
     "@storybook/react": "^7.0.12",
+    "@svgr/webpack": "^8.1.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@total-typescript/ts-reset": "^0.4.2",
