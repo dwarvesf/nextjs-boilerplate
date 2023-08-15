@@ -151,9 +151,6 @@ devDependencies:
   cypress:
     specifier: ^12.2.0
     version: 12.2.0
-  dotenv:
-    specifier: ^16.0.3
-    version: 16.0.3
   eslint:
     specifier: 8.30.0
     version: 8.30.0
