@@ -74,7 +74,6 @@
     "babel-eslint": "10.x",
     "babel-jest": "^29.3.1",
     "cypress": "^12.2.0",
-    "dotenv": "^16.0.3",
     "eslint": "8.30.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-typescript": "17.0.0",
