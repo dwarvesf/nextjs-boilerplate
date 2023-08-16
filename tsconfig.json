@@ -32,5 +32,5 @@
     "./jest.setup.js",
     "./cypress/tests/*.ts"
   ],
-  "exclude": ["node_modules", "**/*.test.ts", "**/*.cy.ts"]
+  "exclude": ["node_modules", "**/*.test.ts?x", "**/*.cy.ts"]
 }
