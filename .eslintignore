@@ -15,3 +15,5 @@ coverage
 cypress
 __stubs__
 __snapshots__
+*.test.ts
+*.test.tsx

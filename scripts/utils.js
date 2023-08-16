@@ -12,15 +12,16 @@ const formatCode = (code) =>
   prettier.format(code, { parser: 'babel', ...prettierConfig })
 
 const generateIconComponentContent = (componentName, path) => {
-  return formatCode(
+  const formattedCode = formatCode(
     `
 // This file is generated using scripts/generate-icon-components/utils.js
 // Don't edit it manually
-import ${componentName} from '${path.replace('./src/', '')}'
+import ${componentName} from '${path.replace('src/', '')}'
 
 export { ${componentName} };
 `,
   )
+  return formattedCode
 }
 
 const kebab2Pascal = (inputStr) =>
