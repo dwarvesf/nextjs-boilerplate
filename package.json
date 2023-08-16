@@ -21,6 +21,7 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
+    "@babel/eslint-parser": "^7.22.10",
     "@dwarvesf/react-hooks": "^0.7.0",
     "@dwarvesf/react-utils": "^0.4.1",
     "@hookform/resolvers": "^3.1.0",
@@ -63,12 +64,10 @@
     "@types/nprogress": "^0.2.0",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
-    "@types/tailwindcss": "^3.1.0",
     "@typescript-eslint/eslint-plugin": "5.47.1",
     "@typescript-eslint/parser": "5.47.1",
     "autoprefixer": "^10.4.13",
     "axios": "^1.2.1",
-    "babel-eslint": "10.x",
     "babel-jest": "^29.3.1",
     "cypress": "^12.2.0",
     "eslint": "8.30.0",
@@ -89,7 +88,6 @@
     "eslint-plugin-testing-library": "5.9.1",
     "husky": "^8.0.2",
     "jest": "^29.3.1",
-    "jest-dom": "^4.0.0",
     "jest-environment-jsdom": "^29.3.1",
     "lint-staged": "^13.1.0",
     "postcss": "^8.4.20",
