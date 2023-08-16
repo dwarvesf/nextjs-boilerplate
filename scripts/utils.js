@@ -16,7 +16,7 @@ const generateIconComponentContent = (componentName, path) => {
     `
 // This file is generated using scripts/generate-icon-components/utils.js
 // Don't edit it manually
-import ${componentName} from '${path.replace('./src/', '')}'
+import ${componentName} from '${path.replace('src/', '')}'
 
 export { ${componentName} };
 `,
