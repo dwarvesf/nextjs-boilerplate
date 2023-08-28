@@ -3,7 +3,7 @@ import Axios, { AxiosRequestConfig } from 'axios'
 import { getToken } from 'context/auth'
 
 // eslint-disable-next-line prefer-destructuring
-const BASE_URL = process.env.BASE_URL
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
 export const AXIOS_INSTANCE = Axios.create({ baseURL: BASE_URL })
 
