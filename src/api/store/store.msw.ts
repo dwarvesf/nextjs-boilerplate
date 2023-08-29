@@ -57,7 +57,7 @@ export const getGetOrderByIdMock = () => ({
 })
 
 export const getGetInventoryMock = () => ({
-  clluqu92q00009gikcxj7euse: faker.datatype.number({
+  cllw3ntsb0000yt1ifrhq3kk4: faker.datatype.number({
     min: undefined,
     max: undefined,
   }),
