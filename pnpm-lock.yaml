@@ -89,8 +89,11 @@ devDependencies:
     specifier: ^8.0.2
     version: 8.0.2
   '@ibm-cloud/openapi-ruleset':
-    specifier: ^1.6.3
-    version: 1.6.3
+    specifier: 0.45.5
+    version: 0.45.5
+  '@ibm-cloud/openapi-ruleset-utilities':
+    specifier: 0.0.1
+    version: 0.0.1
   '@prettier/plugin-xml':
     specifier: ^2.2.0
     version: 2.2.0
@@ -3435,11 +3438,6 @@ packages:
     engines: {node: '>=14.0.0'}
     dev: true
 
-  /@ibm-cloud/openapi-ruleset-utilities@1.2.1:
-    resolution: {integrity: sha512-lve7dAgALSu0cgvNvwwpUuJtvLBsPnVMyHDXcmevsKz3t1yS0mVSKioikOIS3KEIMQwupzpC3zkwUMAE1y9WSg==}
-    engines: {node: '>=16.0.0'}
-    dev: true
-
   /@ibm-cloud/openapi-ruleset@0.45.5:
     resolution: {integrity: sha512-8FqJQj8osll6iLOD5JsFWR+kOU1HbCp1Z2PjHeE67Wb/srz7V9B+YyjZOO9QAgLLHwvgt07XS13FQ+ArNNetGg==}
     engines: {node: '>=14.0.0'}
@@ -3449,24 +3447,6 @@ packages:
       '@stoplight/spectral-functions': 1.7.2
       '@stoplight/spectral-rulesets': 1.16.0
       lodash: 4.17.21
-      validator: 13.11.0
-    transitivePeerDependencies:
-      - encoding
-    dev: true
-
-  /@ibm-cloud/openapi-ruleset@1.6.3:
-    resolution: {integrity: sha512-QzQuO8vPOFbnLUCCfTtucXV/MOqHlYpzUaudYyZJWqMZqtJzdMIAnU5HGUb3bEtVgTykHJ0SbcDHjKO5znrqgg==}
-    engines: {node: '>=16.0.0'}
-    dependencies:
-      '@ibm-cloud/openapi-ruleset-utilities': 1.2.1
-      '@stoplight/spectral-formats': 1.5.0
-      '@stoplight/spectral-functions': 1.7.2
-      '@stoplight/spectral-rulesets': 1.16.0
-      chalk: 4.1.2
-      lodash: 4.17.21
-      loglevel: 1.8.1
-      loglevel-plugin-prefix: 0.8.4
-      minimatch: 6.2.0
       validator: 13.11.0
     transitivePeerDependencies:
       - encoding
@@ -12596,15 +12576,6 @@ packages:
       wrap-ansi: 6.2.0
     dev: true
 
-  /loglevel-plugin-prefix@0.8.4:
-    resolution: {integrity: sha512-WpG9CcFAOjz/FtNht+QJeGpvVl/cdR6P0z6OcXSkr8wFJOsV2GRj2j10JLfjuA4aYkcKCNIEqRGCyTife9R8/g==}
-    dev: true
-
-  /loglevel@1.8.1:
-    resolution: {integrity: sha512-tCRIJM51SHjAayKwC+QAg8hT8vg6z7GSgLJKGvzuPb1Wc+hLzqtuVLxp6/HzSPOozuK+8ErAhy7U/sVzw8Dgfg==}
-    engines: {node: '>= 0.6.0'}
-    dev: true
-
   /loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
@@ -12847,13 +12818,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       brace-expansion: 2.0.1
-
-  /minimatch@6.2.0:
-    resolution: {integrity: sha512-sauLxniAmvnhhRjFwPNnJKaPFYyddAgbYdeUpHULtCT/GhzdCx/MDNy+Y40lBxTQUrMzDE8e0S43Z5uqfO0REg==}
-    engines: {node: '>=10'}
-    dependencies:
-      brace-expansion: 2.0.1
-    dev: true
 
   /minimist-options@4.1.0:
     resolution: {integrity: sha512-Q4r8ghd80yhO/0j1O3B2BjweX3fiHg9cdOwjJd2J76Q135c+NDxGCqdYKQ1SKBuFfgWbAUzBfvYjPUEeNgqN1A==}
