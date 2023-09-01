@@ -38,11 +38,9 @@ const LoginPage = () => {
   const { handleSubmit } = formInstance
 
   const onSubmit = (data: typeof loginFormDefaultValues) => {
-    try {
-      login(data.email, data.password)
-    } catch (error) {
+    login(data.email, data.password).catch((error) => {
       console.error(error)
-    }
+    })
   }
 
   useEffect(() => {
@@ -98,9 +96,12 @@ const LoginPage = () => {
             <Button
               type="button"
               fullWidth
-              onClick={() => {
-                login('test@d.foundation', 'Thepassword1')
-              }}
+              onClick={() =>
+                onSubmit({
+                  email: 'test@d.foundation',
+                  password: 'Testing@123',
+                })
+              }
             >
               Use demo account
             </Button>

@@ -1,5 +1,4 @@
-import { getPetMSW } from 'api/pet/pet.msw'
+import { getAuthMSW } from 'api/auth/auth.msw'
 import { getUserMSW } from 'api/user/user.msw'
-import { getStoreMSW } from 'api/store/store.msw'
 
-export const handlers = [...getPetMSW(), ...getUserMSW(), ...getStoreMSW()]
+export const handlers = [...getAuthMSW(), ...getUserMSW()]

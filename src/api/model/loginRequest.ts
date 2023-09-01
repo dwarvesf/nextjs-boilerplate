@@ -6,13 +6,7 @@
  * OpenAPI spec version: 1.0
  */
 
-export interface User {
-  avatar: string
-  department: string
+export interface LoginRequest {
   email: string
-  fullName: string
-  id: number
-  role: string
-  status: string
-  title: string
+  password: string
 }

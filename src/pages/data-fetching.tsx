@@ -3,12 +3,12 @@ import { Heading } from 'components/Heading'
 import { Card } from 'components/Card'
 import { Text } from 'components/Text'
 import { Table } from 'components/Table'
-import { User } from 'types/schema'
 import { Badge } from 'components/Badge'
-import { useFetchUsers } from 'hooks/data/useFetchUsers'
+import { useGetUsersList, User } from 'api'
 
 const DataFetchingPage = () => {
-  const { users, isLoading } = useFetchUsers()
+  const { data, isLoading } = useGetUsersList()
+  const users = data?.data
 
   return (
     <Layout>
@@ -26,7 +26,7 @@ const DataFetchingPage = () => {
             {
               name: 'name',
               width: '35%',
-              render: ({ name, avatar, email }) => (
+              render: ({ fullName, avatar, email }) => (
                 <div className="flex items-center">
                   <div className="flex-shrink-0 h-10 w-10">
                     <img
@@ -37,7 +37,7 @@ const DataFetchingPage = () => {
                   </div>
                   <div className="ml-4">
                     <div className="text-sm font-medium text-gray-900">
-                      {name}
+                      {fullName}
                     </div>
                     <div className="text-sm text-gray-500">{email}</div>
                   </div>

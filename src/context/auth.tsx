@@ -1,6 +1,7 @@
 import { createContext, isSSR } from '@dwarvesf/react-utils'
 import { useCallback, useState } from 'react'
 import { WithChildren } from 'types/common'
+import { login as signIn } from 'api'
 
 interface AuthContextValues {
   isLogin: boolean
@@ -14,6 +15,8 @@ const [Provider, useAuthContext] = createContext<AuthContextValues>({
 })
 
 const tokenKey = 'df-token'
+const getToken = () => window.localStorage.getItem(tokenKey)
+// Mock User. Replace this with your own data from User Profile API
 const user = {
   firstName: 'Charlie',
   lastName: 'Puth',
@@ -26,15 +29,18 @@ const AuthContextProvider = ({ children }: WithChildren) => {
   })
 
   const login = useCallback((email: string, password: string) => {
-    return new Promise((resolve, reject) => {
-      if (email === 'test@d.foundation' && password === 'Thepassword1') {
-        setIsLogin(true)
-        window.localStorage.setItem(tokenKey, '1')
-        resolve('success')
-      } else {
-        reject(new Error('Incorrect email or password'))
-      }
-    })
+    return signIn({ email, password })
+      .then((res) => {
+        if (res.data) {
+          setIsLogin(true)
+          window.localStorage.setItem(tokenKey, res.data.accessToken)
+          return res.data
+        }
+        throw new Error('Incorrect email or password')
+      })
+      .catch(() => {
+        throw new Error('Incorrect email or password')
+      })
   }, [])
 
   const logout = useCallback(() => {
@@ -47,4 +53,4 @@ const AuthContextProvider = ({ children }: WithChildren) => {
   )
 }
 
-export { AuthContextProvider, useAuthContext }
+export { AuthContextProvider, useAuthContext, getToken }
