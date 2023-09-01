@@ -1,9 +1,12 @@
-module.exports = {
-  petstore: {
+import { faker } from '@faker-js/faker'
+import { defineConfig } from 'orval'
+
+export default defineConfig({
+  app: {
     output: {
       mode: 'tags-split',
       workspace: './src/api',
-      target: './petstore.ts',
+      target: './app.ts',
       schemas: './model',
       client: 'swr',
       mock: true,
@@ -13,14 +16,24 @@ module.exports = {
           path: './mutator/requester.ts',
           name: 'requester',
         },
+        mock: {
+          properties: {
+            email: () => faker.internet.email(),
+            'data.email': () => faker.internet.email(),
+            'data.[].email': () => faker.internet.email(),
+            avatar: () => faker.image.avatar(),
+            'data.avatar': () => faker.image.avatar(),
+            'data.[].avatar': () => faker.image.avatar(),
+          },
+        },
       },
     },
     input: {
-      target: 'https://petstore.swagger.io/v2/swagger.json',
-      validation: true,
+      target: 'https://hp-api.fly.dev/swagger/doc.json',
+      validation: false,
     },
     hooks: {
       afterAllFilesWrite: 'eslint ./src/api --ext .ts,.tsx,.js --fix', // run lint fix after all files are written
     },
   },
-}
+})
