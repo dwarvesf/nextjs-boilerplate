@@ -16,11 +16,12 @@ const [Provider, useAuthContext] = createContext<AuthContextValues>({
 
 const tokenKey = 'df-token'
 const getToken = () => window.localStorage.getItem(tokenKey)
-// Mock User. Replace this with your own data from User Profile API
+// Demo User. Replace this with your own data from User Profile API
 const user = {
   firstName: 'Charlie',
   lastName: 'Puth',
   avatar: 'https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp',
+  email: 'test@d.foundation',
 }
 
 const AuthContextProvider = ({ children }: WithChildren) => {
@@ -29,6 +30,12 @@ const AuthContextProvider = ({ children }: WithChildren) => {
   })
 
   const login = useCallback((email: string, password: string) => {
+    // Demo account
+    if (email === user.email) {
+      setIsLogin(true)
+      window.localStorage.setItem(tokenKey, 'demo-account')
+      return Promise.resolve(user)
+    }
     return signIn({ email, password })
       .then((res) => {
         if (res.data) {
