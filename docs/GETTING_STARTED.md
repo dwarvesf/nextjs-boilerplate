@@ -43,7 +43,7 @@ to see your project.
 │── cypress                      # Cypress configuration and tests
 ├── tailwind.config.js           # Tailwind CSS configuration
 ├── tsconfig.json                # TypeScript configuration
-├── .spectral.js                 # Orval validator rules for Swagger
+├── .spectral.js                 # IBM OpenAPI Ruleset for Orval used on validating the rules for Swagger
 └── orval.config.js              # Orval api generator configuration
 ```
 
