@@ -1,4 +1,4 @@
-const ibmCloudValidationRules = require('@ibm-cloud/openapi-ruleset') // Note 1
+const ibmCloudValidationRules = require('@ibm-cloud/openapi-ruleset') // Extend default rules from the IBM OpenAPI Ruleset
 const {
   pathSegmentCaseConvention,
   propertyCaseConvention,
