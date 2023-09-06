@@ -70,15 +70,6 @@ dependencies:
     version: 3.21.4
 
 devDependencies:
-  '@babel/core':
-    specifier: ^7.22.5
-    version: 7.22.5
-  '@babel/helper-plugin-utils':
-    specifier: ^7.20.2
-    version: 7.20.2
-  '@babel/preset-react':
-    specifier: ^7.22.5
-    version: 7.22.5(@babel/core@7.22.5)
   '@commitlint/cli':
     specifier: ^17.3.0
     version: 17.3.0
@@ -679,11 +670,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/types': 7.22.5
-    dev: true
-
-  /@babel/helper-plugin-utils@7.20.2:
-    resolution: {integrity: sha512-8RvlJG2mj4huQ4pZ+rU9lqKi9ZKiRmuvGuM2HlWmkmgOhbs6zEAw6IEiJ5cQqGbDzGZOhwuOQNtZMi/ENLjZoQ==}
-    engines: {node: '>=6.9.0'}
     dev: true
 
   /@babel/helper-plugin-utils@7.21.5:
