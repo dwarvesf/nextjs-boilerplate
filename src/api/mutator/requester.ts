@@ -23,7 +23,7 @@ export const requester = <T>(config: AxiosRequestConfig): Promise<T> => {
 
   // @ts-ignore
   promise.cancel = () => {
-    source.cancel('Query was cancelled by React Query')
+    source.cancel('Query was cancelled by requester')
   }
 
   return promise
