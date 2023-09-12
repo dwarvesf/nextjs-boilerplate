@@ -98,7 +98,7 @@ const LoginPage = () => {
               fullWidth
               onClick={() =>
                 onSubmit({
-                  email: 'test@d.foundation',
+                  email: 'demo@dwarves.foundation',
                   password: 'Testing@123',
                 })
               }
