@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card } from 'components/Card'
 import { Heading } from 'components/Heading'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -31,6 +31,7 @@ const validationSchema = z.object({
 const LoginPage = () => {
   const { push } = useRouter()
   const { login, isLogin } = useAuthContext()
+  const [isLoading, setIsLoading] = useState(false)
   const formInstance = useForm({
     defaultValues: loginFormDefaultValues,
     resolver: zodResolver(validationSchema),
@@ -38,9 +39,12 @@ const LoginPage = () => {
   const { handleSubmit } = formInstance
 
   const onSubmit = (data: typeof loginFormDefaultValues) => {
-    login(data.email, data.password).catch((error) => {
-      console.error(error)
-    })
+    setIsLoading(true)
+    login(data.email, data.password)
+      .catch((error) => {
+        console.error(error)
+      })
+      .finally(() => setIsLoading(false))
   }
 
   useEffect(() => {
@@ -87,13 +91,21 @@ const LoginPage = () => {
               </Button>
             </div>
 
-            <Button appearance="primary" type="submit" fullWidth>
+            <Button
+              appearance="primary"
+              disabled={isLoading}
+              loading={isLoading}
+              type="submit"
+              fullWidth
+            >
               Sign in
             </Button>
 
             <Divider>Or continue by</Divider>
 
             <Button
+              disabled={isLoading}
+              loading={isLoading}
               type="button"
               fullWidth
               onClick={() =>
