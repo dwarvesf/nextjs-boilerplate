@@ -38,13 +38,15 @@ const LoginPage = () => {
   })
   const { handleSubmit } = formInstance
 
-  const onSubmit = (data: typeof loginFormDefaultValues) => {
+  const onSubmit = async (data: typeof loginFormDefaultValues) => {
     setIsLoading(true)
-    login(data.email, data.password)
-      .catch((error) => {
-        console.error(error)
-      })
-      .finally(() => setIsLoading(false))
+    try {
+      login(data.email, data.password)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   useEffect(() => {
@@ -94,7 +96,6 @@ const LoginPage = () => {
             <Button
               appearance="primary"
               disabled={isLoading}
-              loading={isLoading}
               type="submit"
               fullWidth
             >
