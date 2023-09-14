@@ -13,6 +13,7 @@ import { useAuthContext } from 'context/auth'
 import { useRouter } from 'next/router'
 import { ROUTES } from 'constants/routes'
 import { Logo } from 'components/Logo'
+import { toast } from 'components/Toast'
 
 const loginFormDefaultValues = { email: '', password: '' }
 const validationSchema = z.object({
@@ -41,9 +42,9 @@ const LoginPage = () => {
   const onSubmit = async (data: typeof loginFormDefaultValues) => {
     setIsLoading(true)
     try {
-      login(data.email, data.password)
+      await login(data.email, data.password)
     } catch (error) {
-      console.error(error)
+      toast.error({ title: 'Invalid email or password' })
     } finally {
       setIsLoading(false)
     }
@@ -96,6 +97,7 @@ const LoginPage = () => {
             <Button
               appearance="primary"
               disabled={isLoading}
+              loading={isLoading}
               type="submit"
               fullWidth
             >
@@ -106,15 +108,14 @@ const LoginPage = () => {
 
             <Button
               disabled={isLoading}
-              loading={isLoading}
               type="button"
               fullWidth
-              onClick={() =>
+              onClick={() => {
                 onSubmit({
                   email: 'demo@dwarves.foundation',
                   password: 'Testing@123',
                 })
-              }
+              }}
             >
               Use demo account
             </Button>

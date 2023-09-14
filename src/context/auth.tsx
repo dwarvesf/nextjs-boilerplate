@@ -29,25 +29,16 @@ const AuthContextProvider = ({ children }: WithChildren) => {
     return isSSR() ? false : Boolean(window.localStorage.getItem(tokenKey))
   })
 
-  const login = useCallback((email: string, password: string) => {
-    // Demo account
-    if (email === user.email) {
-      setIsLogin(true)
-      window.localStorage.setItem(tokenKey, 'demo-account')
-      return Promise.resolve(user)
+  const login = useCallback(async (email: string, password: string) => {
+    try {
+      const res = await signIn({ email, password })
+      if (res.data) {
+        setIsLogin(true)
+        window.localStorage.setItem(tokenKey, res.data.accessToken)
+      }
+    } catch (error) {
+      throw new Error('Incorrect email or password')
     }
-    return signIn({ email, password })
-      .then((res) => {
-        if (res.data) {
-          setIsLogin(true)
-          window.localStorage.setItem(tokenKey, res.data.accessToken)
-          return res.data
-        }
-        throw new Error('Incorrect email or password')
-      })
-      .catch(() => {
-        throw new Error('Incorrect email or password')
-      })
   }, [])
 
   const logout = useCallback(() => {
