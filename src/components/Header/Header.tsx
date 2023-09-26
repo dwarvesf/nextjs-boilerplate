@@ -27,11 +27,11 @@ export const Header = () => {
             alt=""
             className="rounded-full"
             height="40"
-            src={user.avatar}
+            src={user?.avatar}
             width="40"
           />
           <Text as="span" className="text-gray-600 text-sm">
-            {user.firstName}
+            {user?.fullName}
           </Text>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-48">

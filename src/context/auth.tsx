@@ -1,13 +1,13 @@
 import { createContext, isSSR } from '@dwarvesf/react-utils'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { WithChildren } from 'types/common'
-import { login as signIn } from 'api'
+import { Me, getMe, login as signIn } from 'api'
 
 interface AuthContextValues {
   isLogin: boolean
   login: (email: string, password: string) => Promise<any>
   logout: () => void
-  user: typeof user
+  user?: Me
 }
 
 const [Provider, useAuthContext] = createContext<AuthContextValues>({
@@ -15,19 +15,14 @@ const [Provider, useAuthContext] = createContext<AuthContextValues>({
 })
 
 const tokenKey = 'df-token'
+const userKey = 'df-user'
 const getToken = () => window.localStorage.getItem(tokenKey)
-// Demo User. Replace this with your own data from User Profile API
-const user = {
-  firstName: 'Charlie',
-  lastName: 'Puth',
-  avatar: 'https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp',
-  email: 'test@d.foundation',
-}
 
 const AuthContextProvider = ({ children }: WithChildren) => {
   const [isLogin, setIsLogin] = useState(() => {
     return isSSR() ? false : Boolean(window.localStorage.getItem(tokenKey))
   })
+  const [user, setUser] = useState<Me>()
 
   const login = useCallback(async (email: string, password: string) => {
     try {
@@ -45,6 +40,29 @@ const AuthContextProvider = ({ children }: WithChildren) => {
     setIsLogin(false)
     window.localStorage.removeItem(tokenKey)
   }, [])
+
+  useEffect(() => {
+    const bootstrapAsync = async () => {
+      if (isLogin) {
+        const userRaw = window.localStorage.getItem(userKey)
+        if (userRaw) {
+          setUser(JSON.parse(userRaw) as Me)
+        } else {
+          // Fecth user info
+          try {
+            const res = await getMe()
+            if (res.data) {
+              setUser(res.data)
+            }
+          } catch (error) {
+            // Failed to fetch user profile -> force logout
+            logout()
+          }
+        }
+      }
+    }
+    bootstrapAsync()
+  }, [isLogin, logout])
 
   return (
     <Provider value={{ isLogin, login, logout, user }}>{children}</Provider>
