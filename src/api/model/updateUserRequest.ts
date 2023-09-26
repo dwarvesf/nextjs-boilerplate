@@ -8,5 +8,7 @@
 
 export interface UpdateUserRequest {
   avatar?: string
+  department?: string
   fullName?: string
+  title?: string
 }

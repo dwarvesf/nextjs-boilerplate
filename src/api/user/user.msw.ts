@@ -11,8 +11,14 @@ import { faker } from '@faker-js/faker'
 export const getGetMeMock = () => ({
   data: faker.helpers.arrayElement([
     {
+      avatar: (() => faker.image.avatar())(),
+      department: faker.random.word(),
       email: (() => faker.internet.email())(),
+      fullName: faker.random.word(),
       id: faker.datatype.number({ min: undefined, max: undefined }),
+      role: faker.random.word(),
+      status: faker.random.word(),
+      title: faker.random.word(),
     },
     undefined,
   ]),

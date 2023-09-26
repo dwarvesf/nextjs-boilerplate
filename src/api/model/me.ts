@@ -7,6 +7,12 @@
  */
 
 export interface Me {
+  avatar?: string
+  department: string
   email: string
+  fullName: string
   id: number
+  role: string
+  status: string
+  title: string
 }
