@@ -24,6 +24,7 @@ to see your project.
 ├── public                       # Public folder
 │   └── img                      # Images used by the app
 ├── types                        # Shared TypeScript interfaces
+├── api                          # Generated API interfaces from Swagger
 ├── components                   # Shared components
 │   └── X
 │       └── X.tsx
@@ -41,7 +42,9 @@ to see your project.
 │   └── tests
 │── cypress                      # Cypress configuration and tests
 ├── tailwind.config.js           # Tailwind CSS configuration
-└── tsconfig.json                # TypeScript configuration
+├── tsconfig.json                # TypeScript configuration
+├── .spectral.js                 # IBM OpenAPI Ruleset for Orval used on validating the rules for Swagger
+└── orval.config.js              # Orval api generator configuration
 ```
 
 ### Develop UI components
@@ -60,23 +63,26 @@ The UI document then should be live at
 
 If your team use Swagger to document APIs, we support a node script to generate
 TypeScript interfaces via your Swagger scheme. In
-[package.json](../package.json), change the default path to the location of your
-Swagger JSON doc.
+[orval.config.js](../orval.config.js), change the default path to the location
+of your Swagger JSON doc.
 
-```
-- "fetch-definitions": "swagger-typescript-api --no-client -p ./libs/swagger.json -o ./types -n schema.ts",
-+ "fetch-definitions": "swagger-typescript-api --no-client -p your-api-swagger-json -o ./types -n schema.ts",
+```diff
+input: {
+-  target: 'https://hp-api.fly.dev/swagger/doc.json',
++  target: 'your-api-swagger-json',
+  ...
+}
 ```
 
 Then, you can run the script locally to generate TypeScript definitions for the
 APIs:
 
 ```bash
-pnpm fetch-definitions
+pnpm generate:api
 ```
 
-The generated interfaces will be located at
-[types/schema.ts](../types/schema.ts).
+The generated models and api clients will be located at [api](../src/api)
+folder.
 
 ## Read on:
 

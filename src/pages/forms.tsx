@@ -13,8 +13,7 @@ import { FormCheckboxGroup } from 'components/FormCheckboxGroup'
 import { Checkbox } from 'components/Checkbox'
 
 const personalFormDefaultValues = {
-  firstName: '',
-  lastName: '',
+  fullName: '',
   email: '',
   country: '',
   address: '',
@@ -24,8 +23,7 @@ const personalFormDefaultValues = {
 }
 
 const personalFormValidationSchema = z.object({
-  firstName: z.string().min(1, 'First name is required.'),
-  lastName: z.string().min(1, 'Last name is required.'),
+  fullName: z.string().min(1, 'Full name is required.'),
   email: z.string().email(),
 })
 
@@ -46,16 +44,8 @@ const PersonalForm = () => {
           <div className="grid grid-cols-6 gap-6 p-6">
             <div className="col-span-3">
               <FormInput
-                label="First name"
-                name="firstName"
-                rules={{ required: 'Required' }}
-                fullWidth
-              />
-            </div>
-            <div className="col-span-3">
-              <FormInput
-                label="Last name"
-                name="lastName"
+                label="Full name"
+                name="fullName"
                 rules={{ required: 'Required' }}
                 fullWidth
               />

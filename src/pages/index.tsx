@@ -55,7 +55,7 @@ const DashboardPage = () => {
   return (
     <Layout>
       <div className="space-y-px">
-        <Heading as="h3">Good afternoon, {user.firstName}</Heading>
+        <Heading as="h3">Good afternoon, {user?.fullName}</Heading>
         <Text className="text-gray-500">
           Here's what's happenning with your ambassador account today.
         </Text>

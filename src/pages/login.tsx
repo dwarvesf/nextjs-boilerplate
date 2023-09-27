@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card } from 'components/Card'
 import { Heading } from 'components/Heading'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -13,6 +13,7 @@ import { useAuthContext } from 'context/auth'
 import { useRouter } from 'next/router'
 import { ROUTES } from 'constants/routes'
 import { Logo } from 'components/Logo'
+import { toast } from 'components/Toast'
 
 const loginFormDefaultValues = { email: '', password: '' }
 const validationSchema = z.object({
@@ -31,17 +32,21 @@ const validationSchema = z.object({
 const LoginPage = () => {
   const { push } = useRouter()
   const { login, isLogin } = useAuthContext()
+  const [isLoading, setIsLoading] = useState(false)
   const formInstance = useForm({
     defaultValues: loginFormDefaultValues,
     resolver: zodResolver(validationSchema),
   })
   const { handleSubmit } = formInstance
 
-  const onSubmit = (data: typeof loginFormDefaultValues) => {
+  const onSubmit = async (data: typeof loginFormDefaultValues) => {
+    setIsLoading(true)
     try {
-      login(data.email, data.password)
+      await login(data.email, data.password)
     } catch (error) {
-      console.error(error)
+      toast.error({ title: 'Invalid email or password' })
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -89,17 +94,27 @@ const LoginPage = () => {
               </Button>
             </div>
 
-            <Button appearance="primary" type="submit" fullWidth>
+            <Button
+              appearance="primary"
+              disabled={isLoading}
+              loading={isLoading}
+              type="submit"
+              fullWidth
+            >
               Sign in
             </Button>
 
             <Divider>Or continue by</Divider>
 
             <Button
+              disabled={isLoading}
               type="button"
               fullWidth
               onClick={() => {
-                login('test@d.foundation', 'Thepassword1')
+                onSubmit({
+                  email: 'demo@dwarves.foundation',
+                  password: 'Testing@123',
+                })
               }}
             >
               Use demo account
