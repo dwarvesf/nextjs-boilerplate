@@ -33,10 +33,17 @@ to see your project.
 
 ## Deployment
 
-| Name        | Link                                                 |
-| ----------- | ---------------------------------------------------- |
-| Boilerplate | https://df-nextjs-boilerplate.netlify.app/           |
-| UI Docs     | https://df-nextjs-boilerplate-storybook.netlify.app/ |
+| Environment | URL                                        |
+| ----------- | ------------------------------------------ |
+| Prod        | https://df-nextjs-boilerplate.netlify.app/ |
+
+## Resources
+
+| Name       | Description | Link                                                 |
+| ---------- | ----------- | ---------------------------------------------------- |
+| UI Docs    | Storybook   | https://df-nextjs-boilerplate-storybook.netlify.app/ |
+| API Docs   | Swagger     | https://demo-api.dwarvesf.com/swagger/index.html     |
+| API Source | Go          | https://github.com/dwarvesf/go-api.git               |
 
 ## Documentation
 
