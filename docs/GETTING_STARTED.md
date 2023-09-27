@@ -68,7 +68,7 @@ of your Swagger JSON doc.
 
 ```diff
 input: {
--  target: 'https://hp-api.fly.dev/swagger/doc.json',
+-  target: 'https://demo-api.dwarvesf.com/swagger/doc.json',
 +  target: 'your-api-swagger-json',
   ...
 }
