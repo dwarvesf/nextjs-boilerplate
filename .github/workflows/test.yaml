@@ -6,6 +6,9 @@ on:
       - opened
       - synchronize
 
+env:
+  NEXT_PUBLIC_BASE_URL: https://demo-api.dwarvesf.com/api/v1
+
 jobs:
   test:
     runs-on: ubuntu-latest
