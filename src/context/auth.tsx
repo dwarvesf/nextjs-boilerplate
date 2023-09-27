@@ -2,6 +2,7 @@ import { createContext, isSSR } from '@dwarvesf/react-utils'
 import { useCallback, useEffect, useState } from 'react'
 import { WithChildren } from 'types/common'
 import { Me, getMe, login as signIn } from 'api'
+import { emitter } from 'utils/emitter'
 
 interface AuthContextValues {
   isLogin: boolean
@@ -62,6 +63,11 @@ const AuthContextProvider = ({ children }: WithChildren) => {
       }
     }
     bootstrapAsync()
+
+    emitter.on('FORCE_LOGOUT', logout)
+    return () => {
+      emitter.off('FORCE_LOGOUT', logout)
+    }
   }, [isLogin, logout])
 
   return (
