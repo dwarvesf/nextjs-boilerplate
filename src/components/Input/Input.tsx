@@ -18,9 +18,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       fullWidth = false,
       disabled = false,
       invalid = false,
-      onFocus,
-      onBlur,
-      type,
       className,
       ...rest
     } = props
