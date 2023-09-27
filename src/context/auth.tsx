@@ -18,6 +18,10 @@ const [Provider, useAuthContext] = createContext<AuthContextValues>({
 const tokenKey = 'df-token'
 const userKey = 'df-user'
 const getToken = () => window.localStorage.getItem(tokenKey)
+const cleanAuth = () => {
+  window.localStorage.removeItem(tokenKey)
+  window.localStorage.removeItem(userKey)
+}
 
 const AuthContextProvider = ({ children }: WithChildren) => {
   const [isLogin, setIsLogin] = useState(() => {
@@ -39,26 +43,37 @@ const AuthContextProvider = ({ children }: WithChildren) => {
 
   const logout = useCallback(() => {
     setIsLogin(false)
-    window.localStorage.removeItem(tokenKey)
+    cleanAuth()
   }, [])
+
+  const fetchUserInfo = useCallback(async () => {
+    try {
+      const res = await getMe()
+      if (res.data) {
+        setUser(res.data)
+        // Save user info to local storage
+        window.localStorage.setItem(userKey, JSON.stringify(res.data))
+      }
+    } catch {
+      // Failed to fetch user profile -> force logout
+      logout()
+    }
+  }, [logout])
 
   useEffect(() => {
     const bootstrapAsync = async () => {
       if (isLogin) {
+        // Retrieve user info from local storage first
         const userRaw = window.localStorage.getItem(userKey)
         if (userRaw) {
-          setUser(JSON.parse(userRaw) as Me)
-        } else {
-          // Fecth user info
           try {
-            const res = await getMe()
-            if (res.data) {
-              setUser(res.data)
-            }
-          } catch (error) {
-            // Failed to fetch user profile -> force logout
-            logout()
+            setUser(JSON.parse(userRaw) as Me)
+          } catch {
+            // Failed to parse user info -> try to fetch new data
+            fetchUserInfo()
           }
+        } else {
+          fetchUserInfo()
         }
       }
     }
@@ -68,7 +83,7 @@ const AuthContextProvider = ({ children }: WithChildren) => {
     return () => {
       emitter.off('FORCE_LOGOUT', logout)
     }
-  }, [isLogin, logout])
+  }, [isLogin, logout, fetchUserInfo])
 
   return (
     <Provider value={{ isLogin, login, logout, user }}>{children}</Provider>
