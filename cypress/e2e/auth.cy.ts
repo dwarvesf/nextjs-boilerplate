@@ -18,6 +18,7 @@ describe('User Sign-up and Login', () => {
     cy.visit('/')
     cy.get('[name="email"]').type(userInfo.email)
     cy.get('[name="password"]').type(userInfo.password).type('{enter}')
+    cy.wait(10000)
     cy.location('pathname').should('equal', '/')
     cy.get('[data-testid="profile-button"]').click()
     cy.get('[data-testid="logout-button"]').click()
