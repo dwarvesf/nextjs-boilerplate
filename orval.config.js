@@ -25,6 +25,7 @@ export default defineConfig({
             'data.avatar': () => faker.image.avatar(),
             'data.[].avatar': () => faker.image.avatar(),
           },
+          required: true,
         },
       },
     },

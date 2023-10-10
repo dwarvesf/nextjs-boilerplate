@@ -9,22 +9,14 @@ import { rest } from 'msw'
 import { faker } from '@faker-js/faker'
 
 export const getLoginMock = () => ({
-  data: faker.helpers.arrayElement([
-    {
-      accessToken: faker.random.word(),
-      email: (() => faker.internet.email())(),
-      id: faker.datatype.number({ min: undefined, max: undefined }),
-    },
-    undefined,
-  ]),
+  data: {
+    accessToken: faker.random.word(),
+    email: (() => faker.internet.email())(),
+    id: faker.datatype.number({ min: undefined, max: undefined }),
+  },
 })
 
-export const getSignupMock = () => ({
-  data: faker.helpers.arrayElement([
-    { message: faker.random.word() },
-    undefined,
-  ]),
-})
+export const getSignupMock = () => ({ data: { message: faker.random.word() } })
 
 export const getAuthMSW = () => [
   rest.post('*/portal/auth/login', (_req, res, ctx) => {

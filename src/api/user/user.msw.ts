@@ -9,75 +9,57 @@ import { rest } from 'msw'
 import { faker } from '@faker-js/faker'
 
 export const getGetMeMock = () => ({
-  data: faker.helpers.arrayElement([
-    {
-      avatar: (() => faker.image.avatar())(),
-      department: faker.random.word(),
-      email: (() => faker.internet.email())(),
-      fullName: faker.random.word(),
-      id: faker.datatype.number({ min: undefined, max: undefined }),
-      role: faker.random.word(),
-      status: faker.random.word(),
-      title: faker.random.word(),
-    },
-    undefined,
-  ]),
+  data: {
+    avatar: (() => faker.image.avatar())(),
+    department: faker.random.word(),
+    email: (() => faker.internet.email())(),
+    fullName: faker.random.word(),
+    id: faker.datatype.number({ min: undefined, max: undefined }),
+    role: faker.random.word(),
+    status: faker.random.word(),
+    title: faker.random.word(),
+  },
 })
 
 export const getGetUsersListMock = () => ({
-  data: faker.helpers.arrayElement([
-    Array.from(
-      { length: faker.datatype.number({ min: 1, max: 10 }) },
-      (_, i) => i + 1,
-    ).map(() => ({
-      avatar: (() => faker.image.avatar())(),
-      department: faker.random.word(),
-      email: (() => faker.internet.email())(),
-      fullName: faker.random.word(),
-      id: faker.datatype.number({ min: undefined, max: undefined }),
-      role: faker.random.word(),
-      status: faker.random.word(),
-      title: faker.random.word(),
-    })),
-    undefined,
-  ]),
-  metadata: faker.helpers.arrayElement([
-    {
-      hasNext: faker.helpers.arrayElement([
-        faker.datatype.boolean(),
-        undefined,
-      ]),
-      page: faker.datatype.number({ min: undefined, max: undefined }),
-      pageSize: faker.datatype.number({ min: undefined, max: undefined }),
-      sort: faker.helpers.arrayElement([faker.random.word(), undefined]),
-      totalPages: faker.datatype.number({ min: undefined, max: undefined }),
-      totalRecords: faker.datatype.number({ min: undefined, max: undefined }),
-    },
-    undefined,
-  ]),
+  data: Array.from(
+    { length: faker.datatype.number({ min: 1, max: 10 }) },
+    (_, i) => i + 1,
+  ).map(() => ({
+    avatar: (() => faker.image.avatar())(),
+    department: faker.random.word(),
+    email: (() => faker.internet.email())(),
+    fullName: faker.random.word(),
+    id: faker.datatype.number({ min: undefined, max: undefined }),
+    role: faker.random.word(),
+    status: faker.random.word(),
+    title: faker.random.word(),
+  })),
+  metadata: {
+    hasNext: faker.datatype.boolean(),
+    page: faker.datatype.number({ min: undefined, max: undefined }),
+    pageSize: faker.datatype.number({ min: undefined, max: undefined }),
+    sort: faker.random.word(),
+    totalPages: faker.datatype.number({ min: undefined, max: undefined }),
+    totalRecords: faker.datatype.number({ min: undefined, max: undefined }),
+  },
 })
 
 export const getUpdateUserMock = () => ({
-  data: faker.helpers.arrayElement([
-    {
-      avatar: (() => faker.image.avatar())(),
-      department: faker.random.word(),
-      email: (() => faker.internet.email())(),
-      fullName: faker.random.word(),
-      id: faker.datatype.number({ min: undefined, max: undefined }),
-      role: faker.random.word(),
-      status: faker.random.word(),
-      title: faker.random.word(),
-    },
-    undefined,
-  ]),
+  data: {
+    avatar: (() => faker.image.avatar())(),
+    department: faker.random.word(),
+    email: (() => faker.internet.email())(),
+    fullName: faker.random.word(),
+    id: faker.datatype.number({ min: undefined, max: undefined }),
+    role: faker.random.word(),
+    status: faker.random.word(),
+    title: faker.random.word(),
+  },
 })
 
 export const getUpdatePasswordMock = () => ({
-  data: faker.helpers.arrayElement([
-    { message: faker.random.word() },
-    undefined,
-  ]),
+  data: { message: faker.random.word() },
 })
 
 export const getUserMSW = () => [
