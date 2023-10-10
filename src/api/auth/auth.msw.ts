@@ -10,9 +10,9 @@ import { faker } from '@faker-js/faker'
 
 export const getLoginMock = () => ({
   data: {
-    accessToken: faker.random.word(),
-    email: (() => faker.internet.email())(),
-    id: faker.datatype.number({ min: undefined, max: undefined }),
+    accessToken: (() => faker.string.nanoid())(),
+    email: (() => 'demo@dwarves.foundation')(),
+    id: (() => 2)(),
   },
 })
 

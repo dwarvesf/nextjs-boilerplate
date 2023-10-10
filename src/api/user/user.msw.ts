@@ -10,14 +10,14 @@ import { faker } from '@faker-js/faker'
 
 export const getGetMeMock = () => ({
   data: {
-    avatar: (() => faker.image.avatar())(),
-    department: faker.random.word(),
-    email: (() => faker.internet.email())(),
-    fullName: faker.random.word(),
-    id: faker.datatype.number({ min: undefined, max: undefined }),
-    role: faker.random.word(),
-    status: faker.random.word(),
-    title: faker.random.word(),
+    avatar: 'https://avatars.githubusercontent.com/u/10388449?s=200&v=4',
+    department: 'Dev',
+    email: 'demo@dwarves.foundation',
+    fullName: 'Dwarvesf Demo',
+    id: 2,
+    role: 'user',
+    status: 'active',
+    title: 'Demo',
   },
 })
 
@@ -27,34 +27,34 @@ export const getGetUsersListMock = () => ({
     (_, i) => i + 1,
   ).map(() => ({
     avatar: (() => faker.image.avatar())(),
-    department: faker.random.word(),
+    department: (() => faker.person.jobArea())(),
     email: (() => faker.internet.email())(),
-    fullName: faker.random.word(),
+    fullName: (() => faker.person.fullName())(),
     id: faker.datatype.number({ min: undefined, max: undefined }),
-    role: faker.random.word(),
-    status: faker.random.word(),
-    title: faker.random.word(),
+    role: (() => faker.helpers.arrayElement(['User', 'Admin', 'Moderator']))(),
+    status: (() => faker.helpers.arrayElement(['Active', 'Inactive']))(),
+    title: (() => faker.person.jobTitle())(),
   })),
   metadata: {
     hasNext: faker.datatype.boolean(),
-    page: faker.datatype.number({ min: undefined, max: undefined }),
-    pageSize: faker.datatype.number({ min: undefined, max: undefined }),
+    page: (() => faker.number.int({ min: 1, max: 10 }))(),
+    pageSize: (() => faker.number.int({ min: 1, max: 20 }))(),
     sort: faker.random.word(),
-    totalPages: faker.datatype.number({ min: undefined, max: undefined }),
-    totalRecords: faker.datatype.number({ min: undefined, max: undefined }),
+    totalPages: (() => faker.number.int({ min: 1, max: 10 }))(),
+    totalRecords: (() => faker.number.int({ min: 1, max: 100 }))(),
   },
 })
 
 export const getUpdateUserMock = () => ({
   data: {
     avatar: (() => faker.image.avatar())(),
-    department: faker.random.word(),
+    department: (() => faker.person.jobArea())(),
     email: (() => faker.internet.email())(),
-    fullName: faker.random.word(),
+    fullName: (() => faker.person.fullName())(),
     id: faker.datatype.number({ min: undefined, max: undefined }),
-    role: faker.random.word(),
-    status: faker.random.word(),
-    title: faker.random.word(),
+    role: (() => faker.helpers.arrayElement(['User', 'Admin', 'Moderator']))(),
+    status: (() => faker.helpers.arrayElement(['Active', 'Inactive']))(),
+    title: (() => faker.person.jobTitle())(),
   },
 })
 
