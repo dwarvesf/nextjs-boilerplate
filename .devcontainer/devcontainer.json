@@ -30,6 +30,11 @@
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
 
+  // Use 'postStartCommand' to run commands after the container starts.
+  // since this is our devcontainer, make it a safe dir for dubious ownership
+  // https://nvd.nist.gov/vuln/detail/cve-2022-24765
+  "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+
   // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   "remoteUser": "node"
 }
