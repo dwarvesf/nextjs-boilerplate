@@ -12,7 +12,6 @@ else
 
   # edit a fresh .npmrc with package-import-method set to clone-or-copy and ignore git changes on it
   git checkout master -- .npmrc
-  git update-index --assume-unchanged .npmrc
   echo "package-import-method=clone-or-copy" >> .npmrc
 fi
 
