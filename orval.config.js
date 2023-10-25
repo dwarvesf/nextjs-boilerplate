@@ -75,7 +75,7 @@ export default defineConfig({
       },
     },
     input: {
-      target: 'https://demo-api.dwarvesf.com/swagger/doc.json',
+      target: 'https://openrouter-api.dwarvesf.com/api/v1/openapi.json',
       validation: false,
     },
     hooks: {

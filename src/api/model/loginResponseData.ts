@@ -5,7 +5,8 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export interface LoginRequest {
+export interface LoginResponseData {
+  id: number
   username: string
-  password: string
+  accessToken: string
 }
