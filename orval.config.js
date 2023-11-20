@@ -44,6 +44,7 @@ const MOCK_ME = {
 export default defineConfig({
   app: {
     output: {
+      headers: true,
       mode: 'tags-split',
       workspace: './src/api',
       target: './app.ts',
