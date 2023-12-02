@@ -48,5 +48,17 @@ const customJestConfig = {
   coverageProvider: 'v8',
 }
 
-// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-module.exports = createJestConfig(customJestConfig)
+const jestConfig = async () => {
+  const nextJestConfig = await createJestConfig(customJestConfig)()
+
+  return {
+    ...nextJestConfig,
+    moduleNameMapper: {
+      '\\.svg': '<rootDir>/__mocks__/svgrMock.js',
+      // Workaround to put our SVG mock first
+      ...nextJestConfig.moduleNameMapper,
+    },
+  }
+}
+
+module.exports = jestConfig
