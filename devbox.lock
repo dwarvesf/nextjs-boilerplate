@@ -1,0 +1,70 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "nodejs@21.6.1": {
+      "last_modified": "2024-02-10T18:15:24Z",
+      "plugin_version": "0.0.2",
+      "resolved": "github:NixOS/nixpkgs/10b813040df67c4039086db0f6eaf65c536886c6#nodejs_21",
+      "source": "devbox-search",
+      "version": "21.6.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/042c4932zidpg21dh9g078m29bbnknzx-nodejs-21.6.1",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/hlsafi3g7vkhgwfghhgbww86mzz9qhsh-nodejs-21.6.1-libv8"
+            }
+          ],
+          "store_path": "/nix/store/042c4932zidpg21dh9g078m29bbnknzx-nodejs-21.6.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/i4imnyanc4qr07sp1f6zw8j8rhj9cpzz-nodejs-21.6.1",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/w5qiqw4ahjbqm76mn330ap79pangd9ji-nodejs-21.6.1-libv8"
+            }
+          ],
+          "store_path": "/nix/store/i4imnyanc4qr07sp1f6zw8j8rhj9cpzz-nodejs-21.6.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/qzkawpmfp6i39jpvj0nga8xfh8dlbzkx-nodejs-21.6.1",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/n8jjlhmk3ym2jfpiwz4chiihadwwq5ic-nodejs-21.6.1-libv8"
+            }
+          ],
+          "store_path": "/nix/store/qzkawpmfp6i39jpvj0nga8xfh8dlbzkx-nodejs-21.6.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/r9yac8ggvbp5f1wwfnr2jq82ikd5l12y-nodejs-21.6.1",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/iyxijvqs6cga8drmzhswxlfnqlx12bh1-nodejs-21.6.1-libv8"
+            }
+          ],
+          "store_path": "/nix/store/r9yac8ggvbp5f1wwfnr2jq82ikd5l12y-nodejs-21.6.1"
+        }
+      }
+    }
+  }
+}
