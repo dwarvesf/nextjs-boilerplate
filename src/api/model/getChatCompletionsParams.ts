@@ -5,7 +5,6 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export interface LoginRequest {
-  username: string
-  password: string
+export type GetChatCompletionsParams = {
+  authorization?: string
 }

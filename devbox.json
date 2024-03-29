@@ -1,0 +1,26 @@
+{
+  "packages": ["nodejs@21.6.1"],
+  "shell": {
+    "init_hook": [
+      "npm set prefix ~/.npm-global",
+      "npm install -g pnpm@v8.15.2",
+      "export PATH=~/.npm-global/bin:$PATH",
+      "pnpm install"
+    ],
+    "scripts": {
+      "dev": "pnpm run dev",
+      "build": "pnpm run build",
+      "analyze": "pnpm run analyze",
+      "generate:api": "pnpm run generate:api",
+      "release:alpha": [
+        "git checkout main",
+        "git pull",
+        "pnpm run release",
+        "git checkout alpha",
+        "git merge main",
+        "git push --follow-tags origin main alpha",
+        "git checkout @{-2}"
+      ]
+    }
+  }
+}

@@ -1,10 +1,9 @@
-import { isSSR } from '@dwarvesf/react-utils'
 import Axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
-import { getToken } from 'context/auth'
 import { emitter } from 'utils/emitter'
 
 // eslint-disable-next-line prefer-destructuring
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+const ACCESS_TOKEN = process.env.NEXT_PUBLIC_ACCESS_TOKEN
 
 export const AXIOS_INSTANCE = Axios.create({ baseURL: BASE_URL })
 
@@ -21,11 +20,12 @@ const handleResponseFail = async (error: any) => {
 export const requester = <T>(config: AxiosRequestConfig): Promise<T> => {
   const source = Axios.CancelToken.source()
   // Add token to request header
-  const accessToken = isSSR() ? '' : getToken()
-  if (accessToken) {
+  // const accessToken = isSSR() ? '' : getToken()
+  if (ACCESS_TOKEN) {
     config.headers = {
       ...config.headers,
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${ACCESS_TOKEN}`,
+      'Access-Control-Request-Headers': `POST`,
     }
   }
   // Add interceptors

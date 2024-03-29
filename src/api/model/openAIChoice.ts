@@ -4,8 +4,8 @@
  * FE-23 OpenAI API
  * OpenAPI spec version: 1.0.0
  */
+import type { OpenAIMessage } from './openAIMessage'
 
-export interface LoginRequest {
-  username: string
-  password: string
+export interface OpenAIChoice {
+  message: OpenAIMessage
 }
