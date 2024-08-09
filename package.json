@@ -4,7 +4,6 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "build:test": "NEXT_PUBLIC_API_MOCKING=enabled next build",
     "analyze": "ANALYZE=true pnpm build",
     "start": "next start",
     "test": "jest",
@@ -18,7 +17,8 @@
     "release": "standard-version -a",
     "preinstall": "npx only-allow pnpm",
     "generate:api": "orval --config ./orval.config.js",
-    "prepare": "husky"
+    "prepare": "husky",
+    "clean:install": "rimraf node_modules pnpm-lock.yaml && pnpm install"
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.22.10",
