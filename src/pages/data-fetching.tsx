@@ -4,11 +4,10 @@ import { Card } from 'components/Card'
 import { Text } from 'components/Text'
 import { Table } from 'components/Table'
 import { Badge } from 'components/Badge'
-import { useGetUsersList, User } from 'api'
+import { useFetchUsers } from 'hooks/data/useFetchUsers'
 
 const DataFetchingPage = () => {
-  const { data, isLoading } = useGetUsersList()
-  const users = data?.data
+  const { users, isLoading } = useFetchUsers()
 
   return (
     <Layout>
