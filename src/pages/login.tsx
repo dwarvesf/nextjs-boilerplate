@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Card } from 'components/Card'
 import { Heading } from 'components/Heading'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -36,7 +36,6 @@ const LoginPage = () => {
     resolver: zodResolver(validationSchema),
   })
   const { handleSubmit } = formInstance
-
 
   useEffect(() => {
     if (isLogin) {
@@ -90,11 +89,7 @@ const LoginPage = () => {
               </Button>
             </div>
 
-            <Button
-              appearance="primary"
-              type="submit"
-              fullWidth
-            >
+            <Button appearance="primary" type="submit" fullWidth>
               Sign in
             </Button>
 
