@@ -10,11 +10,10 @@ const DialogClose = DialogPrimitive.Close
 const DialogTrigger = DialogPrimitive.Trigger
 
 const DialogPortal = ({
-  className,
   children,
   ...props
 }: DialogPrimitive.DialogPortalProps) => (
-  <DialogPrimitive.Portal className={cx(className)} {...props}>
+  <DialogPrimitive.Portal {...props}>
     <div className="fixed inset-0 z-50 flex justify-center items-center">
       {children}
     </div>
