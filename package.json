@@ -16,7 +16,7 @@
     "cypress:open": "cypress open",
     "release": "standard-version -a",
     "preinstall": "npx only-allow pnpm",
-    "generate:api": "orval --config ./orval.config.js",
+    "fetch-definitions": "swagger-typescript-api --no-client -p ./src/libs/swagger.json -o ./types -n schema.ts",
     "prepare": "husky",
     "clean:install": "rimraf node_modules pnpm-lock.yaml && pnpm install"
   },
