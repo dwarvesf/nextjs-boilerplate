@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from 'react'
 import cx from 'classnames'
-import { IconClose } from 'components/icons/components/IconClose'
+import IconClose from 'components/icons/svg/close.svg'
 import { AlertStatus, AlertProvider } from './context'
 import styles from './Alert.styles'
 

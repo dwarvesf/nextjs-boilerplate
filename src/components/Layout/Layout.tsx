@@ -1,5 +1,5 @@
-import { IconHome } from 'components/icons/components/IconHome'
-import { IconTable } from 'components/icons/components/IconTable'
+import IconHome from 'components/icons/svg/home.svg'
+import IconTable from 'components/icons/svg/table.svg'
 import { ROUTES } from 'constants/routes'
 import Link from 'next/link'
 import cx from 'classnames'
@@ -9,8 +9,8 @@ import { Logo } from 'components/Logo'
 import { Header } from 'components/Header'
 import { useAuthContext } from 'context/auth'
 import { useEffect, useState } from 'react'
-import { IconBookOpen } from 'components/icons/components/IconBookOpen'
-import { IconSwitchVertical } from 'components/icons/components/IconSwitchVertical'
+import IconBookOpen from 'components/icons/svg/book-open.svg'
+import IconSwitchVertical from 'components/icons/svg/switch-vertical.svg'
 
 const menuItems = [
   { name: 'Dashboard', href: ROUTES.DASHBOARD, Icon: IconHome },

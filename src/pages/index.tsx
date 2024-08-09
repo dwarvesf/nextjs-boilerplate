@@ -3,11 +3,11 @@ import { Heading } from 'components/Heading'
 import { Card } from 'components/Card'
 import { Text } from 'components/Text'
 import { useAuthContext } from 'context/auth'
-import { formatNumber } from 'utils/formatNumber'
+import { formatNumber } from 'utils/number'
 import { Badge } from 'components/Badge'
-import { IconArrowSmUp } from 'components/icons/components/IconArrowSmUp'
-import { IconArrowSmDown } from 'components/icons/components/IconArrowSmDown'
-import { IconPaperClip } from 'components/icons/components/IconPaperClip'
+import IconArrowSmUp from 'components/icons/svg/arrow-sm-up.svg'
+import IconArrowSmDown from 'components/icons/svg/arrow-sm-down.svg'
+import IconPaperClip from 'components/icons/svg/paper-clip.svg'
 
 interface StatCardProps {
   title: string
@@ -55,7 +55,7 @@ const DashboardPage = () => {
   return (
     <Layout>
       <div className="space-y-px">
-        <Heading as="h3">Good afternoon, {user?.fullName}</Heading>
+        <Heading as="h3">Good afternoon, {user?.firstName}</Heading>
         <Text className="text-gray-500">
           Here's what's happenning with your ambassador account today.
         </Text>

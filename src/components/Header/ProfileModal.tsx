@@ -23,14 +23,15 @@ interface Props {
 }
 
 const validationSchema = z.object({
-  fullName: z.string().min(1, 'Full name is required.'),
+  firstName: z.string().min(1, 'Required.'),
+  lastName: z.string().min(1, 'Required.'),
 })
 
 export const ProfileModal = (props: Props) => {
   const { trigger, open, onOpenChange } = props
   const { user } = useAuthContext()
   const formInstance = useForm({
-    defaultValues: { fullName: user?.fullName },
+    defaultValues: { firstName: user?.firstName, lastName: user?.lastName },
     resolver: zodResolver(validationSchema),
   })
   const { handleSubmit } = formInstance
@@ -54,9 +55,16 @@ export const ProfileModal = (props: Props) => {
               <form className="mt-5" onSubmit={handleSubmit(onSubmit)}>
                 <div className="space-y-5 mb-8">
                   <FormInput
-                    label="Full name"
-                    name="fullName"
-                    placeholder="Full name"
+                    label="First Name"
+                    name="firstName"
+                    placeholder="First name"
+                    rules={{ required: 'Required' }}
+                    fullWidth
+                  />
+                  <FormInput
+                    label="Last name"
+                    name="lastName"
+                    placeholder="Last name"
                     rules={{ required: 'Required' }}
                     fullWidth
                   />

@@ -5,8 +5,8 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from 'components/DropdownMenu'
-import { IconLogout } from 'components/icons/components/IconLogout'
-import { IconPencilAlt } from 'components/icons/components/IconPencilAlt'
+import IconLogout from 'components/icons/svg/logout.svg'
+import IconPencilAlt from 'components/icons/svg/pencil-alt.svg'
 import { Text } from 'components/Text'
 import { useAuthContext } from 'context/auth'
 import React, { useState } from 'react'
@@ -31,7 +31,7 @@ export const Header = () => {
             width="40"
           />
           <Text as="span" className="text-gray-600 text-sm">
-            {user?.fullName}
+            {user?.firstName} {user?.lastName}
           </Text>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-48">

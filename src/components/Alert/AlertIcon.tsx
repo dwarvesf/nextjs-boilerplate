@@ -1,8 +1,8 @@
 import React from 'react'
-import { IconExlamationCirleSolid } from 'components/icons/components/IconExlamationCirleSolid'
-import { IconCloseCircleSolid } from 'components/icons/components/IconCloseCircleSolid'
-import { IconCheckCircleSolid } from 'components/icons/components/IconCheckCircleSolid'
-import { IconInformationCircleSolid } from 'components/icons/components/IconInformationCircleSolid'
+import IconExlamationCirleSolid from 'components/icons/svg/exlamation-cirle-solid.svg'
+import IconCloseCircleSolid from 'components/icons/svg/close-circle-solid.svg'
+import IconCheckCircleSolid from 'components/icons/svg/check-circle-solid.svg'
+import IconInformationCircleSolid from 'components/icons/svg/information-circle-solid.svg'
 import { useAlertContext, AlertStatus } from './context'
 import styles from './Alert.styles'
 

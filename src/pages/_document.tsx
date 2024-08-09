@@ -22,7 +22,7 @@ export default function Document() {
         <meta content="#E13F5E" name="theme-color" />
         <link href="https://fonts.googleapis.com" rel="preconnect" />
         <link
-          crossOrigin="auto"
+          crossOrigin="anonymous"
           href="https://fonts.gstatic.com"
           rel="preconnect"
         />

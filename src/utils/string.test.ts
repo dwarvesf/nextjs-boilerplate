@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter } from './capitalizeFirstLetter'
+import { capitalizeFirstLetter } from './string'
 
 test.each([
   ['abc', 'Abc'],

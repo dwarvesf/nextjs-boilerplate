@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
-import { IconClose } from 'components/icons/components/IconClose'
+import IconClose from 'components/icons/svg/close.svg'
 
 const Dialog = DialogPrimitive.Root
 
@@ -10,11 +10,10 @@ const DialogClose = DialogPrimitive.Close
 const DialogTrigger = DialogPrimitive.Trigger
 
 const DialogPortal = ({
-  className,
   children,
   ...props
 }: DialogPrimitive.DialogPortalProps) => (
-  <DialogPrimitive.Portal className={cx(className)} {...props}>
+  <DialogPrimitive.Portal {...props}>
     <div className="fixed inset-0 z-50 flex justify-center items-center">
       {children}
     </div>
