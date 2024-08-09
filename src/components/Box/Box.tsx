@@ -1,4 +1,4 @@
-import { forwardRefWithAs } from 'utils/forwardRefWithAs'
+import { forwardRefWithAs } from 'utils/react'
 
 export interface BoxProps {
   children?: React.ReactNode

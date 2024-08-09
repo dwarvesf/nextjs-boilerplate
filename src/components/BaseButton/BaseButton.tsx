@@ -1,6 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
-import { forwardRefWithAs } from 'utils/forwardRefWithAs'
+import { forwardRefWithAs } from 'utils/react'
 import { ButtonSize } from './types'
 import styles from './BaseButton.style'
 
