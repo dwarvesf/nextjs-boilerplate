@@ -31,7 +31,7 @@ export const Header = () => {
             width="40"
           />
           <Text as="span" className="text-gray-600 text-sm">
-            {user?.fullName}
+            {user?.firstName} {user?.lastName}
           </Text>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-48">

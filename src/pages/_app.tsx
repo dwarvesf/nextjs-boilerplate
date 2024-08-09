@@ -6,11 +6,6 @@ import Head from 'next/head'
 import { AuthContextProvider } from 'context/auth'
 import { Toaster } from 'components/Toast'
 
-if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
-  // eslint-disable-next-line global-require
-  require('mocks')
-}
-
 class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props
