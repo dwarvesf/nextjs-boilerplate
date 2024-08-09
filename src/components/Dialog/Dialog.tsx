@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
-import { IconClose } from 'components/icons/components/IconClose'
+import IconClose from 'components/icons/svg/close.svg'
 
 const Dialog = DialogPrimitive.Root
 

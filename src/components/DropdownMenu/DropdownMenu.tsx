@@ -1,9 +1,9 @@
 import React from 'react'
 import cx from 'classnames'
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
-import { IconChevronRight } from 'components/icons/components/IconChevronRight'
-import { IconCheck } from 'components/icons/components/IconCheck'
-import { IconCircle } from 'components/icons/components/IconCircle'
+import IconChevronRight from 'components/icons/svg/chevron-right.svg'
+import IconCheck from 'components/icons/svg/check.svg'
+import IconCircle from 'components/icons/svg/circle.svg'
 
 const DropdownMenu = DropdownMenuPrimitive.Root
 

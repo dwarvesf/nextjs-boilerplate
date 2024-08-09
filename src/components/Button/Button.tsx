@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import { BaseButton, BaseButtonProps } from 'components/BaseButton'
-import { IconSpinner } from 'components/icons/components/IconSpinner'
+import IconSpinner from 'components/icons/svg/spinner.svg'
 import { forwardRefWithAs } from 'utils/forwardRefWithAs'
 import { WithChildren } from 'types/common'
 import { ButtonAppearance } from '../BaseButton/types'

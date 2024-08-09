@@ -5,9 +5,9 @@ import { Text } from 'components/Text'
 import { useAuthContext } from 'context/auth'
 import { formatNumber } from 'utils/formatNumber'
 import { Badge } from 'components/Badge'
-import { IconArrowSmUp } from 'components/icons/components/IconArrowSmUp'
-import { IconArrowSmDown } from 'components/icons/components/IconArrowSmDown'
-import { IconPaperClip } from 'components/icons/components/IconPaperClip'
+import IconArrowSmUp  from 'components/icons/svg/arrow-sm-up.svg'
+import IconArrowSmDown  from 'components/icons/svg/arrow-sm-down.svg'
+import IconPaperClip  from 'components/icons/svg/paper-clip.svg'
 
 interface StatCardProps {
   title: string
