@@ -31,19 +31,12 @@ pnpm dev
 Open [http://localhost:3000](http://localhost:3000) with your favorite browser
 to see your project.
 
-## Deployment
+## Links
 
-| Environment | URL                                        |
-| ----------- | ------------------------------------------ |
-| Prod        | https://df-nextjs-boilerplate.netlify.app/ |
-
-## Resources
-
-| Name       | Description | Link                                                 |
-| ---------- | ----------- | ---------------------------------------------------- |
-| UI Docs    | Storybook   | https://df-nextjs-boilerplate-storybook.netlify.app/ |
-| API Docs   | Swagger     | https://demo-api.dwarvesf.com/swagger/index.html     |
-| API Source | Go          | https://github.com/dwarvesf/go-api.git               |
+| Environment | URL                                                  |
+| ----------- | ---------------------------------------------------- |
+| Preview     | https://df-nextjs-boilerplate.netlify.app/           |
+| Storybook   | https://df-nextjs-boilerplate-storybook.netlify.app/ |
 
 ## Documentation
 
