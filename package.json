@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "build:test": "NEXT_PUBLIC_API_MOCKING=enabled next build",
     "analyze": "ANALYZE=true pnpm build",
     "start": "next start",
     "test": "jest",

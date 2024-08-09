@@ -36,5 +36,5 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
-          build: pnpm build
+          build: pnpm build:test
           start: pnpm start
