@@ -16,6 +16,7 @@
     "createDefaultProgram": true
   },
   "rules": {},
+  "ignorePatterns": ["__mocks__/"],
   "overrides": [
     {
       "files": ["**/*.ts?(x)", "**/*.js?(x)"],
