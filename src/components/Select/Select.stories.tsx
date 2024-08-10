@@ -1,5 +1,11 @@
 import React from 'react'
-import { Select } from '.'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '.'
 
 export default {
   title: 'components/Select',
@@ -7,15 +13,40 @@ export default {
 
 export const Default = () => (
   <div className="max-w-[200px] space-y-4">
-    <Select defaultValue="John Doe">
-      <option value="John Doe">John Doe</option>
-      <option value="Devon Webb">Devon Webb</option>
-      <option value="Kim Scott">Kim Scott</option>
+    <Select>
+      <SelectTrigger className="min-w-[200px]">
+        <SelectValue placeholder="Select an option" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="1">Option 1</SelectItem>
+        <SelectItem value="2">Option 1</SelectItem>
+        <SelectItem value="3">Option 1</SelectItem>
+      </SelectContent>
     </Select>
-    <Select defaultValue="John Doe" invalid>
-      <option value="John Doe">John Doe</option>
-      <option value="Devon Webb">Devon Webb</option>
-      <option value="Kim Scott">Kim Scott</option>
+    <Select>
+      <SelectTrigger className="min-w-[200px]" isError>
+        <SelectValue placeholder="Select an option" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="1" disabled>
+          Option 1
+        </SelectItem>
+        <SelectItem value="2">Option 1</SelectItem>
+        <SelectItem value="3">Option 1</SelectItem>
+      </SelectContent>
+    </Select>
+
+    <Select>
+      <SelectTrigger className="min-w-[200px]" disabled>
+        <SelectValue placeholder="Select an option" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="1" disabled>
+          Option 1
+        </SelectItem>
+        <SelectItem value="2">Option 1</SelectItem>
+        <SelectItem value="3">Option 1</SelectItem>
+      </SelectContent>
     </Select>
   </div>
 )
