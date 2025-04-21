@@ -3,11 +3,12 @@
 # dependencies
 /node_modules
 /.pnp
-.pnp.js
-.pnpm-store/
-
-# IDE
-.vscode
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
 # testing
 /coverage
@@ -21,17 +22,20 @@
 
 # misc
 .DS_Store
-.env.local
+*.pem
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 
-# icons
-/src/components/icons/components
-/src/components/icons/Icons.stories.tsx
-/src/components/icons/index.ts
+# env files (can opt-in for committing if needed)
+.env*
 
-#storybook
-storybook-static
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

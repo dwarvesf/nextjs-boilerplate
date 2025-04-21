@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Button /> Should match snapshot 1`] = `
-<button
-  class="relative font-medium text-sm border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-pink-500 focus:ring-2 focus:ring-offset-2 focus:outline-none px-5 py-3 rounded-md shadow-sm border inline-flex justify-center items-center text-center whitespace-nowrap leading-none focus:outline-none transition duration-200 cursor-pointer"
->
-  Hello
-</button>
-`;
